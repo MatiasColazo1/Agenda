@@ -10,7 +10,9 @@ app.use(cors());
 app.use(express.json());
 
 //rutas
+app.use('/api', require('./routes/rutas'))
 
-
-app.listen(3000);
-console.log('Servidor en el puerto: ', 3000)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
+});
