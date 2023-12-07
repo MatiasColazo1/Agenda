@@ -11,7 +11,7 @@ export class SignupComponent implements OnInit {
   usuario = {
     user: '',
     password: '',
-    confirmPassword:''
+    confirmPassword: ''
   }
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() { /* ver mas tarde el confirm password no debe volver al inicio */
-    if(this.usuario.password !== this.usuario.confirmPassword){
+    if (this.usuario.password !== this.usuario.confirmPassword) {
       console.error('Las contraseñas no coinciden');
       return;
     }
@@ -33,6 +33,6 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/signin']);
         },
         err => console.log(err)
-        )
+      )
   }
 }
