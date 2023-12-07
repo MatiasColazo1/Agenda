@@ -1,1 +1,14 @@
-<p>signin works!asdasdasdasdasdasddasdadsdasd</p>
+<form (submit)="signIn()">
+    <div>
+        <i class='bx bx-user'></i>
+        <input type="text" [ngModel]="usuario.user" name="user" id="user" placeholder="Usuario" autofocus required>
+    </div>
+    <div>
+        <i class='bx bx-lock'></i>
+        <input type="password" [ngModel]="usuario.password" name="password" id="password" placeholder="Contraseña" required>
+    </div>
+    <button>Ingresar</button>
+</form>
+<div>
+    <a routerLink="/signup">Crear una cuenta</a>
+</div>

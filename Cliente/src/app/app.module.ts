@@ -10,13 +10,15 @@ import { AuthGuard } from './auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    HomePrivateComponent
+    HomePrivateComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

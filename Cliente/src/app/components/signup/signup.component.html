@@ -1,1 +1,28 @@
-<p>signup works!</p>
+<h1>REGISTRARSE</h1>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card">
+        <div class="card-body">
+            <form (submit)="signUp()">
+                <div>
+                    <i class='bx bx-user'></i>
+                    <input type="text" [ngModel]="usuario.user" name="user" id="user" placeholder="Usuario" autofocus
+                        required>
+                </div>
+                <div>
+                    <i class='bx bx-lock'></i>
+                    <input type="password" [ngModel]="usuario.password" name="password" id="password"
+                        placeholder="Contraseña" required>
+                </div>
+                <div>
+                    <i class='bx bx-lock'></i>
+                    <input type="password" [ngModel]="usuario.confirmPassword" name="confirmPassword"
+                        id="confirmPassword" placeholder="Repetir contraseña" required>
+                </div>
+                <button>Crear</button>
+            </form>
+            <div>
+                <a routerLink="/signin">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
