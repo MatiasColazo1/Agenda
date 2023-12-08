@@ -2,6 +2,20 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+
+const { google } = require('googleapis');
+const dayjs = require('dayjs');
+const axios = require('axios');
+const dotenv = require('dotenv');
+dotenv.config({});
+
+const calendar = google.calendar({
+  version: "v3",
+  auth: process.env.API_KEY,
+})
+ 
+
+
 //base de datos
 require('./database');
 
@@ -10,7 +24,64 @@ app.use(cors());
 app.use(express.json());
 
 //rutas
-app.use('/api', require('./routes/rutas'))
+app.use('/api', require('./routes/rutas'));
+
+//calendario
+const SCOPES = ['https://www.googleapis.com/auth/calendar'];
+
+const oauth2Client = new google.auth.OAuth2 (
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    process.env.REDIRECT_URL
+)
+
+app.get("/api/google", (req, res) => {
+    const url = oauth2Client.generateAuthUrl({
+        access_type: "offline",
+        scope: SCOPES
+    })
+    
+    res.redirect(url);
+})
+
+app.get("/api/google/redirect", async (req, res) => {
+  const code = req.query.code;
+
+  try {
+    const { tokens } = await oauth2Client.getToken(code)
+    oauth2Client.setCredentials(tokens);
+    res.send({
+      msg: "Funciona correctamente"
+    })
+  } catch (error) {
+    console.error('Error al obtener tokens de autorización:', error);
+    res.status(500).send('Error al obtener tokens de autorización');
+  }
+});
+
+app.get('/schedule_event', async (req, res) => {
+
+  await calendar.events.insert({
+    calendarId: "primary",
+    auth: oauth2Client,
+    requestBody: {
+      summary: "Testeo evento",
+      description: "Testeando eventos descripcion",
+      start: {
+        dateTime: dayjs(new Date()).add(1, 'day').toISOString(),
+        timeZone: 'America/Argentina/Buenos_Aires'
+      },
+      end: {
+        dateTime: dayjs(new Date()).add(1, 'day').add(1, "hour").toISOString(),
+        timeZone: 'America/Argentina/Buenos_Aires'
+      }
+    },
+  });
+  res.send({
+    msg: "Listo"
+  })
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
