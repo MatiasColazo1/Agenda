@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -14,10 +16,18 @@ export class SigninComponent implements OnInit {
     password: ''
   }
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  
+  }
 
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
+  }
+
+  private isDarkModeEnabled(): boolean {
+    return document.body.classList.contains('dark-mode');
   }
 
   signIn() {
