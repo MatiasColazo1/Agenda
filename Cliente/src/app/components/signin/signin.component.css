@@ -1,10 +1,6 @@
 .banner{
     max-width:50%;
-    margin-left: auto;
-    
-    margin-right: auto;
-    margin-top: 0px;
-    
+    margin: 0 auto; 
 }
     
 
@@ -14,4 +10,27 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.titulo{
+    font-size: 75px;
+}
+
+.parrafo{
+    font-size: 40px;
+}
+
+.icono{
+    margin-right: 20px;
+    margin-top: 3px;
+    background-color: #CCA9F8;
+}
+
+input {
+    background-color: #F7EFFF;
+}
+
+.btn{
+    background-color: #CCA9F8;
+    border: solid 2px #000;
 }
