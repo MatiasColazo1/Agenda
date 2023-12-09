@@ -1,12 +1,12 @@
 .banner{
-    max-width:50%;
+    max-width:30%;
     margin: 0 auto; 
 }
-    
+
 
 .text-overlay{
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
