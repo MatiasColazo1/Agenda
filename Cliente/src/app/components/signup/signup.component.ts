@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
+
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -14,10 +17,14 @@ export class SignupComponent implements OnInit {
     confirmPassword: ''
   }
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService) { }
 
   ngOnInit(): void {
 
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   signUp() { /* ver mas tarde el confirm password no debe volver al inicio */

@@ -26,9 +26,6 @@ export class SigninComponent implements OnInit {
     this.darkModeService.toggleDarkMode();
   }
 
-  private isDarkModeEnabled(): boolean {
-    return document.body.classList.contains('dark-mode');
-  }
 
   signIn() {
     this.authService.signIn(this.usuario)
