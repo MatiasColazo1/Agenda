@@ -34,6 +34,6 @@ export class AuthService {
 }
 
 interface User {
-  user: string;
+  usuario: string;
   password: string;
 }

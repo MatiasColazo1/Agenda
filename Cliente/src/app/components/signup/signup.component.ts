@@ -13,8 +13,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SignupComponent implements OnInit {
 
-  usuario = {
-    user: '',
+  cuenta = {
+    usuario: '',
     password: '',
   }
 
@@ -29,15 +29,16 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() { /* ver mas tarde el confirm password no debe volver al inicio */
-    if (this.usuario.user == "" || this.usuario.password == "") {
-      this.toastrService.error("Todos los campos son obligatorios", "Error")
+    if (this.cuenta.usuario == "" || this.cuenta.password == "") {
+      this.toastrService.warning("Todos los campos son obligatorios", "Error")
       return;
     }
-    this.authService.signUp(this.usuario)
+    this.authService.signUp(this.cuenta)
       .subscribe(
         (res: any) => {
           console.log(res)
           localStorage.setItem('token', res.token);
+          this.toastrService.success('Cuenta creada exitosamente', 'Éxito');
           this.router.navigate(['/signin']);
 
         }, (error: HttpErrorResponse) => {

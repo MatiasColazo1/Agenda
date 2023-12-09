@@ -12,8 +12,8 @@ import { FormGroup, Validator } from '@angular/forms';
 
 export class SigninComponent implements OnInit {
 
-  usuario = {
-    user: '',
+  cuenta = {
+    usuario: '',
     password: ''
   }
 
@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
 
 
  signIn() {
-    this.authService.signIn(this.usuario)
+    this.authService.signIn(this.cuenta)
       .subscribe(
         res => {
           console.log(res)
