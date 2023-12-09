@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { FormGroup, Validator } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signin',
@@ -17,7 +18,7 @@ export class SigninComponent implements OnInit {
     password: ''
   }
 
-  constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService) { }
+  constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService, private toastrService: ToastrService) { }
 
   ngOnInit() {
   
@@ -33,10 +34,14 @@ export class SigninComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res)
-          localStorage.setItem('token', res.token)
+          localStorage.setItem('token', res.token);
+          this.toastrService.success('Ingreso con exito', 'Bienvenido')
           this.router.navigate(['/private']);
         },
-        err => console.log(err)
+        err => {
+          console.log(err);
+          this.toastrService.error('El usuario no existe!', 'Error de autenticación');
+        }
       )
   } 
 }
