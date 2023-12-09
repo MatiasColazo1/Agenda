@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { FormGroup, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -27,7 +28,7 @@ export class SigninComponent implements OnInit {
   }
 
 
-  signIn() {
+ signIn() {
     this.authService.signIn(this.usuario)
       .subscribe(
         res => {
@@ -37,5 +38,5 @@ export class SigninComponent implements OnInit {
         },
         err => console.log(err)
       )
-  }
+  } 
 }

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
-
+import { ToastrService } from 'ngx-toastr';
+import { ErrorService } from 'src/app/services/error.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -14,10 +16,9 @@ export class SignupComponent implements OnInit {
   usuario = {
     user: '',
     password: '',
-    confirmPassword: ''
   }
 
-  constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService) { }
+  constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService, private toastrService: ToastrService, private errorService: ErrorService) { }
 
   ngOnInit(): void {
 
@@ -28,8 +29,8 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() { /* ver mas tarde el confirm password no debe volver al inicio */
-    if (this.usuario.password !== this.usuario.confirmPassword) {
-      console.error('Las contraseñas no coinciden');
+    if (this.usuario.user == "" || this.usuario.password == "") {
+      this.toastrService.error("Todos los campos son obligatorios", "Error")
       return;
     }
     this.authService.signUp(this.usuario)
@@ -38,8 +39,10 @@ export class SignupComponent implements OnInit {
           console.log(res)
           localStorage.setItem('token', res.token);
           this.router.navigate(['/signin']);
-        },
-        err => console.log(err)
+
+        }, (error: HttpErrorResponse) => {
+          this.errorService.msjError(error);
+        }
       )
   }
 }
