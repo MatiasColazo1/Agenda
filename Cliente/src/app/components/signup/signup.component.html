@@ -1,33 +1,47 @@
-<h1>REGISTRARSE</h1>
+<div class="text-center vh-100">
+    <div class="banner">
+        <img src="./../../../assets/banner.png" alt="banner" class="img-fluid">
+        <div class="text-overlay">
+            <p class="parrafo">Agenda personal</p>
+            <h1 class="titulo">Planea, actúa <br> y conquista <br> cada día</h1>
+            <i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
+        </div>
+    </div>
+</div>
+
 <div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card">
-        <div class="card-body">
+    <div class="w-45">
+        <div class="">
             <form (submit)="signUp()">
-                <div>
-                    <i class='bx bx-user'></i>
-                    <input type="text" [ngModel]="usuario.user" name="user" id="user" placeholder="Usuario" autofocus
-                        required>
+                <h1 class="mb-4">REGISTRARSE</h1>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text icono rounded-5"><i class='bx bx-user'></i></span>
+                    </div>
+                    <input type="text" [ngModel]="usuario.user" name="user" id="user" class="form-control rounded-5" placeholder="Usuario" autofocus required>
                 </div>
-                <div>
-                    <i class='bx bx-lock'></i>
-                    <input type="password" [ngModel]="usuario.password" name="password" id="password"
-                        placeholder="Contraseña" required>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text icono rounded-5"><i class='bx bx-lock'></i></span>
+                    </div>
+                    <input type="password" [ngModel]="usuario.password" name="password" id="password" class="form-control rounded-5" placeholder="Contraseña" required>
                 </div>
-                <div>
-                    <i class='bx bx-lock'></i>
-                    <input type="password" [ngModel]="usuario.confirmPassword" name="confirmPassword"
-                        id="confirmPassword" placeholder="Repetir contraseña" required>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text icono rounded-5"><i class='bx bx-lock'></i></span>
+                    </div>
+                    <input type="password" [ngModel]="usuario.password" name="password" id="password" class="form-control rounded-5" placeholder="Repetir Contraseña" required>
                 </div>
-                <button>Crear</button>
+                <div class="d-flex justify-content-center">
+                    <button class="btn">Crear</button>
+                </div>
             </form>
-            <div>
-                <a routerLink="/signin">Volver</a>
+            <div class="d-flex justify-content-center mt-3">
+                <a class="links" routerLink="/signin" [class.dark-mode-text]="darkModeService.isDarkMode">Volver</a>
             </div>
         </div>
     </div>
 </div>
-<<<<<<< HEAD
-<app-footer></app-footer>
-=======
 
->>>>>>> 6250511b490781ba888a931651101dc7eb403fe7
+
+<app-footer></app-footer>
