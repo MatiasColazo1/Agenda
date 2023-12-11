@@ -5,8 +5,11 @@ const User = require('../models/User')
 
 const jwt = require('jsonwebtoken');
 
+const Tarjeta = require('../models/Tarjetas');
+
 router.get('/', (req, res) => res.send('Hola mundo'));
 
+// -------------------- LOGIN ----------------------- //
 router.post('/signin', async (req, res) => {
     const { usuario, password } = req.body; //extraer usuario y contraseña del cuerpo de la solicitud
     const user = await User.findOne({ usuario }) //buscar en un user en la base de datos con el usuario proporcionado
@@ -31,6 +34,71 @@ router.post('/signup', async (req, res) => {
 router.get('/private', verifyToken, (req, res) => {
 
 })
+
+// -------------------- Tarjetas ----------------------- //
+// CREAR TARJETA
+router.post('/tarjeta', async (req, res) => {
+    const { titulo, descripcion } = req.body;
+    const newTarjeta = new Tarjeta ({
+        titulo,
+        descripcion
+    });
+    await newTarjeta.save();
+    res.status(200).json(newTarjeta);
+});
+
+// TRAER TARJETAS
+router.get('/tarjeta', async (req, res) => {
+    try {
+        const tarjeta = await Tarjeta.find({}); // Realiza una busqueda para obtener la tarjeta
+
+        if(!tarjeta){
+            return res.status(404).json({message: 'Tarjeta no encontrada'})
+        }
+        res.status(200).json(tarjeta)
+    } catch (error) {
+        return res.status(500).json({message: 'Error interno del servidor'});
+    }
+})
+
+// EDITAR TARJETA
+router.put('/tarjeta/:id', async (req, res) => {
+    try {
+        const { titulo, descripcion } = req.body;
+        const tarjetaId = req.params.id;
+
+        const tarjeta = await Tarjeta.findById(tarjetaId);
+
+        if (!tarjeta) {
+            return res.status(400).json({message: 'Tarjeta no encontrada'});
+        }
+        tarjeta.titulo = titulo;
+        tarjeta.descripcion = descripcion;
+
+        await tarjeta.save();
+        res.status(200).json(tarjeta);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al actualizar la tarjeta', details: error.message})        
+    }
+})
+
+// ELIMINAR TARJETA
+router.delete('/tarjeta/:id', async (req, res) => {
+    const tarjetaId = req.params.id;
+
+    try {
+        const deleteTarjeta = await Tarjeta.findByIdAndDelete(tarjetaId);
+
+        if (!deleteTarjeta) {
+            return res.status(400).json({message: 'Tarjeta no encontrada'});
+        }
+
+        res.status(200).json({message: 'Tarjeta eliminada con exito', deleteTarjeta});
+    } catch (error) {
+        res.status(500).json({error: 'Error al eliminar la tarjeta', details: error.message})
+    }
+})
+
 
 module.exports = router;
 
