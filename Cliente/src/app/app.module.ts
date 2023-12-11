@@ -14,6 +14,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './components/nav/nav.component';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { NotasComponent } from './components/notas/notas.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { NavComponent } from './components/nav/nav.component';
     SignupComponent,
     HomePrivateComponent,
     FooterComponent,
-    NavComponent
+    NavComponent,
+    TarjetasComponent,
+    NotasComponent
   ],
   imports: [
     BrowserModule,
