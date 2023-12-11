@@ -1,15 +1,15 @@
-<div class="text-center vh-100">
+<div class="text-center">
     <div class="banner">
         <img src="./../../../assets/banner.png" alt="banner" class="img-fluid">
         <div class="text-overlay">
             <p class="parrafo">Agenda personal</p>
-            <h1 class="titulo">Planea, actúa <br> y conquista <br> cada día</h1>
+            <h1 class="titulo">"Planea, actúa <br> y conquista <br> cada día"</h1>
             <i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
         </div>
     </div>
 </div>
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="w-45">
+<div class="container d-flex justify-content-center align-items-center mb-3">
+    <div class="w-10">
         <div class="">
             <form (submit)="signIn()">
                 <h1 class="mb-4">INICIAR SESIÓN</h1>
@@ -35,3 +35,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>

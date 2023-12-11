@@ -1,23 +1,28 @@
 .banner{
-    max-width:50%;
-    margin: 0 auto; 
+    max-width:30%;
+    margin-top: 0;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto; 
 }
-    
+
 
 .text-overlay{
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
 .titulo{
-    font-size: 75px;
+    font-size: 50px;
 }
 
 .parrafo{
-    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 30px;
 }
 
 .icono{

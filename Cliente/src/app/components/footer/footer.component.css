@@ -1,16 +1,24 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #D1C3E2;
+}
+
 .icono {
   margin: 0 5px;
   font-size: 30px;
 }
-
-footer {
-  background-color: #D1C3E2;
+.navbar{
+  border-style:none !important;
+  border-width: 0 !important;
+  border-radius:0 !important;
 }
 
   /* /* /* /* /* Añade estilos para el contenedor principal del footer 
   .footer-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;S
     align-items: center;
     text-align: center;
   }
