@@ -8,13 +8,39 @@ import { TarjetasService } from 'src/app/services/tarjetas.service';
 })
 export class TarjetasComponent implements OnInit {
   tarjetas: any[] = [];
+  nuevaTarjeta: any = {
+    titulo:'',
+    descripcion:''
+  }
 
   constructor(private tarjetasService: TarjetasService) { }
 
   ngOnInit(): void {
-    this.tarjetasService.getTarjeta().subscribe((data: any) => {
-      this.tarjetas = data;
-    })
+    this.getTarjetas()
   }
 
+  getTarjetas() {
+    this.tarjetasService.getTarjeta().subscribe((data: any) => {
+      this.tarjetas = data.map((tarjeta: any) => ({ ...tarjeta, expandida: false }));
+  })
+}
+
+
+  postTarjeta() {
+    this.tarjetasService.postTarjeta(this.nuevaTarjeta).subscribe(
+    (data: any) => {
+      console.log('Tarjeta agregada con exito: ', data);
+      this.getTarjetas();
+      this.nuevaTarjeta = {}
+    },
+    (error) => {
+      console.error('Error al agregar tarjeta: ', error);
+    }
+    )
+  }
+
+  toggleTarjeta(tarjeta: any) {
+    // Cambiar el estado expandido al hacer clic en la tarjeta
+    tarjeta.expandida = !tarjeta.expandida;
+  }
 }

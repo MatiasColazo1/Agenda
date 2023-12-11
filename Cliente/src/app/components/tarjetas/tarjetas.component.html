@@ -1,10 +1,17 @@
 <div>
-    <div class="card formato-card mb-3" *ngFor="let tarjeta of tarjetas">
-        <div class="">
-            <h1>{{tarjeta.titulo}}</h1>
+    <div class="card formato-card mb-3" *ngFor="let tarjeta of tarjetas"  (click)="toggleTarjeta(tarjeta)">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="titulo">{{tarjeta.titulo}}</h1>
+        <div *ngIf="tarjeta.expandida">
+          <i class='bx bx-edit-alt'></i>
+          <i class='bx bx-trash'></i>
         </div>
-        <div class="">
-            <p>{{tarjeta.descripcion}}</p>
-        </div>
+      </div>
+      <div class="">
+        <p class="descripcion">{{tarjeta.descripcion}}</p>
+      </div>
     </div>
-</div>
+    <div class="d-flex justify-content-end" style="cursor: pointer;">
+      <i class='icono bx bx-add-to-queue'></i>
+    </div>
+  </div>
