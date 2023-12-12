@@ -9,10 +9,21 @@ body.dark-mode{
     
 }
 
+.dark-mode-modal{
+  background-color: #6e5a72;
+}
+
 .dark-mode-titulo {
     color: #fff;
   }
   
 .dark-mode-text {
-    color: #929192;
+    color: #bcbcbc;
   }
+
+.dark-mode-tarjetas{
+  background-color: #7d787b;
+}
+.dark-mode-input{
+  background-color: #b28da3;
+}

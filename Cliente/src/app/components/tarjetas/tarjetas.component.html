@@ -1,45 +1,99 @@
 <div>
   <div cdkDropList (cdkDropListDropped)="drop($event)">
-  <div class="card formato-card mb-3" *ngFor="let tarjeta of tarjetas" (click)="toggleTarjeta(tarjeta)" cdkDrag>
+    <div class="card formato-card mb-3" *ngFor="let tarjeta of tarjetas" (click)="toggleTarjeta(tarjeta)" cdkDrag>
       <div class="d-flex justify-content-between align-items-center">
-        <h1  class="titulo" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarjeta.titulo}}</h1>
+        <h1 class="titulo" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarjeta.titulo}}</h1>
         <div *ngIf="tarjeta.expandida">
-          <i class='bx bx-edit-alt' [class.dark-mode-text]="darkModeService.isDarkMode"></i>
-          <i class='bx bx-trash' [class.dark-mode-text]="darkModeService.isDarkMode"></i>
+          <i class='bx bx-edit-alt' data-bs-toggle="modal" data-bs-target="#modalEditar"
+            [class.dark-mode-text]="darkModeService.isDarkMode"></i>
+          <i class='bx bx-trash' data-bs-toggle="modal" data-bs-target="#modalEliminar"
+            [class.dark-mode-text]="darkModeService.isDarkMode"></i>
         </div>
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <p class="descripcion" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarjeta.descripcion}}</p>
         <div (click)="activarModoArrastrar(tarjeta)" *ngIf="tarjeta.expandida">
-          <i class='bx bx-move-vertical iconoMover'></i>
+          <i class='bx bx-move-vertical iconoMover' [class.dark-mode-text]="darkModeService.isDarkMode"></i>
         </div>
       </div>
     </div>
   </div>
-    <div class="d-flex justify-content-end" style="cursor: pointer;">
-      <i class='icono bx bx-add-to-queue ' data-bs-toggle="modal" data-bs-target="#exampleModal" [class.dark-mode-text]="darkModeService.isDarkMode"></i>
-    </div>
+  <div class="d-flex justify-content-end" style="cursor: pointer;">
+    <i class='icono bx bx-add-to-queue mb-3' data-bs-toggle="modal" data-bs-target="#exampleModal"
+      [class.dark-mode-text]="darkModeService.isDarkMode"></i>
   </div>
+</div>
 
 
-<!-- Modal -->
+<!-- Modal agregar -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" [class.dark-mode-modal]="darkModeService.isDarkMode">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Tarjeta Nueva</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="exampleModalLabel" [class.dark-mode-text]="darkModeService.isDarkMode">Agregar
+          Tarjeta Nueva</h1>
       </div>
       <div class="modal-body">
 
         <form>
           <div class="mb-3">
-            <label for="titulo" class="form-label">Título</label>
-            <input type="text" class="form-control" id="titulo" [(ngModel)]="nuevaTarjeta.titulo" name="titulo">
+            <label for="titulo" class="form-label" [class.dark-mode-text]="darkModeService.isDarkMode">Título</label>
+            <input type="text" class="form-control" id="titulo" [(ngModel)]="nuevaTarjeta.titulo" name="titulo"
+              [class.dark-mode-input]="darkModeService.isDarkMode">
           </div>
           <div class="mb-3">
-            <label for="descripcion" class="form-label">Descripción</label>
-            <textarea class="form-control" id="descripcion" [(ngModel)]="nuevaTarjeta.descripcion" name="descripcion"></textarea>
+            <label for="descripcion" class="form-label"
+              [class.dark-mode-text]="darkModeService.isDarkMode">Descripción</label>
+            <textarea class="form-control" id="descripcion" [(ngModel)]="nuevaTarjeta.descripcion" name="descripcion"
+              [class.dark-mode-input]="darkModeService.isDarkMode"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="postTarjeta()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal eliminar -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" [class.dark-mode-modal]="darkModeService.isDarkMode">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" [class.dark-mode-text]="darkModeService.isDarkMode">¿Está
+          seguro de ELIMINAR esta tarjeta?</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="postTarjeta()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal editar -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" [class.dark-mode-modal]="darkModeService.isDarkMode">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" [class.dark-mode-text]="darkModeService.isDarkMode">Editar
+          tarjeta</h1>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <div class="mb-3">
+            <label for="titulo" class="form-label" [class.dark-mode-text]="darkModeService.isDarkMode">Título</label>
+            <input type="text" class="form-control" id="titulo" [(ngModel)]="nuevaTarjeta.titulo" name="titulo"
+              [class.dark-mode-input]="darkModeService.isDarkMode">
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label"
+              [class.dark-mode-text]="darkModeService.isDarkMode">Descripción</label>
+            <textarea class="form-control" id="descripcion" [(ngModel)]="nuevaTarjeta.descripcion" name="descripcion"
+              [class.dark-mode-input]="darkModeService.isDarkMode"></textarea>
           </div>
         </form>
       </div>
