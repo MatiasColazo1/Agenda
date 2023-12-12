@@ -24,6 +24,7 @@ export class TarjetasComponent implements OnInit {
   
   ngOnInit(): void {
     this.getTarjetas()
+    
   }
   
   getTarjetas() {
@@ -45,6 +46,12 @@ export class TarjetasComponent implements OnInit {
       }
       )
     }
+
+
+    activarModoArrastrar(tarjeta: any) {
+      this.tarjetaActiva = tarjeta;
+    }
+
     
   toggleTarjeta(tarjeta: any) {
     // Cambiar el estado expandido al hacer clic en la tarjeta
@@ -58,8 +65,5 @@ export class TarjetasComponent implements OnInit {
     moveItemInArray(this.tarjetas, event.previousIndex, event.currentIndex);
   }
 
-  activarModoArrastrar(tarjeta: any) {
-    this.tarjetaActiva = tarjeta;
-  }
 
 }
