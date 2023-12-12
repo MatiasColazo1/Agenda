@@ -44,31 +44,4 @@ export class TarjetasComponent implements OnInit {
     // Cambiar el estado expandido al hacer clic en la tarjeta
     tarjeta.expandida = !tarjeta.expandida;
   }
-
-  // En tu componente TypeScript
-dragStart(event: DragEvent, tarjeta: any) {
-  // Almacenar la tarjeta actual en el objeto de transferencia de datos
-  event.dataTransfer?.setData('text/plain', JSON.stringify(tarjeta));
-}
-
-dragOver(event: DragEvent) {
-  // Prevenir el comportamiento predeterminado para permitir el drop
-  event.preventDefault();
-}
-
-// En tu componente TypeScript
-drop(event: DragEvent, targetTarjeta: any) {
-  // Evitar el comportamiento predeterminado para permitir el drop
-  event.preventDefault();
-
-  // Obtener los datos de la tarjeta arrastrada desde el objeto de transferencia de datos
-  const draggedTarjeta = JSON.parse(event.dataTransfer?.getData('text/plain') || '');
-
-  // Obtener índices de las tarjetas
-  const draggedIndex = this.tarjetas.findIndex(tarjeta => tarjeta === draggedTarjeta);
-  const targetIndex = this.tarjetas.findIndex(tarjeta => tarjeta === targetTarjeta);
-
-  // Intercambiar las tarjetas en el arreglo
-  [this.tarjetas[draggedIndex], this.tarjetas[targetIndex]] = [this.tarjetas[targetIndex], this.tarjetas[draggedIndex]];
-}
 }
