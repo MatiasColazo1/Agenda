@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { TarjetasService } from 'src/app/services/tarjetas.service';
@@ -13,6 +14,8 @@ export class TarjetasComponent implements OnInit {
     titulo:'',
     descripcion:''
   }
+  tarjetaActiva: any = null;
+
 
   constructor(private tarjetasService: TarjetasService, public darkModeService: DarkModeService) { }
 
@@ -42,6 +45,19 @@ export class TarjetasComponent implements OnInit {
 
   toggleTarjeta(tarjeta: any) {
     // Cambiar el estado expandido al hacer clic en la tarjeta
-    tarjeta.expandida = !tarjeta.expandida;
+    if (this.tarjetaActiva !== tarjeta) {
+      // Cambiar el estado expandido solo si la tarjeta no está en modo de arrastrar
+      tarjeta.expandida = !tarjeta.expandida;
+    }
   }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.tarjetas, event.previousIndex, event.currentIndex);
+  }
+
+  activarModoArrastrar(tarjeta: any) {
+    this.tarjetaActiva = tarjeta;
+  }
+
+  
 }

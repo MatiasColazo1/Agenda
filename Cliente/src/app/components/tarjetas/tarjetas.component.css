@@ -14,3 +14,8 @@
     margin-left: 50px;
     font-size: 20px;
 }
+
+.iconoMover {
+    font-size: 20px;
+    cursor: grab;
+}

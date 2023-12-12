@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './components/nav/nav.component';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { NotasComponent } from './components/notas/notas.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NotasComponent } from './components/notas/notas.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    DragDropModule,
     ToastrModule.forRoot({
       timeOut:4000,
       positionClass:"toast-top-right",

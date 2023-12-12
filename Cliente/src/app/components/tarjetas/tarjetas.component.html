@@ -1,5 +1,6 @@
 <div>
-  <div class="card formato-card mb-3" *ngFor="let tarjeta of tarjetas"  (click)="toggleTarjeta(tarjeta)">
+  <div cdkDropList (cdkDropListDropped)="drop($event)">
+  <div class="card formato-card mb-3" *ngFor="let tarjeta of tarjetas" (click)="toggleTarjeta(tarjeta)" cdkDrag>
       <div class="d-flex justify-content-between align-items-center">
         <h1  class="titulo" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarjeta.titulo}}</h1>
         <div *ngIf="tarjeta.expandida">
@@ -7,11 +8,16 @@
           <i class='bx bx-trash' [class.dark-mode-text]="darkModeService.isDarkMode"></i>
         </div>
       </div>
-      <div class="">
+      <div class="d-flex justify-content-between align-items-center">
         <p class="descripcion" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarjeta.descripcion}}</p>
+        <div (click)="activarModoArrastrar(tarjeta)" *ngIf="tarjeta.expandida">
+          <i class='bx bx-move-vertical iconoMover'></i>
+        </div>
       </div>
     </div>
+  </div>
     <div class="d-flex justify-content-end" style="cursor: pointer;">
       <i class='icono bx bx-add-to-queue' [class.dark-mode-text]="darkModeService.isDarkMode"></i>
     </div>
   </div>
+
