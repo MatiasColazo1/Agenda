@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { TarjetasService } from 'src/app/services/tarjetas.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class TarjetasComponent implements OnInit {
     descripcion:''
   }
 
-  constructor(private tarjetasService: TarjetasService) { }
+  constructor(private tarjetasService: TarjetasService, public darkModeService: DarkModeService) { }
 
   ngOnInit(): void {
     this.getTarjetas()

@@ -2,7 +2,6 @@
 
 body.dark-mode{
     background-color: #1e1e1e;
-    color: #fff;
 }
 
 .links{
@@ -10,6 +9,10 @@ body.dark-mode{
     
 }
 
-.dark-mode-text {
+.dark-mode-titulo {
     color: #fff;
+  }
+  
+.dark-mode-text {
+    color: #929192;
   }

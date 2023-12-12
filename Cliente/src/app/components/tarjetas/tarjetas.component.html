@@ -1,17 +1,17 @@
 <div>
     <div class="card formato-card mb-3" *ngFor="let tarjeta of tarjetas"  (click)="toggleTarjeta(tarjeta)">
       <div class="d-flex justify-content-between align-items-center">
-        <h1 class="titulo">{{tarjeta.titulo}}</h1>
+        <h1  class="titulo" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarjeta.titulo}}</h1>
         <div *ngIf="tarjeta.expandida">
-          <i class='bx bx-edit-alt'></i>
-          <i class='bx bx-trash'></i>
+          <i class='bx bx-edit-alt' [class.dark-mode-text]="darkModeService.isDarkMode"></i>
+          <i class='bx bx-trash' [class.dark-mode-text]="darkModeService.isDarkMode"></i>
         </div>
       </div>
       <div class="">
-        <p class="descripcion">{{tarjeta.descripcion}}</p>
+        <p class="descripcion" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarjeta.descripcion}}</p>
       </div>
     </div>
     <div class="d-flex justify-content-end" style="cursor: pointer;">
-      <i class='icono bx bx-add-to-queue'></i>
+      <i class='icono bx bx-add-to-queue' [class.dark-mode-text]="darkModeService.isDarkMode"></i>
     </div>
   </div>
