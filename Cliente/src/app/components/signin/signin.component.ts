@@ -19,6 +19,8 @@ export class SigninComponent implements OnInit {
   }
 
   constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService, private toastrService: ToastrService) { }
+  
+  hide = true;
 
   ngOnInit() {
   
