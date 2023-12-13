@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { TarjetasService } from 'src/app/services/tarjetas.service';
-
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-tarjetas',
@@ -12,6 +12,11 @@ import { TarjetasService } from 'src/app/services/tarjetas.service';
 })
 export class TarjetasComponent implements OnInit {
 
+
+  public modalDelete: boolean = false;
+  public modalEdit: boolean = false;
+  private deleteId!: string;
+
   @ViewChild('modal', { static: true }) modalAbrir!: ElementRef
   tarjetas: any[] = [];
   nuevaTarjeta: any = {
@@ -19,20 +24,28 @@ export class TarjetasComponent implements OnInit {
     descripcion: ''
   }
   tarjetaActiva: any = null;
+  formGroup: FormGroup
 
-  constructor(private tarjetasService: TarjetasService, public darkModeService: DarkModeService, private modalService: NgbModal) { }
+  constructor(private tarjetasService: TarjetasService, public darkModeService: DarkModeService, private modalService: NgbModal, private fb: FormBuilder) {
+    this.formGroup = this.fb.group({
+      id: [''],
+      titulo: ['', Validators.required],
+      descripcion: ['']
+    });
+   }
 
   ngOnInit(): void {
     this.getTarjetas()
 
   }
-//--------------------tarjetas--------------- 
+//-------------------- TRAER TARJETAS--------------- // 
   getTarjetas() {
     this.tarjetasService.getTarjeta().subscribe((data: any) => {
       this.tarjetas = data.map((tarjeta: any) => ({ ...tarjeta, expandida: false }));
     })
   }
 
+//-------------------- CREAR TARJETAS--------------- // 
   postTarjeta() {
     this.tarjetasService.postTarjeta(this.nuevaTarjeta).subscribe(
       (data: any) => {
@@ -45,6 +58,45 @@ export class TarjetasComponent implements OnInit {
       }
     )
   }
+
+//-------------------- ELIMINAR TARJETAS--------------- // 
+  delete(tarjeta: any) {
+    this.modalDelete = true;
+    this.deleteId = tarjeta._id; 
+  }
+
+  eliminarTarjeta() {
+    this.tarjetasService.deleteTarjeta(this.deleteId).subscribe(data =>{
+      this.getTarjetas();
+    })
+
+  }
+
+//-------------------- EDITAR TARJETAS--------------- // 
+edit(tarjeta: any) {
+  this.modalEdit = true;
+  this.formGroup.patchValue({
+    id: tarjeta._id,
+    titulo: tarjeta.titulo,
+    descripcion: tarjeta.descripcion
+  });
+  this.getTarjetas();
+}
+
+editarTarjeta() {
+  const tarjetaEditada = { ...this.formGroup.value };
+
+  this.tarjetasService.putTarjeta(tarjetaEditada.id, tarjetaEditada).subscribe(
+    (tarjetaActualizada: any) => {
+      console.log('Tarjeta actualizada con éxito: ', tarjetaActualizada);
+      this.getTarjetas();
+      this.modalService.dismissAll(); // Cierra el modal después de la edición
+    },
+    (error) => {
+      console.error('Error al actualizar tarjeta: ', error);
+    }
+  );
+}
 
   activarModoArrastrar(tarjeta: any) {
     this.tarjetaActiva = tarjeta;
@@ -61,6 +113,7 @@ export class TarjetasComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tarjetas, event.previousIndex, event.currentIndex);
   }
+
 
 
 }

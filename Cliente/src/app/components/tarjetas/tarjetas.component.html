@@ -5,9 +5,9 @@
         <h1 class="titulo" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarjeta.titulo}}</h1>
         <div *ngIf="tarjeta.expandida">
           <i class='bx bx-edit-alt' data-bs-toggle="modal" data-bs-target="#modalEditar"
-            [class.dark-mode-text]="darkModeService.isDarkMode"></i>
+            [class.dark-mode-text]="darkModeService.isDarkMode" (click)="edit(tarjeta)" ></i>
           <i class='bx bx-trash' data-bs-toggle="modal" data-bs-target="#modalEliminar"
-            [class.dark-mode-text]="darkModeService.isDarkMode"></i>
+            [class.dark-mode-text]="darkModeService.isDarkMode" (click)="delete(tarjeta)"></i>
         </div>
       </div>
       <div class="d-flex justify-content-between align-items-center">
@@ -51,14 +51,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="postTarjeta()">Guardar cambios</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="postTarjeta()">Guardar cambios</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Modal eliminar -->
-<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEliminar" #modalEliminar tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" [class.dark-mode-modal]="darkModeService.isDarkMode">
       <div class="modal-header">
@@ -67,14 +67,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="postTarjeta()">Confirmar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarTarjeta()">Confirmar</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Modal editar -->
-<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditar" #modalEditar tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" [class.dark-mode-modal]="darkModeService.isDarkMode">
       <div class="modal-header">
@@ -83,23 +83,23 @@
       </div>
       <div class="modal-body">
 
-        <form>
+        <form [formGroup]="formGroup">
           <div class="mb-3">
             <label for="titulo" class="form-label" [class.dark-mode-text]="darkModeService.isDarkMode">Título</label>
-            <input type="text" class="form-control" id="titulo" [(ngModel)]="nuevaTarjeta.titulo" name="titulo"
+            <input type="text" class="form-control" id="titulo" formControlName="titulo"
               [class.dark-mode-input]="darkModeService.isDarkMode">
           </div>
           <div class="mb-3">
             <label for="descripcion" class="form-label"
               [class.dark-mode-text]="darkModeService.isDarkMode">Descripción</label>
-            <textarea class="form-control" id="descripcion" [(ngModel)]="nuevaTarjeta.descripcion" name="descripcion"
+            <textarea class="form-control" id="descripcion" formControlName="descripcion"
               [class.dark-mode-input]="darkModeService.isDarkMode"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="postTarjeta()">Guardar cambios</button>
+        <button type="button" class="btn btn-primary" (click)="editarTarjeta()">Guardar cambios</button>
       </div>
     </div>
   </div>

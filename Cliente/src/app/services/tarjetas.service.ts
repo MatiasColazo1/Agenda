@@ -20,11 +20,10 @@ private URL='http://localhost:3000/api';
   }
 
   deleteTarjeta(id: string): Observable<any> {
-    return this.http.delete<any>(`${this.URL}/tarjeta/${id}`).pipe(
-      catchError((error) => {
-        console.error('Error al eliminar tarjeta: ', error);
-        throw error; // Re-lanza el error para que se propague a la suscripción en el componente.
-      })
-    );
+    return this.http.delete<any>(`${this.URL}/tarjeta/${id}`)
+  }
+
+  putTarjeta(id: string, tarjeta: any): Observable<any> {
+    return this.http.put<any>(`${this.URL}/tarjeta/${id}`, tarjeta)
   }
 }

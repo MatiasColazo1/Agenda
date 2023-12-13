@@ -9,7 +9,7 @@ import { HomePrivateComponent } from './components/home-private/home-private.com
 import { AuthGuard } from './auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +35,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     DragDropModule,
     ToastrModule.forRoot({
       timeOut:4000,
