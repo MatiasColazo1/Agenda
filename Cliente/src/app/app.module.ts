@@ -17,6 +17,12 @@ import { NavComponent } from './components/nav/nav.component';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { NotasComponent } from './components/notas/notas.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -49,7 +55,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    },
+    { provide: NZ_I18N, useValue: en_US }
   ],
   bootstrap: [AppComponent]
 })

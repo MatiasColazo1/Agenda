@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 
 const Tarjeta = require('../models/Tarjetas');
 
+const Tarea = require('../models/Tareas');
+
 router.get('/', (req, res) => res.send('Hola mundo'));
 
 // -------------------- LOGIN ----------------------- //
@@ -98,6 +100,17 @@ router.delete('/tarjeta/:id', async (req, res) => {
         res.status(500).json({error: 'Error al eliminar la tarjeta', details: error.message})
     }
 })
+
+// -------------------- Tareas ----------------------- //
+// CREAR TAREA
+router.post('/tarea', async (req, res) => {
+    const { titulo } = req.body;
+    const newTarea = new Tarea ({
+        titulo,
+    });
+    await newTarea.save();
+    res.status(200).json(newTarea);
+});
 
 
 module.exports = router;
