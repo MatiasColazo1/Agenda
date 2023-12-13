@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class SigninComponent implements OnInit {
-
+  
   cuenta = {
     usuario: '',
     password: ''

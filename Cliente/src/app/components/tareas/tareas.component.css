@@ -1,0 +1,9 @@
+.underline-input {
+    position: relative;
+  }
+  
+  .underline-input input {
+    border: none;
+    border-bottom: 1px solid black; /* Puedes personalizar el color y estilo de la línea */
+    outline: none; /* Quita el contorno predeterminado al hacer clic en el input */
+  }

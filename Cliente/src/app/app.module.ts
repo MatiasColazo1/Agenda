@@ -21,6 +21,9 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { TareasComponent } from './components/tareas/tareas.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 registerLocaleData(en);
 
@@ -33,7 +36,9 @@ registerLocaleData(en);
     FooterComponent,
     NavComponent,
     TarjetasComponent,
-    NotasComponent
+    NotasComponent,
+    TareasComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     ReactiveFormsModule,
     DragDropModule,
+    MatCheckboxModule,
     ToastrModule.forRoot({
       timeOut:4000,
       positionClass:"toast-top-right",
