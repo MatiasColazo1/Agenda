@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { FormGroup, Validator } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-signin',
@@ -31,19 +33,28 @@ export class SigninComponent implements OnInit {
   }
 
 
- signIn() {
-    this.authService.signIn(this.cuenta)
-      .subscribe(
-        res => {
-          console.log(res)
-          localStorage.setItem('token', res.token);
-          this.toastrService.success('Ingreso con exito', 'Bienvenido')
-          this.router.navigate(['/private']);
-        },
-        err => {
-          console.log(err);
-          this.toastrService.error('El usuario no existe!', 'Error de autenticación');
-        }
-      )
-  } 
+  signIn(form: NgForm) {
+    if (form.valid) {
+      this.authService.signIn(this.cuenta)
+        .subscribe(
+          res => {
+            console.log(res)
+            localStorage.setItem('token', res.token);
+            this.toastrService.success('Ingreso con éxito', 'Bienvenido')
+            this.router.navigate(['/private']);
+          },
+          err => {
+            console.log(err);
+            this.toastrService.error('El usuario no existe!', 'Error de autenticación');
+          }
+        );
+    }
+  }
+
+  
+  togglePasswordVisibility(event: Event, form: NgForm) {
+    event.preventDefault(); // Evitar la propagación del evento
+    this.hide = !this.hide;
+  }
+
 }
