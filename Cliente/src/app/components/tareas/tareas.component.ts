@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { TareasService } from 'src/app/services/tareas.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class TareasComponent implements OnInit {
 
   tareas: any[] = [];
 
-  constructor(private tareasService: TareasService) { }
+  constructor(private tareasService: TareasService, public darkModeService: DarkModeService) { }
 
   ngOnInit() {
     this.getTareas();

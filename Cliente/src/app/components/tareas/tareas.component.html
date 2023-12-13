@@ -1,7 +1,10 @@
-<h3>LISTADO DE TAREAS</h3>
 
 
 <div *ngFor="let tarea of tareas">
-    <mat-checkbox class="mb-3"></mat-checkbox> 
+    <mat-checkbox class="mb-3" [class.dark-mode-text]="darkModeService.isDarkMode"></mat-checkbox> 
     {{ tarea.titulo }}
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <i class='icono bx bx-add-to-queue mb-3' [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"></i>
   </div>

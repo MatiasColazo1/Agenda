@@ -23,6 +23,13 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { TareasComponent } from './components/tareas/tareas.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CalendarioPrivateComponent } from './components/calendario-private/calendario-private.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 registerLocaleData(en);
@@ -38,6 +45,8 @@ registerLocaleData(en);
     TarjetasComponent,
     NotasComponent,
     TareasComponent,
+    CalendarioPrivateComponent,
+    CalendarioComponent,
  
   ],
   imports: [
@@ -49,6 +58,10 @@ registerLocaleData(en);
     ReactiveFormsModule,
     DragDropModule,
     MatCheckboxModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule,
     ToastrModule.forRoot({
       timeOut:4000,
       positionClass:"toast-top-right",
