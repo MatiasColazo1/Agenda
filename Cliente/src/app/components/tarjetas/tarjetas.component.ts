@@ -98,6 +98,8 @@ editarTarjeta() {
   );
 }
 
+
+
   activarModoArrastrar(tarjeta: any) {
     this.tarjetaActiva = tarjeta;
   }

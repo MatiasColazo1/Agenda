@@ -112,6 +112,57 @@ router.post('/tarea', async (req, res) => {
     res.status(200).json(newTarea);
 });
 
+// TRAER TAREAS
+router.get('/tarea', async (req, res) => {
+    try {
+        const tarea = await Tarea.find({}); // Realiza una busqueda para obtener la tarjeta
+
+        if(!tarea){
+            return res.status(404).json({message: 'Tarea no encontrada'})
+        }
+        res.status(200).json(tarea)
+    } catch (error) {
+        return res.status(500).json({message: 'Error interno del servidor'});
+    }
+})
+
+// EDITAR TARJETA
+router.put('/tarea/:id', async (req, res) => {
+    try {
+        const { titulo} = req.body;
+        const tareaId = req.params.id;
+
+        const tarea = await Tarea.findById(tareaId);
+
+        if (!tarea) {
+            return res.status(400).json({message: 'Tarea no encontrada'});
+        }
+        tarea.titulo = titulo;
+
+        await tarea.save();
+        res.status(200).json(tarea);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al actualizar la tarea', details: error.message})        
+    }
+})
+
+// ELIMINAR TARJETA
+router.delete('/tarea/:id', async (req, res) => {
+    const tareaId = req.params.id;
+
+    try {
+        const deleteTarea = await Tarea.findByIdAndDelete(tareaId);
+
+        if (!deleteTarea) {
+            return res.status(400).json({message: 'Tarea no encontrada'});
+        }
+
+        res.status(200).json({message: 'Tarea eliminada con exito', deleteTarea});
+    } catch (error) {
+        res.status(500).json({error: 'Error al eliminar la tarea', details: error.message})
+    }
+})
+
 
 module.exports = router;
 
