@@ -5,6 +5,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from 'src/app/services/error.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,9 @@ export class SignupComponent implements OnInit {
   }
 
   constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService, private toastrService: ToastrService, private errorService: ErrorService) { }
-
+  
+  hide = true;
+  
   ngOnInit(): void {
 
   }
@@ -28,11 +31,13 @@ export class SignupComponent implements OnInit {
     this.darkModeService.toggleDarkMode();
   }
 
-  signUp() { /* ver mas tarde el confirm password no debe volver al inicio */
+  signUp(form: NgForm) { 
     if (this.cuenta.usuario == "" || this.cuenta.password == "") {
       this.toastrService.warning("Todos los campos son obligatorios", "Error")
       return;
     }
+
+    if (form.valid) {
     this.authService.signUp(this.cuenta)
       .subscribe(
         (res: any) => {
@@ -45,5 +50,11 @@ export class SignupComponent implements OnInit {
           this.errorService.msjError(error);
         }
       )
+    }
+  }
+
+  togglePasswordVisibility(event: Event, form: NgForm) {
+    event.preventDefault(); // Evitar la propagación del evento
+    this.hide = !this.hide;
   }
 }
