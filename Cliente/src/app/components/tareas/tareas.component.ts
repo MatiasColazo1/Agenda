@@ -24,4 +24,5 @@ export class TareasComponent implements OnInit {
       this.tareas = data
     })
   }
+  
 }
