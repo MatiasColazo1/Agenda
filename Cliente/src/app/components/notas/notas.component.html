@@ -1,7 +1,13 @@
-<div>
-    <div class="card ">
-        <h1>Hola soy una nota</h1>
-        
+<div class="darksoul-window" id="notepad">
+    <div class="darksoul-menubar">
+        <div>
+            <div class="menu" (click)="copy()">Copiar</div>
+        </div>
+        <div>
+            <div class="menu"><p onclick="{edit()}">Desc</div>
+        </div>
     </div>
-
+    <div class="darksoul-textarea">
+        <textarea #textareaElement id="textarea"></textarea>
+    </div>
 </div>
