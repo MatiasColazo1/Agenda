@@ -1,13 +1,15 @@
-<div class="darksoul-window" id="notepad">
-    <div class="darksoul-menubar">
-        <div>
-            <div class="menu" (click)="copy()">Copiar</div>
+<div class="card">
+    <div class="darksoul-window" id="notepad">
+        <div class="darksoul-menubar">
+            <div>
+                <div class="menu" (click)="copy()">Copiar</div>
+            </div>
+            <div>
+                <div class="menu" (click)="download()">Desc</div>
+            </div>
         </div>
-        <div>
-            <div class="menu"><p onclick="{edit()}">Desc</div>
+        <div class="darksoul-textarea">
+            <textarea #textareaElement id="textarea"></textarea>
         </div>
-    </div>
-    <div class="darksoul-textarea">
-        <textarea #textareaElement id="textarea"></textarea>
     </div>
 </div>
