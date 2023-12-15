@@ -7,6 +7,8 @@ const { google } = require('googleapis');
 const dayjs = require('dayjs');
 const axios = require('axios');
 const dotenv = require('dotenv');
+const { v4: uuid } = require('uuid');
+
 dotenv.config({});
 
 const calendar = google.calendar({
@@ -64,9 +66,10 @@ app.get('/schedule_event', async (req, res) => {
   await calendar.events.insert({
     calendarId: "primary",
     auth: oauth2Client,
+    conferenceDataVersion: 1,
     requestBody: {
-      summary: "Testeo evento",
-      description: "Testeando eventos descripcion",
+      summary: "Testeo evento2",
+      description: "Testeando eventos descripcion2",
       start: {
         dateTime: dayjs(new Date()).add(1, 'day').toISOString(),
         timeZone: 'America/Argentina/Buenos_Aires'
@@ -74,7 +77,15 @@ app.get('/schedule_event', async (req, res) => {
       end: {
         dateTime: dayjs(new Date()).add(1, 'day').add(1, "hour").toISOString(),
         timeZone: 'America/Argentina/Buenos_Aires'
-      }
+      },
+      conferenceData: {
+        createRequest: {
+          requestId: uuid(),
+        },
+      },
+      attendees: [{
+        email: "mati.colazo97@gmail.com"
+      }]
     },
   });
   res.send({

@@ -9,6 +9,8 @@ const Tarjeta = require('../models/Tarjetas');
 
 const Tarea = require('../models/Tareas');
 
+const passport = require('passport');
+
 router.get('/', (req, res) => res.send('Hola mundo'));
 
 // -------------------- LOGIN ----------------------- //
