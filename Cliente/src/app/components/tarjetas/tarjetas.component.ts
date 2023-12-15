@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { TarjetasService } from 'src/app/services/tarjetas.service';
-import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tarjetas',
@@ -32,20 +32,20 @@ export class TarjetasComponent implements OnInit {
       titulo: ['', Validators.required],
       descripcion: ['']
     });
-   }
+  }
 
   ngOnInit(): void {
     this.getTarjetas()
 
   }
-//-------------------- TRAER TARJETAS--------------- // 
+  //-------------------- TRAER TARJETAS--------------- // 
   getTarjetas() {
     this.tarjetasService.getTarjeta().subscribe((data: any) => {
       this.tarjetas = data.map((tarjeta: any) => ({ ...tarjeta, expandida: false }));
     })
   }
 
-//-------------------- CREAR TARJETAS--------------- // 
+  //-------------------- CREAR TARJETAS--------------- // 
   postTarjeta() {
     this.tarjetasService.postTarjeta(this.nuevaTarjeta).subscribe(
       (data: any) => {
@@ -59,44 +59,44 @@ export class TarjetasComponent implements OnInit {
     )
   }
 
-//-------------------- ELIMINAR TARJETAS--------------- // 
+  //-------------------- ELIMINAR TARJETAS--------------- // 
   delete(tarjeta: any) {
     this.modalDelete = true;
-    this.deleteId = tarjeta._id; 
+    this.deleteId = tarjeta._id;
   }
 
   eliminarTarjeta() {
-    this.tarjetasService.deleteTarjeta(this.deleteId).subscribe(data =>{
+    this.tarjetasService.deleteTarjeta(this.deleteId).subscribe(data => {
       this.getTarjetas();
     })
 
   }
 
-//-------------------- EDITAR TARJETAS--------------- // 
-edit(tarjeta: any) {
-  this.modalEdit = true;
-  this.formGroup.patchValue({
-    id: tarjeta._id,
-    titulo: tarjeta.titulo,
-    descripcion: tarjeta.descripcion
-  });
-  this.getTarjetas();
-}
+  //-------------------- EDITAR TARJETAS--------------- // 
+  edit(tarjeta: any) {
+    this.modalEdit = true;
+    this.formGroup.patchValue({
+      id: tarjeta._id,
+      titulo: tarjeta.titulo,
+      descripcion: tarjeta.descripcion
+    });
+    this.getTarjetas();
+  }
 
-editarTarjeta() {
-  const tarjetaEditada = { ...this.formGroup.value };
+  editarTarjeta() {
+    const tarjetaEditada = { ...this.formGroup.value };
 
-  this.tarjetasService.putTarjeta(tarjetaEditada.id, tarjetaEditada).subscribe(
-    (tarjetaActualizada: any) => {
-      console.log('Tarjeta actualizada con éxito: ', tarjetaActualizada);
-      this.getTarjetas();
-      this.modalService.dismissAll(); // Cierra el modal después de la edición
-    },
-    (error) => {
-      console.error('Error al actualizar tarjeta: ', error);
-    }
-  );
-}
+    this.tarjetasService.putTarjeta(tarjetaEditada.id, tarjetaEditada).subscribe(
+      (tarjetaActualizada: any) => {
+        console.log('Tarjeta actualizada con éxito: ', tarjetaActualizada);
+        this.getTarjetas();
+        this.modalService.dismissAll(); // Cierra el modal después de la edición
+      },
+      (error) => {
+        console.error('Error al actualizar tarjeta: ', error);
+      }
+    );
+  }
 
 
 

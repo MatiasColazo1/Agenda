@@ -32,13 +32,8 @@
             "styles": [
               "src/theme.less",
               "src/styles.css",
-<<<<<<< HEAD
               "node_modules/ngx-toastr/toastr.css"
-              
-=======
-              "node_modules/ngx-toastr/toastr.css",
-              "node_modules/ng-zorro-antd/style/index.css"
->>>>>>> 78a1418dd1ae9bf666956853dc6133fe6e990947
+
             ],
             "scripts": []
           },

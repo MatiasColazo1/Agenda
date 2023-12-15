@@ -69,7 +69,7 @@ export class TareasComponent implements OnInit {
       titulo: tarea.titulo
     });
   }
-  
+
   cancelarEdicion() {
     this.tareaEditando = null;
     this.formGroup.reset();

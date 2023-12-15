@@ -29,11 +29,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-<<<<<<< HEAD
 import { MatCardModule } from '@angular/material/card';
-=======
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
->>>>>>> 78a1418dd1ae9bf666956853dc6133fe6e990947
 
 
 
@@ -67,11 +64,9 @@ registerLocaleData(en);
     MatIconModule,
     MatButtonModule,
     MatInputModule,
-<<<<<<< HEAD
+
     MatCardModule,
-=======
     NzCalendarModule,
->>>>>>> 78a1418dd1ae9bf666956853dc6133fe6e990947
     ToastrModule.forRoot({
       timeOut:4000,
       positionClass:"toast-top-right",
