@@ -45,7 +45,7 @@ export class NotasComponent {
     // Crear un elemento 'a' para simular un enlace de descarga
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'archivo.txt';
+    a.download = 'notas.txt';
 
     // Agregar el elemento 'a' al cuerpo del documento
     document.body.appendChild(a);

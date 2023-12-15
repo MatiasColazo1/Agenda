@@ -29,6 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 
 
 
@@ -62,6 +63,7 @@ registerLocaleData(en);
     MatIconModule,
     MatButtonModule,
     MatInputModule,
+    NzCalendarModule,
     ToastrModule.forRoot({
       timeOut:4000,
       positionClass:"toast-top-right",
