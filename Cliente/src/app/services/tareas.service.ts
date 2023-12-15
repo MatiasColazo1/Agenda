@@ -25,6 +25,6 @@ export class TareasService {
   }
 
   putTarea(id: string, tarea: any): Observable<any> {
-    return this.http.put<any>(`${this.URL}/tarea/${id}`, tarea)
+    return this.http.put<any>(`${this.URL}/tarea/${id}`, tarea);
   }
 }

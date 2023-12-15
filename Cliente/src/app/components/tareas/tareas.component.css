@@ -4,7 +4,9 @@
   left: 0 !important;
   width: 0 !important;
 } 
-
+mat-checkbox {
+  margin-right: 10px; /* Puedes ajustar este valor según sea necesario */
+}
 
 * { box-sizing:border-box; }
 
