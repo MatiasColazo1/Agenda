@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { TareasService } from 'src/app/services/tareas.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ErrorService } from 'src/app/services/error.service';
+
 
 @Component({
   selector: 'app-tareas',
@@ -21,12 +23,19 @@ export class TareasComponent implements OnInit {
   constructor(
     private tareasService: TareasService,
     public darkModeService: DarkModeService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private errorService: ErrorService
   ) {
     this.formGroup = this.fb.group({
       id: [''],
-      titulo: ['', Validators.required],
+      titulo: ['', [Validators.required, this.noWhitespaceValidator]],
     });
+  }
+
+  noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
 
   ngOnInit() {
@@ -46,9 +55,12 @@ export class TareasComponent implements OnInit {
 
   // ----------------------- CREAR TAREAS ----------------- //
   postTareas() {
+    // Asigna un valor predeterminado al título antes de crear la nueva tarea
+    this.nuevaTarea.titulo = 'Nueva Tarea';
+  
     this.tareasService.postTarea(this.nuevaTarea).subscribe((data: any) => {
       this.getTareas();
-      this.nuevaTarea = {};
+      this.nuevaTarea = {}; // Restablecer el input después de crear
     });
   }
 
@@ -63,12 +75,16 @@ export class TareasComponent implements OnInit {
   }
 
   editarTarea(tarea: any) {
-    this.tareaEditando = tarea;
+    // Al editar, establece el valor del formulario para los controles 'id' y 'titulo'
+    if (tarea && tarea.titulo !== undefined) {
     this.formGroup.setValue({
       id: tarea._id,
       titulo: tarea.titulo
+      // Otros controles si es necesario
     });
+    this.tareaEditando = tarea;
   }
+}
 
   cancelarEdicion() {
     this.tareaEditando = null;
@@ -76,11 +92,14 @@ export class TareasComponent implements OnInit {
   }
 
   actualizarTarea() {
-    const tareaActualizada = this.formGroup.value;
-    this.tareasService.putTarea(tareaActualizada.id, tareaActualizada).subscribe(data => {
-      this.getTareas();
-      this.tareaEditando = null;
-      this.formGroup.reset();
-    });
+    if (this.formGroup.valid) {
+      const tareaActualizada = this.formGroup.value;
+      this.tareasService.putTarea(tareaActualizada.id, tareaActualizada).subscribe(data => {
+        this.getTareas();
+        this.tareaEditando = null;
+        this.formGroup.reset();
+      });
+    }
   }
-}
+  }
+

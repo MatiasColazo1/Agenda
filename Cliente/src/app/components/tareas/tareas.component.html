@@ -1,9 +1,8 @@
 <div *ngFor="let tarea of tareas">
   <mat-checkbox class="mb-3" [class.dark-mode-text]="darkModeService.isDarkMode"></mat-checkbox>
-  <mat-card class="group">
-    <mat-card-content>
-      <span class="bar" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)"
-        (click)="editarTarea(tarea)">{{tarea.titulo}}</span>
+  <mat-card class="group" (click)="editarTarea(tarea)">
+    <mat-card-content >
+      <span class="bar" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)">{{tarea.titulo}}</span>
       <form [formGroup]="formGroup">
         <input *ngIf="tareaEditando && tareaEditando._id === tarea._id" matInput formControlName="titulo">
       </form>
