@@ -9,7 +9,6 @@ const Tarjeta = require('../models/Tarjetas');
 
 const Tarea = require('../models/Tareas');
 
-const passport = require('passport');
 
 router.get('/', (req, res) => res.send('Hola mundo'));
 
@@ -41,32 +40,55 @@ router.get('/private', verifyToken, (req, res) => {
 
 // -------------------- Tarjetas ----------------------- //
 // CREAR TARJETA
-router.post('/tarjeta', async (req, res) => {
+router.post('/tarjeta', verifyToken, async (req, res) => {
     const { titulo, descripcion } = req.body;
-    const newTarjeta = new Tarjeta ({
-        titulo,
-        descripcion
-    });
-    await newTarjeta.save();
-    res.status(200).json(newTarjeta);
+
+    try {
+        // Obtener el ID del usuario desde el token
+        const userId = req.userUd;
+
+        // Crear una nueva tarjeta
+        const newTarjeta = new Tarjeta({
+            titulo,
+            descripcion
+        });
+
+        // Guardar la tarjeta en la base de datos
+        await newTarjeta.save();
+
+        // Asociar la tarjeta al usuario
+        const user = await User.findById(userId);
+        user.tarjetas.push(newTarjeta);
+        await user.save();
+
+        res.status(200).json(newTarjeta);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al crear la tarjeta', details: error.message });
+    }
 });
 
 // TRAER TARJETAS
-router.get('/tarjeta', async (req, res) => {
+router.get('/tarjeta', verifyToken, async (req, res) => {
     try {
-        const tarjeta = await Tarjeta.find({}); // Realiza una busqueda para obtener la tarjeta
+        // Obtener el ID del usuario desde el token
+        const userId = req.userUd;
 
-        if(!tarjeta){
-            return res.status(404).json({message: 'Tarjeta no encontrada'})
+        // Buscar las tarjetas asociadas al usuario
+        const user = await User.findById(userId).populate('tarjetas');
+        const tarjetas = user.tarjetas;
+
+        if (!tarjetas) {
+            return res.status(404).json({ message: 'Tarjetas no encontradas' });
         }
-        res.status(200).json(tarjeta)
+
+        res.status(200).json(tarjetas);
     } catch (error) {
-        return res.status(500).json({message: 'Error interno del servidor'});
+        return res.status(500).json({ message: 'Error interno del servidor' });
     }
-})
+});
 
 // EDITAR TARJETA
-router.put('/tarjeta/:id', async (req, res) => {
+router.put('/tarjeta/:id', verifyToken, async (req, res) => {
     try {
         const { titulo, descripcion } = req.body;
         const tarjetaId = req.params.id;
@@ -87,84 +109,106 @@ router.put('/tarjeta/:id', async (req, res) => {
 })
 
 // ELIMINAR TARJETA
-router.delete('/tarjeta/:id', async (req, res) => {
+router.delete('/tarjeta/:id', verifyToken, async (req, res) => {
     const tarjetaId = req.params.id;
 
     try {
         const deleteTarjeta = await Tarjeta.findByIdAndDelete(tarjetaId);
 
         if (!deleteTarjeta) {
-            return res.status(400).json({message: 'Tarjeta no encontrada'});
+            return res.status(400).json({ message: 'Tarjeta no encontrada' });
         }
 
-        res.status(200).json({message: 'Tarjeta eliminada con exito', deleteTarjeta});
+        res.status(200).json({ message: 'Tarjeta eliminada con éxito', deleteTarjeta });
     } catch (error) {
-        res.status(500).json({error: 'Error al eliminar la tarjeta', details: error.message})
+        res.status(500).json({ error: 'Error al eliminar la Tarjeta', details: error.message });
     }
-})
+});
+
 
 // -------------------- Tareas ----------------------- //
-// CREAR TAREA
-router.post('/tarea', async (req, res) => {
+router.post('/tarea', verifyToken, async (req, res) => {
     const { titulo } = req.body;
-    const newTarea = new Tarea ({
-        titulo,
-    });
-    await newTarea.save();
-    res.status(200).json(newTarea);
+
+    try {
+        // Obtener el ID del usuario desde el token
+        const userId = req.userUd;
+
+        // Crear una nueva tarea
+        const newTarea = new Tarea({
+            titulo
+        });
+
+        // Guardar la tarea en la base de datos
+        await newTarea.save();
+
+        // Asociar la tarea al usuario
+        const user = await User.findById(userId);
+        user.tareas.push(newTarea);
+        await user.save();
+
+        res.status(200).json(newTarea);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al crear la tarea', details: error.message });
+    }
 });
 
 // TRAER TAREAS
-router.get('/tarea', async (req, res) => {
+router.get('/tarea', verifyToken, async (req, res) => {
     try {
-        const tarea = await Tarea.find({}); // Realiza una busqueda para obtener la tarjeta
+        // Obtener el ID del usuario desde el token
+        const userId = req.userUd;
 
-        if(!tarea){
-            return res.status(404).json({message: 'Tarea no encontrada'})
+        // Buscar las tareas asociadas al usuario
+        const user = await User.findById(userId).populate('tareas');
+        const tareas = user.tareas;
+
+        if (!tareas) {
+            return res.status(404).json({ message: 'Tareas no encontradas' });
         }
-        res.status(200).json(tarea)
-    } catch (error) {
-        return res.status(500).json({message: 'Error interno del servidor'});
-    }
-})
 
-// EDITAR TARJETA
-router.put('/tarea/:id', async (req, res) => {
+        res.status(200).json(tareas);
+    } catch (error) {
+        return res.status(500).json({ message: 'Error interno del servidor' });
+    }
+});
+
+// EDITAR TAREA
+router.put('/tarea/:id', verifyToken, async (req, res) => {
     try {
-        const { titulo} = req.body;
+        const { titulo } = req.body;
         const tareaId = req.params.id;
 
         const tarea = await Tarea.findById(tareaId);
 
         if (!tarea) {
-            return res.status(400).json({message: 'Tarea no encontrada'});
+            return res.status(400).json({ message: 'Tarea no encontrada' });
         }
         tarea.titulo = titulo;
 
         await tarea.save();
         res.status(200).json(tarea);
     } catch (error) {
-        res.status(500).json({ error: 'Error al actualizar la tarea', details: error.message})        
+        res.status(500).json({ error: 'Error al actualizar la tarea', details: error.message });
     }
-})
+});
 
-// ELIMINAR TARJETA
-router.delete('/tarea/:id', async (req, res) => {
+// ELIMINAR TAREA
+router.delete('/tarea/:id', verifyToken, async (req, res) => {
     const tareaId = req.params.id;
 
     try {
         const deleteTarea = await Tarea.findByIdAndDelete(tareaId);
 
         if (!deleteTarea) {
-            return res.status(400).json({message: 'Tarea no encontrada'});
+            return res.status(400).json({ message: 'Tarea no encontrada' });
         }
 
-        res.status(200).json({message: 'Tarea eliminada con exito', deleteTarea});
+        res.status(200).json({ message: 'Tarea eliminada con éxito', deleteTarea });
     } catch (error) {
-        res.status(500).json({error: 'Error al eliminar la tarea', details: error.message})
+        res.status(500).json({ error: 'Error al eliminar la tarea', details: error.message });
     }
-})
-
+});
 
 module.exports = router;
 

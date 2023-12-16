@@ -9,6 +9,7 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 const { v4: uuid } = require('uuid');
 
+
 dotenv.config({});
 
 const calendar = google.calendar({
@@ -27,6 +28,7 @@ app.use(express.json());
 
 //rutas
 app.use('/api', require('./routes/rutas'));
+
 
 //calendario
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
