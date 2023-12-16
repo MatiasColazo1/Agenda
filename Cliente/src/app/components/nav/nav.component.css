@@ -1,7 +1,14 @@
 .btn:hover{
-    background-color: #CCA9F8;
+    background-color: var(--color-principal);
 }
 
 nav {
-    background-color: #D1C3E2;
+    background-color: var(--color-principal);
+  }
+
+  .nombre{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
   }

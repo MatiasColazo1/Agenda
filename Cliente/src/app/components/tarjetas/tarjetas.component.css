@@ -1,5 +1,5 @@
 .formato-card{
-    background-color: #cabbdd57;
+    background-color: var(--color-secundario);;
 }
 
 .icono {
