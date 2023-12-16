@@ -29,6 +29,7 @@ export class TareasComponent implements OnInit {
     this.formGroup = this.fb.group({
       id: [''],
       titulo: ['', [Validators.required, this.noWhitespaceValidator]],
+      
     });
   }
 

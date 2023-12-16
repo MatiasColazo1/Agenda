@@ -11,7 +11,6 @@ export class TareasService {
 
   constructor(private http:HttpClient) { }
 
-
   getTarea():Observable<any>{
     return this.http.get<any>(`${this.URL}/tarea`)
   }

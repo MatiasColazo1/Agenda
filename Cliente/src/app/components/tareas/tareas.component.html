@@ -8,8 +8,8 @@
       </form>
       <form class="d-flex aling-items-center" [formGroup]="formGroup"
         *ngIf="tareaEditando && tareaEditando._id === tarea._id">
-        <i class='bx bx-check-circle' (click)="actualizarTarea()"></i>
-        <i class='bx bx-x-circle' (click)="cancelarEdicion()"></i>
+        <i class='bx bx-check-circle check' (click)="actualizarTarea()"></i>
+        <i class='bx bx-x-circle cancelar' (click)="cancelarEdicion()"></i>
       </form>
     </mat-card-content>
     <mat-card-actions class="d-flex justify-content-end">

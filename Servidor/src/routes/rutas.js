@@ -139,6 +139,7 @@ router.delete('/tarjeta/:id', verifyToken, async (req, res) => {
 
 
 // -------------------- Tareas ----------------------- //
+// CREAR TAREAS
 router.post('/tarea', verifyToken, async (req, res) => {
     const { titulo } = req.body;
 
@@ -148,7 +149,8 @@ router.post('/tarea', verifyToken, async (req, res) => {
 
         // Crear una nueva tarea
         const newTarea = new Tarea({
-            titulo
+            titulo,
+            completada: false // Por defecto, la tarea se crea como no completada
         });
 
         // Guardar la tarea en la base de datos
@@ -188,7 +190,7 @@ router.get('/tarea', verifyToken, async (req, res) => {
 // EDITAR TAREA
 router.put('/tarea/:id', verifyToken, async (req, res) => {
     try {
-        const { titulo } = req.body;
+        const { titulo, completada } = req.body; // Puedes recibir el nuevo estado de completada desde el frontend si es necesario
         const tareaId = req.params.id;
 
         const tarea = await Tarea.findById(tareaId);
@@ -196,7 +198,9 @@ router.put('/tarea/:id', verifyToken, async (req, res) => {
         if (!tarea) {
             return res.status(400).json({ message: 'Tarea no encontrada' });
         }
+
         tarea.titulo = titulo;
+        tarea.completada = completada; // Actualizar el estado de completada si se proporciona
 
         await tarea.save();
         res.status(200).json(tarea);

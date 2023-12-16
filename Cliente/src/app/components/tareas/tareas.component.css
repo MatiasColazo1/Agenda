@@ -64,3 +64,13 @@ input:focus ~ label, input:valid ~ label 		{
 .bar:after {
   right:50%; 
 }
+
+.check{
+  color: rgb(0, 137, 0);
+  font-size: 20px;
+}
+
+.cancelar{
+  color: rgb(125, 3, 3);
+  font-size: 20px;
+}
