@@ -2,7 +2,7 @@
   <mat-checkbox class="mb-3" [class.dark-mode-text]="darkModeService.isDarkMode"></mat-checkbox>
   <div class="group" (click)="editarTarea(tarea)">
     <mat-card-content class="d-flex align-items-center" >
-      <span class="bar" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)">{{tarea.titulo}}</span>
+      <span class="bar" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarea.titulo}} </span>
       <form [formGroup]="formGroup">
         <input *ngIf="tareaEditando && tareaEditando._id === tarea._id" matInput formControlName="titulo">
       </form>
