@@ -190,7 +190,7 @@ router.get('/tarea', verifyToken, async (req, res) => {
 // EDITAR TAREA
 router.put('/tarea/:id', verifyToken, async (req, res) => {
     try {
-        const { titulo, completada } = req.body; // Puedes recibir el nuevo estado de completada desde el frontend si es necesario
+        const { titulo, completada } = req.body;
         const tareaId = req.params.id;
 
         const tarea = await Tarea.findById(tareaId);
@@ -200,7 +200,7 @@ router.put('/tarea/:id', verifyToken, async (req, res) => {
         }
 
         tarea.titulo = titulo;
-        tarea.completada = completada; // Actualizar el estado de completada si se proporciona
+        tarea.completada = completada !== undefined ? completada : tarea.completada; // Actualizar el estado de completada si se proporciona, de lo contrario, mantener el valor actual
 
         await tarea.save();
         res.status(200).json(tarea);
