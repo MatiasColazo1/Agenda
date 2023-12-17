@@ -94,13 +94,18 @@ export class TareasComponent implements OnInit {
 
   actualizarTarea() {
     if (this.formGroup.valid) {
-      const tareaActualizada = this.formGroup.value;
-      this.tareasService.putTarea(tareaActualizada.id, tareaActualizada).subscribe(data => {
-        this.getTareas();
-        this.tareaEditando = null;
-        this.formGroup.reset();
-      });
+        const tareaActualizada = {
+            id: this.formGroup.get('id')?.value,
+            titulo: this.formGroup.get('titulo')?.value,
+            completada: this.tareaEditando ? this.tareaEditando.completada : false,
+        };
+
+        this.tareasService.putTarea(tareaActualizada.id, tareaActualizada).subscribe(data => {
+            this.getTareas();
+            this.tareaEditando = null;
+            this.formGroup.reset();
+        });
     }
-  }
+}
   }
 

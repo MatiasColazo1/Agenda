@@ -1,5 +1,5 @@
 <div *ngFor="let tarea of tareas" class="d-flex align-items-center">
-  <mat-checkbox class="mb-3" [class.dark-mode-text]="darkModeService.isDarkMode"></mat-checkbox>
+  <mat-checkbox class="mb-3" [class.dark-mode-text]="darkModeService.isDarkMode" [(ngModel)]="tarea.completada" ></mat-checkbox>
   <div class="group" (click)="editarTarea(tarea)">
     <mat-card-content class="d-flex align-items-center" >
       <span class="bar" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarea.titulo}} </span>
