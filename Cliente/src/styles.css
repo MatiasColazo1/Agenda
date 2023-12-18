@@ -1,6 +1,8 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/sketchy/bootstrap.min.css';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
-
+body{
+  background-color: #ffeed4;
+}
 :root {
   --color-principal: #42999B;
   --color-secundario: #83C5BE;
