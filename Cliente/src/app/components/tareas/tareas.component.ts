@@ -19,6 +19,7 @@ export class TareasComponent implements OnInit {
   passwordVisible: boolean = false;
   formGroup: FormGroup;
   tareaEditando: any = null;
+  colores: string[] = ['rojo', 'naranja', 'amarillo', 'verde', 'celeste', 'azul', 'violeta'];
 
   constructor(
     private tareasService: TareasService,
