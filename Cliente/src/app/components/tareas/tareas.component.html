@@ -1,8 +1,9 @@
-<div *ngFor="let tarea of tareas" class="d-flex align-items-center">
-  <mat-checkbox class="mb-3" [class.dark-mode-text]="darkModeService.isDarkMode" [(ngModel)]="tarea.completada" ></mat-checkbox>
+<div *ngFor="let tarea of tareas; let i = index" class="d-flex align-items-center">
+  <mat-checkbox class="mb-3" [class.dark-mode-text]="darkModeService.isDarkMode" [class.color-green]="i % 4 === 0" [class.color-red]="i % 4 === 1" [class.color-blue]="i % 4 === 2" [class.color-violet]="i % 4 === 3" [(ngModel)]="tarea.completada"></mat-checkbox>
   <div class="group" (click)="editarTarea(tarea)">
     <mat-card-content class="d-flex align-items-center" >
       <span class="bar" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)" [class.dark-mode-text]="darkModeService.isDarkMode">{{tarea.titulo}} </span>
+      
       <form [formGroup]="formGroup">
         <input *ngIf="tareaEditando && tareaEditando._id === tarea._id" matInput formControlName="titulo">
       </form>

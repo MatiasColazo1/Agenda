@@ -74,3 +74,23 @@ input:focus ~ label, input:valid ~ label 		{
   color: rgb(125, 3, 3);
   font-size: 20px;
 }
+
+
+
+.color-green {
+  background-color: green; /* Color verde para el primer checkbox y cada múltiplo de 4 */
+}
+
+.color-red {
+  background-color: red; /* Color rojo para el segundo checkbox y cada múltiplo de 4 + 1 */
+}
+
+.color-blue {
+  background-color: blue; /* Color azul para el tercer checkbox y cada múltiplo de 4 + 2 */
+}
+
+.color-violet {
+  background-color: violet; /* Color violeta para el cuarto checkbox y cada múltiplo de 4 + 3 */
+}
+
+
