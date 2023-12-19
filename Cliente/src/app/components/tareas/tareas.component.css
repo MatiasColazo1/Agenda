@@ -21,7 +21,9 @@ input 		{
   width:300px;
   border:none;
   margin-right: 10px;
+  background-color: #FEF5E7;
 }
+
 input:focus { outline:none; }
 
 /* borde abajo palabra span */
@@ -38,11 +40,8 @@ input:focus { outline:none; }
   bottom: 0;
   width: 100%;
   height: 2px; /* Ajusta el grosor de la línea según tus preferencias */
-<<<<<<< HEAD
-  background-color: #ffea00;  /* Reemplaza con el color que desees */
-=======
   background-color: inherit;  /* Reemplaza con el color que desees */
->>>>>>> 7edea8fc248cb22a93ce77e60ce6e2da54a62310
+
 }
 
 /* botones editar y cancelar*/
