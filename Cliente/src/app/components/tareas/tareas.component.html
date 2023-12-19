@@ -3,7 +3,7 @@
     [(ngModel)]="tarea.completada">
     <div class="group" (click)="editarTarea(tarea)">
       <mat-card-content class="d-flex align-items-center">
-        <span class="bar" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)"
+        <span class="bar"  [class]="tarea.color + '-border'" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)"
           [class.dark-mode-text]="darkModeService.isDarkMode">{{tarea.titulo}} </span>
         <form [formGroup]="formGroup">
           <input *ngIf="tareaEditando && tareaEditando._id === tarea._id" matInput formControlName="titulo">

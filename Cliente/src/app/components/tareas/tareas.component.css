@@ -28,6 +28,7 @@ input:focus { outline:none; }
 .bar {
   position: relative;
   display: inline-block;
+  
 }
 
 .bar:before {
@@ -37,7 +38,11 @@ input:focus { outline:none; }
   bottom: 0;
   width: 100%;
   height: 2px; /* Ajusta el grosor de la línea según tus preferencias */
+<<<<<<< HEAD
   background-color: #ffea00;  /* Reemplaza con el color que desees */
+=======
+  background-color: inherit;  /* Reemplaza con el color que desees */
+>>>>>>> 7edea8fc248cb22a93ce77e60ce6e2da54a62310
 }
 
 /* botones editar y cancelar*/
@@ -73,6 +78,10 @@ input:focus { outline:none; }
   background: rgb(0, 203, 0) !important;
 }
 
+.verde-border:before {
+  background-color: rgb(0, 203, 0);
+}
+
 /* azul */
 ::ng-deep .mat-mdc-checkbox.mat-azul .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
@@ -83,6 +92,10 @@ input:focus { outline:none; }
 
 ::ng-deep .mat-mdc-checkbox.mat-azul .mdc-checkbox--selected ~ .mdc-checkbox__ripple{
   background: rgb(46, 49, 255) !important;
+}
+
+.azul-border:before {
+  background-color: rgb(46, 49, 255);
 }
 
 /* rojo */
@@ -97,6 +110,11 @@ input:focus { outline:none; }
   background: rgb(235, 0, 0) !important;
 }
 
+.rojo-border:before {
+  background-color: rgb(235, 0, 0);
+}
+
+
 /* violeta */
 ::ng-deep .mat-mdc-checkbox.mat-violeta .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
@@ -107,6 +125,10 @@ input:focus { outline:none; }
 
 ::ng-deep .mat-mdc-checkbox.mat-violeta .mdc-checkbox--selected ~ .mdc-checkbox__ripple{
   background: rgb(185, 0, 213) !important;
+}
+
+.violeta-border:before {
+  background-color: rgb(185, 0, 213);
 }
 
 /* naranja */
@@ -121,6 +143,10 @@ input:focus { outline:none; }
   background: rgb(250, 146, 0) !important;
 }
 
+.naranja-border:before {
+  background-color: rgb(250, 146, 0);
+}
+
 /* amarillo */
 ::ng-deep .mat-mdc-checkbox.mat-amarillo .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
@@ -131,6 +157,10 @@ input:focus { outline:none; }
 
 ::ng-deep .mat-mdc-checkbox.mat-amarillo .mdc-checkbox--selected ~ .mdc-checkbox__ripple{
   background: rgb(238, 218, 0) !important;
+}
+
+.amarillo-border:before {
+  background-color: rgb(238, 218, 0);
 }
 
 /* Celeste */
@@ -145,9 +175,16 @@ input:focus { outline:none; }
   background:  rgb(0, 210, 225) !important;
 }
 
+.celeste-border:before {
+  background-color: rgb(0, 210, 225);
+}
+
+
 /* Checkbox active */
 ::ng-deep .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:active ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:active ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled:active ~ .mdc-checkbox__background {
   background-color: transparent !important;
 }
+
+

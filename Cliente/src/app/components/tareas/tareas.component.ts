@@ -51,9 +51,13 @@ export class TareasComponent implements OnInit {
   // ----------------------- TRAER TAREAS ----------------- //
   getTareas() {
     this.tareasService.getTarea().subscribe((data: any) => {
-      this.tareas = data;
+      this.tareas = data.map((tarea: any, index: number) => ({
+        ...tarea,
+        color: this.colores[index % this.colores.length],
+      }));
     });
   }
+
 
   // ----------------------- CREAR TAREAS ----------------- //
   postTareas() {
