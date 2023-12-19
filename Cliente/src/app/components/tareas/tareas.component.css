@@ -20,16 +20,9 @@ input 		{
   display:block;
   width:300px;
   border:none;
-  border-bottom:1px solid #757575;
+  margin-right: 10px;
 }
 input:focus { outline:none; }
-
-/* active state */
-input:focus ~ label, input:valid ~ label 		{
-  top:-20px;
-  font-size:14px;
-  color:#5264AE;
-}
 
 /* borde abajo palabra span */
 .bar {
@@ -44,19 +37,28 @@ input:focus ~ label, input:valid ~ label 		{
   bottom: 0;
   width: 100%;
   height: 2px; /* Ajusta el grosor de la línea según tus preferencias */
-  background-color: currentColor;  /* Reemplaza con el color que desees */
+  background-color: #ffea00;  /* Reemplaza con el color que desees */
 }
 
 /* botones editar y cancelar*/
 .actualizar{
   color: rgb(0, 169, 0);
   font-size: 20px;
+  margin-right: 10px;
 }
 
 .cancelar{
   color: rgb(174, 0, 0);
   font-size: 20px;
+  margin-right: 10px;
 }
+
+.borrar{
+  color: rgb(0, 0, 160);
+  font-size: 19px;
+  margin-right: 10px;
+}
+
 
 /* Colores del check */
 /* verde */
