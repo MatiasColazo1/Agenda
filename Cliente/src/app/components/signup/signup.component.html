@@ -1,13 +1,16 @@
-<div class="text-center">
-    <div class="banner">
-        <img src="./../../../assets/banner.png" alt="banner" class="img-fluid">
-        <div class="text-overlay">
-            <p class="parrafo">Agenda personal</p>
-            <h1 class="titulo">"Visualiza y haz <br>de cada día <br>una nueva conquista"</h1>
-            <i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
-        </div>
+<!-- BANNER -->
+<div class="banner">
+    <div class="line">
+        <span>"Planea, actúa</span>
+    </div>
+    <div class="line">
+        <span>y conquista</span>
+    </div>
+    <div class="line">
+        <span>cada día" <i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i></span>
     </div>
 </div>
+
 
 <div class="container d-flex justify-content-center align-items-center mb-3">
     <div class="w-10">

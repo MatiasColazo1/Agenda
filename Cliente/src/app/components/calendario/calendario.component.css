@@ -1,0 +1,8 @@
+.bx{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+::ng-deep .mat-calendar-header{
+    padding: 0 !important;
+}

@@ -1,4 +1,7 @@
-<mat-card class="demo-inline-calendar-card">
-    <mat-calendar [(selected)]="selected"></mat-calendar>
-  </mat-card>
-  <p>Selected date: {{selected}}</p>
+<div class="card">
+    <div class="d-flex justify-content-center mt-2">
+        <i class='bx bx-calendar' [ngbPopover]="content" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/schedule_event"></i>
+        <ng-template #content>Organiza tus dias</ng-template>
+    </div>
+        <mat-calendar [(selected)]="selected"></mat-calendar>
+</div>
