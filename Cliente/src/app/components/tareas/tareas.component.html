@@ -12,7 +12,7 @@
           *ngIf="tareaEditando && tareaEditando._id === tarea._id">
           <i class='bx bx-check-circle actualizar' (click)="$event.stopPropagation(); actualizarTarea()"></i>
           <i class='bx bx-x-circle cancelar' (click)="cancelarEdicion()"></i>
-          <i class='bx bx-trash borrar' [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"
+          <i class='bx bx-trash borrar'  [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"
             (click)="deleteTarea(tarea)" *ngIf="tareaEditando && tareaEditando._id === tarea._id"></i>
         </form>
       </mat-card-content>
