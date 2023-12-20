@@ -31,7 +31,7 @@ router.post('/signup', async (req, res) => {
         const existingUser = await User.findOne({ usuario });
 
         if (existingUser) {
-            return res.status(400).json({ error: 'El nombre de usuario ya está en uso' });
+            return res.status(409).json({ error: 'El nombre de usuario ya está en uso' });
         }
 
         // Crear una nueva instancia del modelo usuario con el usuario y el password

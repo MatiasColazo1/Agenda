@@ -22,6 +22,10 @@
     height: auto; /* Mantiene la proporción de la imagen */
   }
   
+  .full-width {
+    width: 100%;
+  }
+
   .nombre {
     display: flex;
     justify-content: center;
