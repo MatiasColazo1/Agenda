@@ -33,6 +33,8 @@ import { MatCardModule } from '@angular/material/card';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 registerLocaleData(en);
@@ -69,6 +71,8 @@ registerLocaleData(en);
     MatCardModule,
     NzCalendarModule,
     NgbPopoverModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ToastrModule.forRoot({
       timeOut:4000,
       positionClass:"toast-top-right",
