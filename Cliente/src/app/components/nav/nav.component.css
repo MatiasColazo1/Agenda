@@ -15,6 +15,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    width: 30%;
 }
   .image-container img {
     max-width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
@@ -26,9 +27,11 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    font-size: 30px;
   }
   
-  .btn:hover {
-    background-color: var(--color-principal);
-  }
+.bx{
+  font-size: 30px;
+  cursor: pointer;
+}
   

@@ -25,10 +25,16 @@
     font-size: 30px;
 }
 
+.bx-bulb{
+    cursor: pointer;
+    font-size: 25px;
+}
+
 .icono{
     margin-right: 20px;
     margin-top: 3px;
     background-color: #CCA9F8;
+    
 }
 
 input {

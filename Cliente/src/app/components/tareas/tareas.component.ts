@@ -58,7 +58,6 @@ export class TareasComponent implements OnInit {
     });
   }
 
-
   // ----------------------- CREAR TAREAS ----------------- //
   postTareas() {
     // Asigna un valor predeterminado al título antes de crear la nueva tarea

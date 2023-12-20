@@ -22,9 +22,11 @@ export class ErrorService {
     } else if (error.error && error.error.msg) {
       // Manejar otros errores definidos en el servidor
       this.toastrService.error(error.error.msg, 'Error');
+    } else if (error.status === 409) {
+      this.toastrService.error('Usuario existente. Por favor, inténtelo de nuevo.', 'Error');
     } else {
       // Otros errores no manejados
       this.toastrService.error('Upps, ocurrió un error. Por favor, inténtelo de nuevo.', 'Error');
-    }
+    } 
   }
 }
