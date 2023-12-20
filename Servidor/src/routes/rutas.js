@@ -24,15 +24,31 @@ router.post('/signin', async (req, res) => {
 })
 
 router.post('/signup', async (req, res) => {
-    const { usuario, password } = req.body; //extraer usuario y contraseña del cuerpo de la solicitud
-    const newUser = new User({ usuario, password }); // crear una nueva instancia del modelo usuario con el user y el password
-    await newUser.save(); //guarda el nuevo usuario en la base de datos
-    if (!usuario || !password) {
-        return res.status(400).json({ error: 'Usuario y Contraseña son obligatorios' })
+    try {
+        const { usuario, password } = req.body;
+
+        // Verificar si el usuario ya existe en la base de datos
+        const existingUser = await User.findOne({ usuario });
+
+        if (existingUser) {
+            return res.status(400).json({ error: 'El nombre de usuario ya está en uso' });
+        }
+
+        // Crear una nueva instancia del modelo usuario con el usuario y el password
+        const newUser = new User({ usuario, password });
+
+        // Guardar el nuevo usuario en la base de datos
+        await newUser.save();
+
+        // Crear un token JWT para el nuevo usuario
+        const token = jwt.sign({ _id: newUser._id }, 'secretKey');
+
+        // Enviar el token como respuesta en formato JSON
+        res.status(200).json({ token });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al registrar el usuario', details: error.message });
     }
-    const token = jwt.sign({ _id: newUser._id }, 'secretKey') //Crear un token jwt para el nuevo usuario
-    res.status(200).json({ token }); // Enviar el token como respuesta en formato JSON
-})
+});
 
 router.get('/private', verifyToken, async (req, res) => {
     try {

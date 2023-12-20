@@ -31,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -64,7 +65,7 @@ registerLocaleData(en);
     MatIconModule,
     MatButtonModule,
     MatInputModule,
-
+    FullCalendarModule,
     MatCardModule,
     NzCalendarModule,
     ToastrModule.forRoot({

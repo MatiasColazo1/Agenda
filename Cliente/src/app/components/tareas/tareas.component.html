@@ -1,6 +1,6 @@
 <div *ngFor="let tarea of tareas; let i = index" class="d-flex align-items-center">
   <mat-checkbox [color]="colores[i % colores.length]" class="mb-2" [class.dark-mode-text]="darkModeService.isDarkMode"
-    [(ngModel)]="tarea.completada">
+     [checked]="tarea.completada" (change)="toggleCompletada(tarea)">
     <div class="group" (click)="editarTarea(tarea)">
       <mat-card-content class="d-flex align-items-center">
         <span class="bar"  [class]="tarea.color + '-border'" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)"
@@ -10,7 +10,7 @@
         </form>
         <form class="d-flex aling-items-center justify-content-center" [formGroup]="formGroup"
           *ngIf="tareaEditando && tareaEditando._id === tarea._id">
-          <i class='bx bx-check-circle actualizar' (click)="actualizarTarea()"></i>
+          <i class='bx bx-check-circle actualizar' (click)="$event.stopPropagation(); actualizarTarea()"></i>
           <i class='bx bx-x-circle cancelar' (click)="cancelarEdicion()"></i>
           <i class='bx bx-trash borrar' [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"
             (click)="deleteTarea(tarea)" *ngIf="tareaEditando && tareaEditando._id === tarea._id"></i>

@@ -90,6 +90,7 @@ export class TareasComponent implements OnInit {
     });
     this.tareaEditando = tarea;
   }
+
 }
 
   cancelarEdicion() {
@@ -111,6 +112,16 @@ export class TareasComponent implements OnInit {
             this.formGroup.reset();
         });
     }
+}
+
+toggleCompletada(tarea: any) {
+  tarea.completada = !tarea.completada;
+
+  // Realiza la actualización directa de la tarea
+  this.tareasService.putTarea(tarea._id, tarea).subscribe(() => {
+    // Actualiza la lista de tareas después de la actualización
+    this.getTareas();
+  });
 }
   }
 

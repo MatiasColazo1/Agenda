@@ -31,7 +31,7 @@
    textarea {
        margin: auto;
        width: 98%;
-       height: 98%;
+       height: 170px;
        font-size: large;
        background-color: var(--color-principal);
        border: none;
