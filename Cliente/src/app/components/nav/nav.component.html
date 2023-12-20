@@ -1,16 +1,21 @@
-<div class="text-center">
-  <div class="imgagen-container">
-    
-  </div>
-  <div class="">
-    <div class="nombre" [class.dark-mode]="darkModeService.isDarkMode" href="#">Bienvenido {{ nombreUsuario }}</div>
-    <div class="d-flex justify-content-between align-items-center">
 
-      <i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
+   
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       
-      <i class='bx bx-log-out' [ngbPopover]="content" popoverTitle="Cerrar Sesión" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" routerLink="/signin" (click)="authService.logOut()"></i>
-      <ng-template #content>Hasta luego {{ nombreUsuario }}</ng-template>
-
-    </div>
+          <div class="intro-message"><h1 style="text-align: center;">Agenda Personal</h1>
+  
+  <h2 style="text-align: center;">Hola {{ nombreUsuario }}</h2>
+  
+  <hr class="intro-divider">
+  <p style="text-align: center;">
+    <i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
+    <i class='bx bx-calendar' [ngbPopover]="calendar" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/schedule_event"></i>
+    <ng-template #calendar>Organiza tus días</ng-template>
+    <i class='bx bx-log-out' [ngbPopover]="content" popoverTitle="Cerrar Sesión" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" routerLink="/signin" (click)="authService.logOut()"></i>
+    <ng-template #content>Hasta luego {{ nombreUsuario }}</ng-template></p>
+  
+  <p style="text-align: center;">&nbsp;</p>
   </div>
-</div>
+      
+  </div>
+  
