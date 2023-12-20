@@ -1,45 +1,9 @@
-.nav {
-    background-color: var(--color-principal);
-    display: flex;
-    align-items: center;
-  }
-  
-  .image-container {
-    flex: 1; /* Toma todo el espacio disponible */
-    text-align: center; /* Centra la imagen horizontalmente */
-  }
-  
-  .text-overlay{
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 30%;
-}
-  .image-container img {
-    max-width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-
-  .nombre {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    font-size: 30px;
-  }
-  
 .bx{
   font-size: 30px;
   cursor: pointer;
+  margin: 0 10px;
 }
   
-
 .intro-divider {
   width: 400px;
   border-top: 1px solid #000;

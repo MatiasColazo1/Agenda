@@ -8,7 +8,8 @@
   
   <hr class="intro-divider">
   <p style="text-align: center;">
-    <i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
+    <i class='bx bx-bulb' [ngbPopover]="luz" popoverTitle="Luz" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
+    <ng-template #luz>Apagar/Prender iluminación</ng-template>
     <i class='bx bx-calendar' [ngbPopover]="calendar" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/schedule_event"></i>
     <ng-template #calendar>Organiza tus días</ng-template>
     <i class='bx bx-log-out' [ngbPopover]="content" popoverTitle="Cerrar Sesión" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" routerLink="/signin" (click)="authService.logOut()"></i>

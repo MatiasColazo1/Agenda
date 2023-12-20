@@ -7,7 +7,7 @@ import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { INITIAL_EVENTS, createEventId } from 'src/app/event-utils';
-
+import esLocale from '@fullcalendar/core/locales/es';
 
 @Component({
   selector: 'app-calendario-private',
@@ -35,6 +35,7 @@ export class CalendarioPrivateComponent {
     selectable: true,
     selectMirror: true,
     dayMaxEvents: true,
+    locale: esLocale,
     select: this.handleDateSelect.bind(this),
     eventClick: this.handleEventClick.bind(this),
     eventsSet: this.handleEvents.bind(this)
