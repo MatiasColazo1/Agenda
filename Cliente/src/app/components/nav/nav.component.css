@@ -1,14 +1,34 @@
-.btn:hover{
+.nav {
     background-color: var(--color-principal);
+    display: flex;
+    align-items: center;
+  }
+  
+  .image-container {
+    flex: 1; /* Toma todo el espacio disponible */
+    text-align: center; /* Centra la imagen horizontalmente */
+  }
+  
+  .text-overlay{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
-
-nav {
+  .image-container img {
+    max-width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+  
+  .nombre {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .btn:hover {
     background-color: var(--color-principal);
   }
-
-  .nombre{
-   display: flex;
-   justify-content: center;
-   text-align: center;
-   align-items: center;
-  }
+  
