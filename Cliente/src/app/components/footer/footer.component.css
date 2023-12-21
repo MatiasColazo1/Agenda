@@ -1,5 +1,5 @@
 footer {
-  margin-top: 100px;
+  margin-top:auto;
   bottom: 0;
   width: 100%;
   background-color: #D1C3E2;
@@ -10,6 +10,7 @@ footer {
   margin: 0 5px;
   font-size: 30px;
 }
+
 .navbar{
   border-style:none !important;
   border-width: 0 !important;

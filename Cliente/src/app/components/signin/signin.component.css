@@ -1,4 +1,14 @@
 
+.body{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.content{
+	flex: 1;
+}
+
 .bx-bulb{
     cursor: pointer;
     font-size: 25px;
@@ -20,8 +30,6 @@ input {
     border: solid 2px #000;
 }
 
-
-
 .form-controll{
     background-color: #F7EFFF;
     display: inline-flex;
@@ -31,6 +39,7 @@ input {
     padding-right: 5px;
     border: solid 2px #000;
 }
+
 .form-controll input{
     display: inline;
     border: none;
@@ -40,6 +49,7 @@ input {
     outline: none;
 
 }
+
 .form-controll .eyes{
     width: 25px;
     height: 25px;
@@ -51,9 +61,6 @@ input {
     position: relative;
     z-index: 2;
 }
-
-
-
 
 .banner {
 	position: relative;
