@@ -1,5 +1,5 @@
 <div *ngFor="let tarea of tareas; let i = index" class="d-flex align-items-center">
-  <mat-checkbox [color]="colores[i % colores.length]" class="mb-2" [class.dark-mode-text]="darkModeService.isDarkMode"
+  <mat-checkbox [color]="colores[i % colores.length]" class="mb-2" [class.dark-mode-text]="darkModeService.isDarkMode" 
      [checked]="tarea.completada" (change)="toggleCompletada(tarea)">
     <div class="group" (click)="editarTarea(tarea)">
       <mat-card-content class="d-flex align-items-center">

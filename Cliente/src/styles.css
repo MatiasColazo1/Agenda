@@ -40,21 +40,22 @@ body.dark-mode{
   background-color: #7d787b;
 }
 
+
 .dark-mode-input{
   background-color: #b28da3;
 }
 
 
-.rojo {
-  background-color: red !important;
+.rosa {
+  background-color: #f10cd7 !important;
 }
 
 .verde {
-  background-color: green !important;
+  background-color: #0ac82a !important;
 }
 
 .azul {
-  background-color: blue !important;
+  background-color: #0d7dbefb !important;
 }
 
 

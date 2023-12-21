@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ColoresService {
   private colorSource = new BehaviorSubject<string>('defaultColor');
   currentColor = this.colorSource.asObservable();
+  
 
 
   constructor() { }
