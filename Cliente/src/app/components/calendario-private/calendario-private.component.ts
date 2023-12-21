@@ -8,13 +8,14 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { INITIAL_EVENTS, createEventId } from 'src/app/event-utils';
 import esLocale from '@fullcalendar/core/locales/es';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 @Component({
   selector: 'app-calendario-private',
   templateUrl: './calendario-private.component.html',
   styleUrls: ['./calendario-private.component.css']
 })
-export class CalendarioPrivateComponent {
+export class CalendarioPrivateComponent implements OnInit {
   calendarVisible = signal(true);
   calendarOptions = signal<CalendarOptions>({
     plugins: [
@@ -47,7 +48,15 @@ export class CalendarioPrivateComponent {
   });
   currentEvents = signal<EventApi[]>([]);
 
-  constructor(private changeDetector: ChangeDetectorRef) {
+  constructor(private changeDetector: ChangeDetectorRef, public darkModeService: DarkModeService) {
+  }
+
+  ngOnInit(): void {
+    
+  }
+
+  toggleDarkMode(){
+    this.darkModeService.toggleDarkMode()
   }
 
   handleCalendarToggle() {
