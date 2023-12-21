@@ -2,20 +2,20 @@
    
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       
-          <div class="intro-message"><h1 style="text-align: center;">Agenda Personal</h1>
+          <div class="intro-message"><h1 style="text-align: center;" [class.dark-mode-text]="darkModeService.isDarkMode">Agenda Personal</h1>
   
-  <h2 style="text-align: center;">Hola {{ nombreUsuario }}</h2>
+  <h2 style="text-align: center;" [class.dark-mode-text]="darkModeService.isDarkMode">Hola {{ nombreUsuario }}</h2>
   
-  <hr class="intro-divider">
+  <hr class="intro-divider"  [class.dark-mode-text]="darkModeService.isDarkMode">
   <p style="text-align: center;">
     <div class="btn-group d-flex justify-content-center">
-    <i class='bx bx-bulb' [ngbPopover]="luz" popoverTitle="Luz" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
+    <i class='bx bx-bulb' [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="luz" popoverTitle="Luz" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
     <ng-template #luz>Apagar/Prender iluminación</ng-template>
-    <i class='bx bx-calendar' [ngbPopover]="calendar" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/schedule_event"></i>
+    <i class='bx bx-calendar'  [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="calendar" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/schedule_event"></i>
     <ng-template #calendar>Organiza tus días</ng-template>
     
 
-      <i class="bx bx-palette" data-bs-toggle="dropdown" aria-expanded="false" [ngbPopover]="color" popoverTitle="Colores" placement="top" triggers="mouseenter:mouseleave">
+      <i class="bx bx-palette" [class.dark-mode-text]="darkModeService.isDarkMode" data-bs-toggle="dropdown" aria-expanded="false" [ngbPopover]="color" popoverTitle="Colores" placement="top" triggers="mouseenter:mouseleave">
         <ng-template #color>Elije tu color</ng-template>
     </i>
       <ul class="dropdown-menu">
@@ -26,7 +26,7 @@
         <li><a class="dropdown-item" href="#">Separated link</a></li>
       </ul>
 
-    <i class='bx bx-log-out' [ngbPopover]="content" popoverTitle="Cerrar Sesión" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" routerLink="/signin" (click)="authService.logOut()"></i>
+    <i class='bx bx-log-out'  [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="content" popoverTitle="Cerrar Sesión" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" routerLink="/signin" (click)="authService.logOut()"></i>
     <ng-template #content>Hasta luego {{ nombreUsuario }}</ng-template>
   </div>
   <p style="text-align: center;">&nbsp;</p>
