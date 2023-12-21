@@ -2,8 +2,9 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 body{
-  background-color: #FEF5E7;
-  height: 100%;
+  background: #ECE9E6;  
+  background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  
+  background: linear-gradient(to top, #FFFFFF, #ECE9E6); 
 }
 
 :root {
@@ -13,7 +14,9 @@ body{
 
 
 body.dark-mode{
-    background-color: #1e1e1e;
+  background: #232526;  
+  background: -webkit-linear-gradient(to top, #414345, #232526);
+  background: linear-gradient(to top, #414345, #232526); 
 }
 
 .links{
@@ -39,6 +42,19 @@ body.dark-mode{
 
 .dark-mode-input{
   background-color: #b28da3;
+}
+
+
+.rojo {
+  background-color: red !important;
+}
+
+.verde {
+  background-color: green !important;
+}
+
+.azul {
+  background-color: blue !important;
 }
 
 

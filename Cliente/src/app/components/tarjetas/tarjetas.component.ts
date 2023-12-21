@@ -1,18 +1,22 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { TarjetasService } from 'src/app/services/tarjetas.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ColoresService } from 'src/app/services/colores.service';
 
 @Component({
   selector: 'app-tarjetas',
   templateUrl: './tarjetas.component.html',
   styleUrls: ['./tarjetas.component.css']
 })
-export class TarjetasComponent implements OnInit {
+export class TarjetasComponent implements OnInit, OnDestroy {
+  color: string = '';
 
 
+  private subscription: Subscription = new Subscription();
   public modalDelete: boolean = false;
   public modalEdit: boolean = false;
   private deleteId!: string;
@@ -26,7 +30,7 @@ export class TarjetasComponent implements OnInit {
   tarjetaActiva: any = null;
   formGroup: FormGroup
 
-  constructor(private tarjetasService: TarjetasService, public darkModeService: DarkModeService, private modalService: NgbModal, private fb: FormBuilder) {
+  constructor(private tarjetasService: TarjetasService, public darkModeService: DarkModeService, private modalService: NgbModal, private fb: FormBuilder, private colorService: ColoresService) {
     this.formGroup = this.fb.group({
       id: [''],
       titulo: ['', Validators.required],
@@ -36,7 +40,15 @@ export class TarjetasComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTarjetas()
+    this.subscription = this.colorService.currentColor.subscribe(color => {
+      this.color = color;
+    })
+  }
 
+  ngOnDestroy(): void {
+    if (this.subscription){
+      this.subscription.unsubscribe();
+    }
   }
   //-------------------- TRAER TARJETAS--------------- // 
   getTarjetas() {

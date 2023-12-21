@@ -1,6 +1,6 @@
 <div>
-  <div cdkDropList (cdkDropListDropped)="drop($event)">
-    <div class="card formato-card mb-3" *ngFor="let tarjeta of tarjetas" (click)="toggleTarjeta(tarjeta)" cdkDrag >
+  <div cdkDropList (cdkDropListDropped)="drop($event)" >
+    <div class="card formato-card mb-3" [ngClass]="color" *ngFor="let tarjeta of tarjetas" (click)="toggleTarjeta(tarjeta)" cdkDrag >
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="titulo">{{tarjeta.titulo}}</h1>
         <div *ngIf="tarjeta.expandida">

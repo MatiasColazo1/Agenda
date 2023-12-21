@@ -1,6 +1,7 @@
 // nav.component.ts
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { ColoresService } from 'src/app/services/colores.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { NombreService } from 'src/app/services/nombre.service';
 
@@ -16,8 +17,13 @@ export class NavComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public darkModeService: DarkModeService,
-    private nombreService: NombreService
+    private nombreService: NombreService,
+    private colorSevice: ColoresService
   ) { }
+
+  setColor(color: string) {
+    this.colorSevice.cambiarColor(color)
+  }
 
   ngOnInit(): void {
     this.nombreService.getUserDetails().subscribe(

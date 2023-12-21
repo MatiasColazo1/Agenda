@@ -8,15 +8,33 @@
   
   <hr class="intro-divider">
   <p style="text-align: center;">
+    <div class="btn-group d-flex justify-content-center">
     <i class='bx bx-bulb' [ngbPopover]="luz" popoverTitle="Luz" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
     <ng-template #luz>Apagar/Prender iluminación</ng-template>
     <i class='bx bx-calendar' [ngbPopover]="calendar" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/schedule_event"></i>
     <ng-template #calendar>Organiza tus días</ng-template>
+    
+
+      <i class="bx bx-palette" data-bs-toggle="dropdown" aria-expanded="false" [ngbPopover]="color" popoverTitle="Colores" placement="top" triggers="mouseenter:mouseleave">
+        <ng-template #color>Elije tu color</ng-template>
+    </i>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" (click)="setColor('rojo')">rojo</a></li>
+        <li><a class="dropdown-item" (click)="setColor('verde')">verde</a></li>
+        <li><a class="dropdown-item" (click)="setColor('azul')">azul</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+
     <i class='bx bx-log-out' [ngbPopover]="content" popoverTitle="Cerrar Sesión" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" routerLink="/signin" (click)="authService.logOut()"></i>
-    <ng-template #content>Hasta luego {{ nombreUsuario }}</ng-template></p>
-  
+    <ng-template #content>Hasta luego {{ nombreUsuario }}</ng-template>
+  </div>
   <p style="text-align: center;">&nbsp;</p>
   </div>
       
   </div>
+
+
+
+
   
