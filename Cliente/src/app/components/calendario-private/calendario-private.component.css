@@ -44,3 +44,23 @@ h2 {
     max-width: 1100px;
     margin: 0 auto;
   }
+
+  
+  li a{
+    font-size: .8rem;
+    color: #000;
+    opacity: .5;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  li a:hover{
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  i{
+    margin-right: 10px;
+  }
