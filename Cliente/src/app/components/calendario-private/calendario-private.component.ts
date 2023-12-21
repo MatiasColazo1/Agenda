@@ -1,5 +1,4 @@
 import { ChangeDetectorRef, Component, OnInit, signal } from '@angular/core';
-import { CalendarioService } from 'src/app/services/calendario.service';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { DateSelectArg, EventApi, EventClickArg } from 'fullcalendar';
@@ -70,7 +69,7 @@ export class CalendarioPrivateComponent implements OnInit {
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
-    const title = prompt('Please enter a new title for your event');
+    const title = prompt('Por favor ingresa un nuevo título para tu evento');
     const calendarApi = selectInfo.view.calendar;
 
     calendarApi.unselect(); // clear date selection
@@ -87,7 +86,7 @@ export class CalendarioPrivateComponent implements OnInit {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+    if (confirm(`¿Estás segura de que quieres eliminar el evento?'  ${clickInfo.event.title}'`)) {
       clickInfo.event.remove();
     }
   }

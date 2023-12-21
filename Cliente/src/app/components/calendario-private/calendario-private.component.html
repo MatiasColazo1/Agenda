@@ -4,14 +4,14 @@
     <div class='demo-app-sidebar-section'>
       <div class="navbar-nav">
         <li class="nav-item">
-          <a routerLink="/private"><i class='bx bx-log-out-circle'></i>Volvercito</a>
+          <a routerLink="/private"><i class='bx bx-log-out-circle'></i>Volver</a>
         </li>
       </div>
 
       <div class="navbar-nav">
         <li class="nav-item" (click)="toggleDarkMode()">
           <a ><i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode"
-           ></i>Lucesitas</a>
+           ></i>Luces</a>
         </li>
       </div>
 
@@ -21,7 +21,7 @@
     </div>
 
     <div class='demo-app-sidebar-section'>
-      <h2>Tdodos los eventos ({{currentEvents.length}})</h2>
+      <h2>Todos los eventos ({{currentEvents.length}})</h2>
       <ul>
         <li *ngFor='let event of currentEvents()'>
           <b>{{event.startStr}}</b>
