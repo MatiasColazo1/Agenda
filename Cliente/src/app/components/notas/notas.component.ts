@@ -1,14 +1,31 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ColoresService } from 'src/app/services/colores.service';
 
 @Component({
   selector: 'app-notas',
   templateUrl: './notas.component.html',
   styleUrls: ['./notas.component.css']
 })
-export class NotasComponent {
+export class NotasComponent implements OnInit, OnDestroy {
+  color: string = '';
+
+  private subscription: Subscription = new Subscription();
   @ViewChild('textareaElement') textareaElement!: ElementRef;
 
+  constructor(private colorService: ColoresService) { }
 
+  ngOnInit(): void {
+    this.subscription = this.colorService.currentColor.subscribe(color => {
+      this.color = color;
+  })
+}
+
+  ngOnDestroy(): void {
+    if (this.subscription){
+      this.subscription.unsubscribe();
+  }
+}
 
   copy() {
     // Obtener el texto del textarea
@@ -32,7 +49,7 @@ export class NotasComponent {
   }
 
 
-  download() {
+  download(): void {
     // Obtener el texto del textarea
     const textareaValue = this.textareaElement.nativeElement.value;
 
@@ -58,4 +75,5 @@ export class NotasComponent {
     document.body.removeChild(a);
   }
 
-}
+  }
+

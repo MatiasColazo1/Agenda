@@ -13,19 +13,24 @@ import { NombreService } from 'src/app/services/nombre.service';
 export class NavComponent implements OnInit {
 
   nombreUsuario: string = '';
+  backgroundColor: string = '';
 
   constructor(
     public authService: AuthService,
     public darkModeService: DarkModeService,
     private nombreService: NombreService,
-    private colorSevice: ColoresService
+    private colorService: ColoresService
   ) { }
 
   setColor(color: string) {
-    this.colorSevice.cambiarColor(color)
+    this.colorService.cambiarColor(color)
   }
 
   ngOnInit(): void {
+    this.colorService.currentBackgroundColor.subscribe(color => {
+      this.backgroundColor = color;
+    });
+
     this.nombreService.getUserDetails().subscribe(
       (response) => {
         console.log('Respuesta del servicio:', response); // Imprime la respuesta completa en la consola

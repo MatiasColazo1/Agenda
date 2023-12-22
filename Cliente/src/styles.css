@@ -56,6 +56,8 @@ body.dark-mode{
 }
 
 
+
+
 .rosa {
   background-color: #f10cd7 !important;
 }
@@ -66,6 +68,43 @@ body.dark-mode{
 
 .azul {
   background-color: #0d7dbefb !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rosaBackground {
+  background-color: #fcd4e0; /* Ejemplo de color rojo claro */
+}
+
+.verdeBackground {
+  background-color: #d0f0c0; /* Ejemplo de color verde claro */
+}
+
+.azulBackground {
+  background-color: #d0e0fc; /* Ejemplo de color azul claro */
+}
+
+/* Colores en modo oscuro */
+.dark-mode.rosaBackground {
+  background-color: #a64d79; /* Ejemplo de rosa oscuro */
+}
+
+.dark-mode.verdeBackground {
+  background-color: #006400; /* Ejemplo de verde oscuro */
+}
+
+.dark-mode.azulBackground {
+  background-color: #000000; /* Ejemplo de azul oscuro */
 }
 
 
