@@ -19,7 +19,7 @@
 
 .card {
   background-color: var(--color-principal);
-  border: solid 2px var(--color-detalles);
+  border: solid 2px var(--color-borde);
 }
 
 h1 {

@@ -26,7 +26,7 @@
 
 .card{
     cursor: pointer;
-    border: solid 2px var(--color-detalles);
+    border: solid 2px var(--color-borde);
 }
 .bx{
     font-size: 20px;

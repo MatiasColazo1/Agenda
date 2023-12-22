@@ -4,7 +4,7 @@
 }
 
 .card{
-    border: solid 2px var(--color-detalles);
+    border: solid 2px var(--color-borde);
 }
 
 ::ng-deep .mat-calendar-header{

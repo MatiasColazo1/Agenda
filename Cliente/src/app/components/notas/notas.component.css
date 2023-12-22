@@ -1,6 +1,6 @@
    .card{
     background-color: var(--color-terciario);
-    border: solid 2px  var(--color-detalles);
+    border: solid 2px  var(--color-borde);
    }
    
    .darksoul-window {
@@ -47,7 +47,7 @@
 
    .menu {
        background-color: var(--color-terciario);
-       border: solid 2px var(--color-detalles);
+       border: solid 2px var(--color-borde);
        width: 60px;
        padding: 0px 10px 0px 10px;
        height: 60%;
