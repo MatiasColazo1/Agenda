@@ -2,14 +2,16 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 body{
-  background: #ECE9E6;  
+  background: #FFF3E0;  
   background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  
   background: linear-gradient(to top, #FFFFFF, #ECE9E6); 
 }
 
 :root {
-  --color-principal: #42999B;
-  --color-secundario: #83C5BE;
+  --color-principal: #127475;
+  --color-secundario: #82BAA8 ;
+  --color-terciario: #4A978F;
+  --color-detalles: #F49A74;
 }
 
 

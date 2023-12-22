@@ -3,6 +3,10 @@
     cursor: pointer;
 }
 
+.card{
+    border: solid 2px var(--color-detalles);
+}
+
 ::ng-deep .mat-calendar-header{
     padding: 0 !important;
 }

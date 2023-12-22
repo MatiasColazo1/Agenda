@@ -49,7 +49,7 @@ b {
 }
 
 li a {
-  font-size: .8rem;
+  font-size: 1rem;
   color: #000;
 }
 
@@ -70,4 +70,13 @@ i {
 mat-checkbox {
   --mdc-checkbox-state-layer-size: none !important;
   margin-right: 10px;
+}
+
+::ng-deep .fc-day-today  {
+  background-color: red !important;
+}
+
+::ng-deep .fc-event-main{
+  background-color: green;
+  border: solid 2px black !important;
 }

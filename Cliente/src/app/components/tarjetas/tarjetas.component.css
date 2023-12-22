@@ -1,5 +1,5 @@
 .formato-card{
-    background-color: var(--color-secundario);;
+    background-color: var(--color-secundario);
 }
 
 .icono {
@@ -26,6 +26,7 @@
 
 .card{
     cursor: pointer;
+    border: solid 2px var(--color-detalles);
 }
 .bx{
     font-size: 20px;
