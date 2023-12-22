@@ -1,23 +1,19 @@
-<div class='demo-app'>
+<div class='demo-app' [class.dark-mode]="darkModeService.isDarkMode">
 
   <div class='demo-app-sidebar'>
     <div class='demo-app-sidebar-section'>
-      <div class="navbar-nav">
-        <li class="nav-item">
-          <a routerLink="/private"><i class='bx bx-log-out-circle'></i>Volver</a>
-        </li>
+
+      <div class="nav-item botones">
+        <a routerLink="/private"><i class='bx bx-log-out-circle'></i>Volver</a>
       </div>
 
-      <div class="navbar-nav">
-        <li class="nav-item" (click)="toggleDarkMode()">
-          <a ><i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode"
-           ></i>Luces</a>
-        </li>
+
+      <div class="nav-item botones" (click)="toggleDarkMode()">
+        <a><i class='bx bx-bulb' [class.dark-mode]="darkModeService.isDarkMode"></i>Luces</a>
       </div>
 
-      <label>
-        <input type='checkbox' [checked]='calendarOptions().weekends' (change)='handleWeekendsToggle()'/>Alternar fines de semanita
-      </label>
+
+      <mat-checkbox [checked]='calendarOptions().weekends' (change)='handleWeekendsToggle()' /> Alternar fines de semana
     </div>
 
     <div class='demo-app-sidebar-section'>

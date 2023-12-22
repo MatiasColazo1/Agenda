@@ -33,7 +33,7 @@ h2 {
   }
   
   .demo-app-sidebar-section {
-    padding: 2em;
+    padding: 1em;
   }
   
   .demo-app-main {
@@ -62,9 +62,6 @@ h2 {
     color: #4e4e4e;
   }
 
-  i{
-    margin-right: 10px;
-  }
-
-
-  
+  mat-checkbox {
+  --mdc-checkbox-state-layer-size: none !important;
+}
