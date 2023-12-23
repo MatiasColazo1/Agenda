@@ -2,6 +2,7 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+/*    FONDO DE PANTALLA MODO CLARO      */
 body{
   background: #FFF3E0;  
   background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  
@@ -78,26 +79,19 @@ body.dark-mode{
   --color-borde: #000000;
 }
 
-.azul {
-  background-color: #0d7dbefb !important;
-}
+.azul, .azulBackground {
+    --color-principal: #264653;
+    --color-secundario: #6a84a5;
+    --color-terciario: #4b5d74;
+    --color-detalles: #ffffff;
+    --color-borde: #1D3557;
+  }
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-.azulBackground {
-  background-color: #d0e0fc; /* Ejemplo de color azul claro */
-}
 
 /* Colores en modo oscuro */
 .dark-mode.rosaBackground {

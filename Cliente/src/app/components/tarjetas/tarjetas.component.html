@@ -4,22 +4,22 @@
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="titulo">{{tarjeta.titulo}}</h1>
         <div *ngIf="tarjeta.expandida">
-          <i class='bx bx-edit-alt' data-bs-toggle="modal" data-bs-target="#modalEditar"
+          <i class='bx bx-edit-alt icono' data-bs-toggle="modal" data-bs-target="#modalEditar"
             (click)="edit(tarjeta)" ></i>
-          <i class='bx bx-trash' data-bs-toggle="modal" data-bs-target="#modalEliminar"
+          <i class='bx bx-trash icono' data-bs-toggle="modal" data-bs-target="#modalEliminar"
              (click)="delete(tarjeta)"></i>
         </div>
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <p class="descripcion">{{tarjeta.descripcion}}</p>
         <div (click)="activarModoArrastrar(tarjeta)" *ngIf="tarjeta.expandida">
-          <i class='bx bx-move-vertical iconoMover'></i>
+          <i class='bx bx-move-vertical iconoMover icono'></i>
         </div>
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-end" [ngClass]="color">
-    <i class='icono bx bx-add-to-queue mb-3' data-bs-toggle="modal" data-bs-target="#exampleModal"
+  <div class="d-flex justify-content-end">
+    <i class='icono-agregar bx bx-add-to-queue mb-3' data-bs-toggle="modal" data-bs-target="#exampleModal"
       [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"></i>
   </div>
 </div>

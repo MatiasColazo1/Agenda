@@ -2,10 +2,6 @@
     background-color: var(--color-secundario);
 }
 
-.icono {
-    font-size: 24px;
-}
-
 .titulo {
     margin-left: 30px;
     overflow: hidden;
@@ -29,8 +25,13 @@
     cursor: pointer;
     border: solid 2px var(--color-borde);
 }
-.bx{
+
+.icono{
     font-size: 20px;
     margin-right: 10px;
     color: var(--color-detalles);
+}
+
+.icono-agregar {
+    font-size: 24px;
 }
