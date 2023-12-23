@@ -126,6 +126,7 @@ body.dark-mode{
  
 }
 
-.dark-mode-calendar3 .mat-calendar-body-selected {
+.dark-mode-calendar3 .mat-calendar-body-selected, .dark-mode-calendar3 .mat-calendar-table-header-divider::after {
   background-color: rgb(145, 104, 104) !important;
 }
+
