@@ -113,3 +113,19 @@ body.dark-mode{
 }
 
 
+
+
+
+.dark-mode-calendar  .mat-calendar, .dark-mode-calendar  .mat-calendar-table-header th, .dark-mode-calendar  .mat-calendar-body-label, .dark-mode-calendar .mat-calendar-body-cell::before, .dark-mode-calendar .mat-calendar-body-cell::after,.dark-mode-calendar  .mat-calendar-body-cell-container {
+  background-color: black;
+}
+
+.dark-mode-calendar2 .mat-calendar-body-cell-content, .dark-mode-calendar2 .mat-focus-indicator, .dark-mode-calendar2 th , .dark-mode-calendar2 td, .dark-mode-calendar2 button,.dark-mode-calendar2  .mat-calendar-arrow{
+ color: #fff !important;
+ fill: #fff !important;
+ 
+}
+
+.dark-mode-calendar3 .mat-calendar-body-selected {
+  background-color: rgb(145, 104, 104) !important;
+}
