@@ -1,15 +1,6 @@
-.bx{
-    font-size: 20px;
-    cursor: pointer;
-}
-
+/* BORDE CARD */
 .card{
-    border: solid 2px var(--color-borde);
+    border: solid 2px var(--color-bordes);
 }
-
-::ng-deep .mat-calendar-header{
-    padding: 0 !important;
-}
-
 
 
