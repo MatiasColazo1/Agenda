@@ -1,13 +1,16 @@
+/* COLOR DE LAS TARJETAS */
 .formato-card{
-    background-color: var(--color-secundario);
+    background-color: var(--color-tarjetas);
 }
 
+/* ESTILOS DEL TITULO */
 .titulo {
     margin-left: 30px;
     overflow: hidden;
     color: var(--color-detalles);
 }
 
+/* ESTILOS DE LA DESCRIPCION */
 .descripcion {
     margin-left: 50px;
     margin-right: 50px;
@@ -16,22 +19,26 @@
     color: var(--color-detalles);
 }
 
+/* ESTILOS DEL ICONO MOVER */
 .iconoMover {
     font-size: 20px;
     cursor: grab;
 }
 
+/* BORDE Y CURSOR DE LAS TARJETAS */
 .card{
     cursor: pointer;
-    border: solid 2px var(--color-borde);
+    border: solid 2px var(--color-bordes);
 }
 
+/* ESTILOS DE LOS ICONOS */
 .icono{
     font-size: 20px;
     margin-right: 10px;
     color: var(--color-detalles);
 }
 
+/* TAMAÑO DEL ICONO AGREGAR */
 .icono-agregar {
     font-size: 24px;
 }

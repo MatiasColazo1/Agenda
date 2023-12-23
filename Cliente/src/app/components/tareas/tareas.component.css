@@ -1,38 +1,25 @@
-/*Mat checkbox*/
-::ng-deep .mat-mdc-checkbox-touch-target {
-  top: 0 !important;
-  height: 0 !important;
-  left: 0 !important;
-  width: 0 !important;
-} 
-
-mat-checkbox {
-  margin-right: 10px; /* Puedes ajustar este valor según sea necesario */
-}
-
-* { box-sizing:border-box; }
-
-/* input*/
-
-input 		{
+/*         INPUT DE EDITAR TAREA          */
+/* FORMA DEL INPUT EDITAR */
+input {
   font-size:18px;
   padding:10px 10px 10px 5px;
   display:block;
-  width:300px;
   border:none;
   margin-right: 10px;
-  background-color: #FEF5E7;
 }
 
-input:focus { outline:none; }
+/* SACA EFECTO INNECESARIO AL INPUT*/
+input:focus { 
+  outline:none; 
+}
 
-/* borde abajo palabra span */
+/* BORDE ABAJO DEL SPAN */
 .bar {
   position: relative;
   display: inline-block;
-  
 }
 
+/* BORDE ABAJO DEL SPAN */
 .bar:before {
   content: "";
   position: absolute;
@@ -43,7 +30,7 @@ input:focus { outline:none; }
   background-color: inherit;  /* Reemplaza con el color que desees */
 }
 
-/* botones editar y cancelar*/
+/* BOTONES ACTUALIZAR, CANCELAR Y BORRAR*/
 .actualizar{
   color: rgb(0, 169, 0);
   font-size: 20px;
@@ -61,8 +48,8 @@ input:focus { outline:none; }
   margin-right: 10px;
 }
 
-/* Colores del check */
-/* verde */
+/*          COLORES DEL CHECK           */
+/* VERDE */
 ::ng-deep .mat-mdc-checkbox.mat-verde .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~  .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background{
@@ -78,7 +65,7 @@ input:focus { outline:none; }
   background-color: rgb(0, 203, 0);
 }
 
-/* azul */
+/* AZUL */
 ::ng-deep .mat-mdc-checkbox.mat-azul .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background{
@@ -94,7 +81,7 @@ input:focus { outline:none; }
   background-color: rgb(46, 49, 255);
 }
 
-/* rojo */
+/* ROJO */
 ::ng-deep .mat-mdc-checkbox.mat-rojo .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background{
@@ -111,7 +98,7 @@ input:focus { outline:none; }
 }
 
 
-/* violeta */
+/* VIOLETA */
 ::ng-deep .mat-mdc-checkbox.mat-violeta .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background{
@@ -127,7 +114,7 @@ input:focus { outline:none; }
   background-color: rgb(185, 0, 213);
 }
 
-/* naranja */
+/* NARANJA */
 ::ng-deep .mat-mdc-checkbox.mat-naranja .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background{
@@ -143,7 +130,7 @@ input:focus { outline:none; }
   background-color: rgb(250, 146, 0);
 }
 
-/* amarillo */
+/* AMARILLO */
 ::ng-deep .mat-mdc-checkbox.mat-amarillo .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background{
@@ -159,7 +146,7 @@ input:focus { outline:none; }
   background-color: rgb(238, 218, 0);
 }
 
-/* Celeste */
+/* CELESTE */
 ::ng-deep .mat-mdc-checkbox.mat-celeste .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background{
@@ -176,9 +163,10 @@ input:focus { outline:none; }
 }
 
 
-/* Checkbox active */
+/* COLOR DEL CHECKBOX PRESIONADO */
 ::ng-deep .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:active ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:active ~ .mdc-checkbox__background,
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled:active ~ .mdc-checkbox__background {
   background-color: transparent !important;
 }
+

@@ -6,7 +6,7 @@
         <span class="bar"  [class]="tarea.color + '-border'" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)"
           [class.dark-mode-text]="darkModeService.isDarkMode">{{tarea.titulo}} </span>
         <form [formGroup]="formGroup">
-          <input *ngIf="tareaEditando && tareaEditando._id === tarea._id" matInput formControlName="titulo">
+          <input *ngIf="tareaEditando && tareaEditando._id === tarea._id"  matInput formControlName="titulo">
         </form>
         <form class="d-flex aling-items-center justify-content-center" [formGroup]="formGroup"
           *ngIf="tareaEditando && tareaEditando._id === tarea._id">

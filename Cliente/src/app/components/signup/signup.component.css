@@ -1,97 +1,18 @@
-
+/*              CONTENEDOR DE SIGNIN            */
+/* BODY DEL SIGNIN */
 .body{
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 }
 
+/*  */
 .content{
 	flex: 1;
 }
 
-.banner{
-    max-width:30%;
-    margin-top: 0;
-    margin-bottom: 2%;
-    margin-left: auto;
-    margin-right: auto; 
-}
-
-
-.text-overlay{
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.titulo{
-    font-size: 50px;
-}
-
-.parrafo{
-    margin-top: 30px;
-    margin-bottom: 0;
-    font-size: 30px;
-}
-
-.bx-bulb{
-    cursor: pointer;
-    font-size: 25px;
-}
-
-.icono{
-    margin-right: 20px;
-    margin-top: 3px;
-    background-color: #CCA9F8;
-    
-}
-
-input {
-    background-color: #F7EFFF;
-}
-
-.btn{
-    background-color: #CCA9F8;
-    border: solid 2px #000;
-}
-
-
-.form-controll{
-    background-color: #F7EFFF;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    padding-right: 5px;
-    border: solid 2px #000;
-}
-.form-controll input{
-    display: inline;
-    border: none;
-    border-radius: 2px;
-    padding: 10px;
-    z-index: 1;
-    outline: none;
-
-}
-.form-controll .eyes{
-    width: 25px;
-    height: 25px;
-    border-radius: 200px;
-    display: inline-flex;
-    padding: 2px;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-
-
-
-
+/*              BANNER            */
+/* ANCHO DEL BANNER */
 .banner {
 	position: relative;
 	z-index: 1;
@@ -99,6 +20,7 @@ input {
 	width: 330px;
 }
 
+/* FORMA DEL BANNER */
 .banner .line {
 	margin: 0 0 10px;
 	width: 100%;
@@ -111,6 +33,7 @@ input {
 	transform: skew(0, -15deg);
 }
 
+/* EFECTO DE ATRAS DEL BANNER */
 .banner .line:after,
 .banner .line:first-child:before {
 	position: absolute;
@@ -126,12 +49,14 @@ input {
 	transform: skew(0, 15deg);
 }
 
+/* PARTE DE ARRIBA SOBRESALIENTE DEL BANNER */
 .banner .line:first-child:before {
 	top: -10px;
 	right: 0;
 	left: auto;
 }
 
+/* SOMBREADO DEL BANNER Y FORMA */
 .banner .line:first-child:before,
 .banner .line:last-child:after {
 	width: 0;
@@ -142,11 +67,13 @@ input {
 	background: transparent;
 }
 
+/* PARTE DE ABAJO SOBRESALIENTE DEL BANNER */
 .banner .line:last-child:after {
 	top: 12px;
 	border-color: transparent transparent rgba(180,180,180,0.8) rgba(180,180,180,0.8);
 }
 
+/* PAPEL PRINCIPAL DEL BANNER */
 .banner span {
 	display: block;
 	width: 100%;
@@ -155,4 +82,65 @@ input {
 	background: rgba(255,255,255,0.9);
 	color: #666;
 	text-shadow: 1px 1px 0 #444;
+}
+
+/* TAMAÑO Y CURSOR DEL FOCO */
+.bx-bulb{
+	cursor: pointer;
+	font-size: 25px;
+}
+
+
+/*           INICIAR SESIÓN                  */
+/* ICONOS DE USUARIO Y CONTRASEÑA */
+.icono{
+    margin-right: 20px;
+    margin-top: 3px;
+    background-color: #CCA9F8;
+}
+
+/* COLOR DE LOS INPUTS */
+input {
+    background-color: #F7EFFF;
+}
+
+/* ESTILOS DE LOS INPUTS */
+.form-controll{
+    background-color: #F7EFFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-right: 5px;
+    border: solid 2px #000;
+}
+
+/* TAMAÑO DEL INPUT */
+.form-controll input{
+	display: inline;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    z-index: 1;
+    outline: none;
+	
+}
+
+/* ENCERRAR EL OJO ADENTRO DEL INPUT */
+.form-controll .eyes{
+	width: 25px;
+    height: 25px;
+    border-radius: 200px;
+    display: inline-flex;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* BOTON DE INGRESAR */
+.btn{
+	background-color: #CCA9F8;
+	border: solid 2px #000;
 }
