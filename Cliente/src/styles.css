@@ -49,7 +49,7 @@ body.dark-mode {
 .verde,
 .verdeBackground {
   --color-banner: #1A472A;
-  --color-tarjetas: #2A623D;
+  --color-tarjetas: #3c8c57;
   --color-nota: #AAAAAA;
   --color-detalles: #EEEEEE;
   --color-bordes: #000000;
@@ -64,6 +64,17 @@ body.dark-mode {
   --color-detalles: #ffffff;
   --color-bordes: #1D3557;
 }
+
+/* COLORES TONO AZUL */
+.violeta,
+.violetaBackground {
+    --color-banner: #6A4C93; 
+    --color-tarjetas: #C996CC; 
+    --color-nota: #9D7BB5;
+    --color-detalles: #F2E1F1;
+    --color-bordes: #503285;
+  }
+
 
 /*                       MODO OSCURO                */
 /* TITULO */
