@@ -36,4 +36,6 @@ export class DarkModeService {
     this.isDarkMode = storedDarkMode ? JSON.parse(storedDarkMode) : false;
     this.applyDarkMode(this.isDarkMode);
   }
+
+  
 }

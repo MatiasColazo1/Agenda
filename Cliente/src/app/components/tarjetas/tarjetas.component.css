@@ -9,6 +9,7 @@
 .titulo {
     margin-left: 30px;
     overflow: hidden;
+    color: var(--color-detalles);
 }
 
 .descripcion {
@@ -16,7 +17,7 @@
     margin-right: 50px;
     font-size: 20px;
     overflow: hidden;
-
+    color: var(--color-detalles);
 }
 
 .iconoMover {
@@ -31,4 +32,5 @@
 .bx{
     font-size: 20px;
     margin-right: 10px;
+    color: var(--color-detalles);
 }

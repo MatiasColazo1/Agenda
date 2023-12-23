@@ -1,5 +1,6 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/sketchy/bootstrap.min.css';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 body{
   background: #FFF3E0;  
@@ -8,11 +9,11 @@ body{
 }
 
 :root {
-  --color-principal: #127475;
-  --color-secundario: #82BAA8 ;
-  --color-terciario: #4A978F;
-  --color-detalles: #ff7811;
-  --color-borde: #05ffe2;
+  --color-principal: #233D4D;
+  --color-secundario: #8D6262;
+  --color-terciario: #7EA2AA;
+  --color-detalles: #F1EDEE;
+  --color-borde: #505B5B;
 }
 
 
@@ -61,12 +62,20 @@ body.dark-mode{
 
 
 
-.rosa {
-  background-color: #f10cd7 !important;
+.rosa, .rosaBackground {
+  --color-principal: #FF87AB; 
+  --color-secundario: #FFC3D7; 
+  --color-terciario: #E45B78; 
+  --color-detalles: #000; 
+  --color-borde: #000; 
 }
 
-.verde {
-  background-color: #0ac82a !important;
+.verde, .verdeBackground {
+  --color-principal: #1A472A;
+  --color-secundario: #2A623D;
+  --color-terciario: #AAAAAA;
+  --color-detalles: #EEEEEE;
+  --color-borde: #000000;
 }
 
 .azul {
@@ -85,13 +94,6 @@ body.dark-mode{
 
 
 
-.rosaBackground {
-  background-color: #fcd4e0; /* Ejemplo de color rojo claro */
-}
-
-.verdeBackground {
-  background-color: #d0f0c0; /* Ejemplo de color verde claro */
-}
 
 .azulBackground {
   background-color: #d0e0fc; /* Ejemplo de color azul claro */
