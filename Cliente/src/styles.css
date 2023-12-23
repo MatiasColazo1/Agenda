@@ -2,125 +2,131 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-/*    FONDO DE PANTALLA MODO CLARO      */
-body{
-  background: #FFF3E0;  
-  background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  
-  background: linear-gradient(to top, #FFFFFF, #ECE9E6); 
+
+/*                       ESTILO PREDETERMINADOS HTML Y CSS                 */
+/* LINKS */
+.links {
+  text-decoration: none;
+
 }
 
-:root {
-  --color-principal: #233D4D;
-  --color-secundario: #8D6262;
-  --color-terciario: #7EA2AA;
-  --color-detalles: #F1EDEE;
-  --color-borde: #505B5B;
+/*                       FONDO DE PANTALLA                 */
+/* MODO CLARO */
+body {
+  background: #FFF3E0;
+  background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);
+  background: linear-gradient(to top, #FFFFFF, #ECE9E6);
 }
 
-
-body.dark-mode{
-  background: #232526;  
+/* MODO OSCURO */
+body.dark-mode {
+  background: #232526;
   background: -webkit-linear-gradient(to top, #414345, #232526);
-  background: linear-gradient(to top, #414345, #232526); 
+  background: linear-gradient(to top, #414345, #232526);
 }
 
-.links{
-    text-decoration: none;
-    
+/*                       COLORES PREDETERMINADOS                 */
+/* COLORES DEFAULT */
+:root {
+  --color-banner: #233D4D;
+  --color-tarjetas: #8D6262;
+  --color-nota: #7EA2AA;
+  --color-detalles: #F1EDEE;
+  --color-bordes: #505B5B;
 }
 
-.dark-mode-modal{
-  background-color: #6e5a72;
+/* COLORES TONO ROSA */
+.rosa,
+.rosaBackground {
+  --color-banner: #FF87AB;
+  --color-tarjetas: #FFC3D7;
+  --color-nota: #E45B78;
+  --color-detalles: #000;
+  --color-bordes: #000;
 }
 
+/* COLORES TONO VERDE */
+.verde,
+.verdeBackground {
+  --color-banner: #1A472A;
+  --color-tarjetas: #2A623D;
+  --color-nota: #AAAAAA;
+  --color-detalles: #EEEEEE;
+  --color-bordes: #000000;
+}
+
+/* COLORES TONO AZUL */
+.azul,
+.azulBackground {
+  --color-banner: #264653;
+  --color-tarjetas: #6a84a5;
+  --color-nota: #4b5d74;
+  --color-detalles: #ffffff;
+  --color-bordes: #1D3557;
+}
+
+/*                       MODO OSCURO                */
+/* TITULO */
 .dark-mode-titulo {
-    color: #fff;
-  }
-  
-.dark-mode-text {
-    color: #bcbcbc;
-  }
+  color: #fff;
+}
 
-.dark-mode-tarjetas{
+/* TEXTO */
+.dark-mode-text {
+  color: #bcbcbc;
+}
+
+/* TARJETAS */
+.dark-mode-tarjetas {
   background-color: #7d787b;
 }
 
-.dark-mode-check {
-  --mdc-checkbox-selected-pressed-icon-color: #ECE9E6;
-  --mdc-checkbox-unselected-focus-icon-color: #ECE9E6;
-  --mdc-checkbox-unselected-hover-icon-color: #ECE9E6;
-  --mdc-checkbox-disabled-selected-icon-color: #ECE9E6;
-  --mdc-checkbox-disabled-unselected-icon-color: #ECE9E6;
-  --mdc-checkbox-unselected-icon-color: #ECE9E6;
-  --mdc-checkbox-unselected-pressed-icon-color: #ECE9E6;
+/* MODAL */
+.dark-mode-modal {
+  background-color: #6e5a72;
 }
 
-
-.dark-mode-input{
+/* INPUT */
+.dark-mode-input {
   background-color: #b28da3;
 }
 
-
-
-
-.rosa, .rosaBackground {
-  --color-principal: #FF87AB; 
-  --color-secundario: #FFC3D7; 
-  --color-terciario: #E45B78; 
-  --color-detalles: #000; 
-  --color-borde: #000; 
+/* INPUT MODAL */
+.dark-mode-input-modal {
+  background-color: #b28da3;
 }
 
-.verde, .verdeBackground {
-  --color-principal: #1A472A;
-  --color-secundario: #2A623D;
-  --color-terciario: #AAAAAA;
-  --color-detalles: #EEEEEE;
-  --color-borde: #000000;
+/* CHECK BORDE */
+.dark-mode-check {
+  --mdc-checkbox-unselected-hover-icon-color: #afafaf; /* HOVER */
+  --mdc-checkbox-unselected-icon-color: #ffffff; /* ICONO */
+  --mdc-checkbox-unselected-pressed-icon-color: #696969; /* ICONO PRESIONAR */
 }
 
-.azul, .azulBackground {
-    --color-principal: #264653;
-    --color-secundario: #6a84a5;
-    --color-terciario: #4b5d74;
-    --color-detalles: #ffffff;
-    --color-borde: #1D3557;
-  }
-
-
-
-
-
-
-
-/* Colores en modo oscuro */
-.dark-mode.rosaBackground {
-  background-color: #a64d79; /* Ejemplo de rosa oscuro */
-}
-
-.dark-mode.verdeBackground {
-  background-color: #006400; /* Ejemplo de verde oscuro */
-}
-
-.dark-mode.azulBackground {
-  background-color: #000000; /* Ejemplo de azul oscuro */
-}
-
-
-
-
-
-.dark-mode-calendar  .mat-calendar, .dark-mode-calendar  .mat-calendar-table-header th, .dark-mode-calendar  .mat-calendar-body-label, .dark-mode-calendar .mat-calendar-body-cell::before, .dark-mode-calendar .mat-calendar-body-cell::after,.dark-mode-calendar  .mat-calendar-body-cell-container {
+/* CALENDARIO FONDO */
+.dark-mode-calendar .mat-calendar,
+.dark-mode-calendar .mat-calendar-table-header th,
+.dark-mode-calendar .mat-calendar-body-label,
+.dark-mode-calendar .mat-calendar-body-cell::before,
+.dark-mode-calendar .mat-calendar-body-cell::after,
+.dark-mode-calendar .mat-calendar-body-cell-container {
   background-color: black;
 }
 
-.dark-mode-calendar2 .mat-calendar-body-cell-content, .dark-mode-calendar2 .mat-focus-indicator, .dark-mode-calendar2 th , .dark-mode-calendar2 td, .dark-mode-calendar2 button,.dark-mode-calendar2  .mat-calendar-arrow{
- color: #fff !important;
- fill: #fff !important;
- 
+/* CALENDARIO TEXTO */
+.dark-mode-calendar2 .mat-calendar-body-cell-content,
+.dark-mode-calendar2 .mat-focus-indicator,
+.dark-mode-calendar2 th,
+.dark-mode-calendar2 td,
+.dark-mode-calendar2 button,
+.dark-mode-calendar2 .mat-calendar-arrow {
+  color: #fff !important;
+  fill: #fff !important;
+
 }
 
-.dark-mode-calendar3 .mat-calendar-body-selected, .dark-mode-calendar3 .mat-calendar-table-header-divider::after {
+/* CALENDARIO SELECCIONAR */
+.dark-mode-calendar3 .mat-calendar-body-selected,
+.dark-mode-calendar3 .mat-calendar-table-header-divider::after {
   background-color: rgb(145, 104, 104) !important;
 }
-
