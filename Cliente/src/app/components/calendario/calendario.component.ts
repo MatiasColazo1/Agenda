@@ -10,6 +10,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
   templateUrl: './calendario.component.html',
   styleUrls: ['./calendario.component.css'],
 })
+
 export class CalendarioComponent implements OnInit, OnDestroy {
   selected: Date | null = null;
   color: string = '';

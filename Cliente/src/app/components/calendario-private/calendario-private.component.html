@@ -16,7 +16,7 @@
 
       <div class="navbar-nav">
         <li class="nav-item botones">
-          <a><mat-checkbox [checked]='calendarOptions().weekends' (change)='handleWeekendsToggle()' />Alternar fines de
+          <a><mat-checkbox [checked]='calendarOptions().weekends' (change)='handleWeekendsToggle()'/>Alternar fines de
             semana</a>
         </li>
       </div>
@@ -27,7 +27,7 @@
       <ul>
         <li *ngFor='let event of currentEvents()'>
           <p>{{event.startStr}}</p>
-          <i>{{event.title}}</i>
+          <p>{{event.title}}</p>
         </li>
       </ul>
     </div>
