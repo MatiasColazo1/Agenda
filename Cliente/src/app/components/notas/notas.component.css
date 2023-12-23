@@ -1,87 +1,89 @@
-   .card{
-    background-color: var(--color-terciario);
-    border: solid 2px  var(--color-borde);
-   }
-   
-   .darksoul-window {
-       margin: auto;
-       width: 100%;
-       height: 100%;
-       display: flex;
-       flex-direction: column;
-       border-radius: 15px;
-       background-color: var(--color-terciario);
-   }
+/* CONTENEDOR NOTA */
+.card {
+    background-color: var(--color-nota);
+    border: solid 2px var(--color-bordes);
+}
 
-   .darksoul-menubar {
-       display: flex;
-       height: 50px;
-       width: 100%;
-       background-color: var(--color-terciario);
-       align-items: center;
-       border-radius: 30%;
-   }
+/* CONTENEDOR TEXTAREA Y BOTONES */
+.darksoul-window {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: var(--color-nota);
+}
 
-   .darksoul-textarea {
-       height: 100%;
-       width: 100%;
-       display: flex;
-       margin-top: 10px;
-   }
+/* MENU NOTA */
+.darksoul-menubar {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: var(--color-nota);
+    align-items: center;
+    border-radius: 30%;
+}
 
-   textarea {
-       margin: auto;
-       width: 98%;
-       height: 170px;
-       font-size: large;
-       background-color: var(--color-terciario);
-       border: none;
-       outline: none;
-       font-weight: 500;
-       color: rgb(0, 0, 0);
-       padding-left: 20px;
-       padding-right: 20px;
-    
-   }
+/* CONTIENE TEXTAREA */
+.darksoul-textarea {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+
+/* TEXTAREA */
+textarea {
+    margin: auto;
+    width: 98%;
+    height: 170px;
+    font-size: large;
+    background-color: var(--color-nota);
+    border: none;
+    outline: none;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+/* BOTONES DE MENU */
+.menu {
+    background-color: var(--color-nota);
+    border: solid 2px var(--color-bordes);
+    width: 60px;
+    padding: 0px 10px 0px 10px;
+    height: 60%;
+    display: flex;
+    margin-left: 1px;
+    border-radius: 2px;
+    margin-left: 10px;
+    z-index: 10;
+}
 
 
-   .menu {
-       background-color: var(--color-terciario);
-       border: solid 2px var(--color-borde);
-       width: 60px;
-       padding: 0px 10px 0px 10px;
-       height: 60%;
-       display: flex;
-       margin-left: 1px;
-       border-radius: 2px;
-       margin-left: 10px;
-       z-index: 10;
-   }
+/* CURSOR DE LOS BOTONES*/
+.menu:hover {
+    cursor: pointer;
+}
 
-   .menu p {
-       margin: auto;
-       width: fit-content;
-       z-index: 10;
-   }
+/*      SCROLL DEL TEXTAREA           */
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
 
-   .menu:hover {
-       cursor: pointer;
-   }
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: var(--color-nota);
+}
 
-   /* width */
-   ::-webkit-scrollbar {
-       width: 8px;
-   }
-
-   /* Track */
-   ::-webkit-scrollbar-track {
-       background-color: var(--color-terciario);;
-   }
-
-   /* Handle */
-   ::-webkit-scrollbar-thumb {
-       background: lightblue;
-       border-radius: 10px;
-       height: 10px;
-       width: 5px;
-   }
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: lightblue;
+    border-radius: 10px;
+    height: 10px;
+    width: 5px;
+}

@@ -1,3 +1,4 @@
+/* FOOTER CONTENEDOR */
 footer {
   margin-top:auto;
   bottom: 0;
@@ -6,42 +7,16 @@ footer {
 
 }
 
-.icono {
-  margin: 0 5px;
-  font-size: 30px;
-}
-
+/* BORDE DEL FOOTER */
 .navbar{
   border-style:none !important;
   border-width: 0 !important;
   border-radius:0 !important;
 }
 
-  /*Añade estilos para el contenedor principal del footer 
-  .footer-container {
-    display: flex;
-    flex-direction: column;S
-    align-items: center;
-    text-align: center;
-  }
-  
-  .separador {
-    border-top: 2px solid #000000;
-    width: 50%;
-    margin: 10px 0;
-  }
-  /* Estilos para la línea de separación
-  
-  /* Estilos para los iconos 
-  .iconos-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  
-  /* Resto de estilos 
-  .navegacion,
-  .boton {
-    margin: 10px;
-  }
-*/
+/* ICONOS DEL FOOTER */
+.icono {
+  margin: 0 5px;
+  font-size: 30px;
+}
+
