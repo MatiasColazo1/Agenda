@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <div class='demo-app-main'>
+  <div class='demo-app-main' [class.dark-mode-text]="darkModeService.isDarkMode">
     <full-calendar *ngIf='calendarVisible()' [options]='calendarOptions()'>
       <ng-template #eventContent let-arg>
         <b>{{ arg.timeText }}</b>

@@ -42,3 +42,22 @@
 .icono-agregar {
     font-size: 24px;
 }
+
+
+/*           MODAL AGREGAR, EDITAR, ELIMINAR           */
+/* COLOR PRINCIPAL */
+.modal-content{
+    background-color: var(--color-banner);
+    color: var(--color-detalles);
+}
+
+/* COLOR DE INPUT ITUTLO */
+.input-titulo{
+    background-color: var(--color-tarjetas);
+}
+
+/* COLOR DE TEXTAREA DESCRIPCION */
+.textarea-descripcion{
+    background-color: var(--color-tarjetas);
+}
+

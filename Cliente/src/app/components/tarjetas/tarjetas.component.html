@@ -26,26 +26,25 @@
 
 
 <!-- Modal agregar -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" [ngClass]="color" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" [class.dark-mode-modal]="darkModeService.isDarkMode">
+    <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel" [class.dark-mode-text]="darkModeService.isDarkMode">Agregar
+        <h1 class="modal-title fs-5" id="exampleModalLabel" >Agregar
           Tarjeta Nueva</h1>
       </div>
       <div class="modal-body">
 
         <form>
           <div class="mb-3">
-            <label for="titulo" class="form-label" [class.dark-mode-text]="darkModeService.isDarkMode">Título</label>
-            <input type="text" class="form-control" id="titulo" [(ngModel)]="nuevaTarjeta.titulo" name="titulo"
-              [class.dark-mode-input]="darkModeService.isDarkMode">
+            <label for="titulo" class="form-label">Título</label>
+            <input type="text" class="form-control input-titulo" id="titulo" [(ngModel)]="nuevaTarjeta.titulo" name="titulo"
+              >
           </div>
           <div class="mb-3">
-            <label for="descripcion" class="form-label"
-              [class.dark-mode-text]="darkModeService.isDarkMode">Descripción</label>
-            <textarea class="form-control" id="descripcion" [(ngModel)]="nuevaTarjeta.descripcion" name="descripcion"
-              [class.dark-mode-input]="darkModeService.isDarkMode"></textarea>
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control textarea-descripcion" id="descripcion" [(ngModel)]="nuevaTarjeta.descripcion" name="descripcion"
+             ></textarea>
           </div>
         </form>
       </div>
@@ -58,11 +57,11 @@
 </div>
 
 <!-- Modal eliminar -->
-<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEliminar" [ngClass]="color" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" [class.dark-mode-modal]="darkModeService.isDarkMode">
+    <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel" [class.dark-mode-text]="darkModeService.isDarkMode">¿Está
+        <h1 class="modal-title fs-5" id="exampleModalLabel">¿Está
           seguro de ELIMINAR esta tarjeta?</h1>
       </div>
       <div class="modal-footer">
@@ -74,26 +73,24 @@
 </div>
 
 <!-- Modal editar -->
-<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditar" [ngClass]="color" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" [class.dark-mode-modal]="darkModeService.isDarkMode">
+    <div class="modal-content" >
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel" [class.dark-mode-text]="darkModeService.isDarkMode">Editar
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar
           tarjeta</h1>
       </div>
       <div class="modal-body">
 
         <form [formGroup]="formGroup">
           <div class="mb-3">
-            <label for="titulo" class="form-label" [class.dark-mode-text]="darkModeService.isDarkMode">Título</label>
-            <input type="text" class="form-control" id="titulo" formControlName="titulo"
-              [class.dark-mode-input]="darkModeService.isDarkMode">
+            <label for="titulo" class="form-label" >Título</label>
+            <input type="text" class="form-control input-titulo" id="titulo" formControlName="titulo">
           </div>
           <div class="mb-3">
-            <label for="descripcion" class="form-label"
-              [class.dark-mode-text]="darkModeService.isDarkMode">Descripción</label>
-            <textarea class="form-control" id="descripcion" formControlName="descripcion"
-              [class.dark-mode-input]="darkModeService.isDarkMode"></textarea>
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control textarea-descripcion" id="descripcion" formControlName="descripcion"
+              ></textarea>
           </div>
         </form>
       </div>

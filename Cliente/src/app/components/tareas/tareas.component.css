@@ -17,6 +17,7 @@ input:focus {
 .bar {
   position: relative;
   display: inline-block;
+  margin-bottom: 10px;
 }
 
 /* BORDE ABAJO DEL SPAN */

@@ -13,16 +13,12 @@
 /*                       FONDO DE PANTALLA                 */
 /* MODO CLARO */
 body {
-  background: #FFF3E0;
-  background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);
-  background: linear-gradient(to top, #FFFFFF, #ECE9E6);
+  background: #ffffff;
 }
 
 /* MODO OSCURO */
 body.dark-mode {
   background: #232526;
-  background: -webkit-linear-gradient(to top, #414345, #232526);
-  background: linear-gradient(to top, #414345, #232526);
 }
 
 /*                       COLORES PREDETERMINADOS                 */
@@ -99,13 +95,15 @@ body.dark-mode {
 
 /* INPUT */
 .dark-mode-input {
-  background-color: #b28da3;
+  background-color: #232526;
+  color: #FFF;
 }
 
 /* INPUT MODAL */
 .dark-mode-input-modal {
   background-color: #b28da3;
 }
+
 
 /* CHECK BORDE */
 .dark-mode-check {
