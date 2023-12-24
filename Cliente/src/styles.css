@@ -139,3 +139,10 @@ body.dark-mode {
 .dark-mode-calendar3 .mat-calendar-table-header-divider::after {
   background-color: rgb(145, 104, 104) !important;
 }
+
+
+/*            LOGO PINKY           */
+.pinky {
+  height: 30px;
+  width: 30px;
+}
