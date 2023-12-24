@@ -3,4 +3,6 @@
     border: solid 2px var(--color-bordes);
 }
 
-
+.card:hover{
+    transform: scale(1.01);
+}

@@ -87,3 +87,8 @@ textarea {
     height: 10px;
     width: 5px;
 }
+
+
+.card:hover{
+    transform: scale(1.01);
+}

@@ -1,7 +1,9 @@
 /* CONTENEDOR BANNER */
 .card {
   background-color: var(--color-banner);
-  border: solid 2px var(--color-bordes);
+  border: none;
+  border-bottom: solid 2px var(--color-bordes);
+  border-radius: 0 ;
 }
 
 /* TITULO BANNER */
