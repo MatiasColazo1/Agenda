@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { DateSelectArg, EventApi, EventClickArg } from 'fullcalendar';
@@ -8,13 +8,17 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { INITIAL_EVENTS, createEventId } from 'src/app/event-utils';
 import esLocale from '@fullcalendar/core/locales/es';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { ColoresService } from 'src/app/services/colores.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-calendario-private',
   templateUrl: './calendario-private.component.html',
   styleUrls: ['./calendario-private.component.css']
 })
-export class CalendarioPrivateComponent implements OnInit {
+export class CalendarioPrivateComponent implements OnInit, OnDestroy {
+  color: string = '';
+  private subscription: Subscription = new Subscription();
   calendarVisible = signal(true);
   calendarOptions = signal<CalendarOptions>({
     plugins: [
@@ -45,13 +49,22 @@ export class CalendarioPrivateComponent implements OnInit {
     eventRemove:
     */
   });
+  
   currentEvents = signal<EventApi[]>([]);
 
-  constructor(private changeDetector: ChangeDetectorRef, public darkModeService: DarkModeService) {
+  constructor(private changeDetector: ChangeDetectorRef, public darkModeService: DarkModeService, private colorService: ColoresService) {
   }
 
   ngOnInit(): void {
-    
+    this.subscription = this.colorService.currentColor.subscribe(color => {
+      this.color = color;
+    })
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription){
+      this.subscription.unsubscribe();
+    }
   }
 
   toggleDarkMode(){

@@ -14,8 +14,7 @@ import { ColoresService } from 'src/app/services/colores.service';
 })
 export class TarjetasComponent implements OnInit, OnDestroy {
   color: string = '';
-
-
+  
   private subscription: Subscription = new Subscription();
   public modalDelete: boolean = false;
   public modalEdit: boolean = false;
