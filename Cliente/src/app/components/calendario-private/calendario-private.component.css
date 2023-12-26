@@ -53,7 +53,7 @@ li {
 }
 li a {
   font-size: 1rem;
-  color: #000;
+  color: var(--color-detalles);
 }
 
 a {
@@ -77,11 +77,21 @@ mat-checkbox {
 }
 
 ::ng-deep .fc-day-today  {
-  background-color: red !important;
+  background-color: var(--color-tarjetas) !important;
 }
 
 ::ng-deep .fc-event-main{
-  background-color: green;
+  background-color: var(--color-nota);
   border: solid 2px black !important;
 }
 
+.demo-app-sidebar {
+  background-color: var(--color-banner);
+  color: var(--color-detalles);
+}
+
+
+::ng-deep .fc .fc-button-primary {
+  background-color: var(--color-nota) !important;
+  color: var(--color-detalles);
+}

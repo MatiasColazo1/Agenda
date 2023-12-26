@@ -52,15 +52,15 @@ textarea {
 /* BOTONES DE MENU */
 .menu {
     background-color: var(--color-nota);
-    border: solid 2px var(--color-bordes);
-    width: 60px;
-    padding: 0px 10px 0px 10px;
+    border: solid 2px var(--color-detalles);
     height: 60%;
+    padding: 8px;
     display: flex;
     margin-left: 1px;
     border-radius: 2px;
     margin-left: 10px;
     z-index: 10;
+    font-size: 20px;
 }
 
 
