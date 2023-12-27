@@ -95,17 +95,17 @@
 .icono{
     margin-right: 20px;
     margin-top: 3px;
-    background-color: #0ec8d5;
+    background-color: #CCA9F8;
 }
 
 /* COLOR DE LOS INPUTS */
 input {
-    background-color: #dbf6fc;
+    background-color: #F7EFFF;
 }
 
 /* ESTILOS DE LOS INPUTS */
 .form-controll{
-    background-color: #dbf6fc;
+    background-color: #F7EFFF;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -140,6 +140,6 @@ input {
 
 /* BOTON DE INGRESAR */
 .btn{
-	background-color: #0ec8d5;
+	background-color: #CCA9F8;
 	border: solid 2px #000;
 }
