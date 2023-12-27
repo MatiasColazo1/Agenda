@@ -29,7 +29,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'schedule_event',
+    path: 'calendario',
     component: CalendarioPrivateComponent,
     canActivate: [AuthGuard]
   }

@@ -9,7 +9,7 @@
     <div class="btn-group d-flex justify-content-center">
     <i class='bx bx-bulb' [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="luz" popoverTitle="Luz" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" (click)="toggleDarkMode()"></i>
     <ng-template #luz>Apagar/Prender iluminación</ng-template>
-    <i class='bx bx-calendar'  [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="calendar" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/schedule_event"></i>
+    <i class='bx bx-calendar'  [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="calendar" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/calendario"></i>
     <ng-template #calendar>Organiza tus días</ng-template>
     
 

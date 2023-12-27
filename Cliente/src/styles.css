@@ -24,11 +24,16 @@ body.dark-mode {
 /*                       COLORES PREDETERMINADOS                 */
 /* COLORES DEFAULT */
 :root {
-  --color-banner: #89CFF0; /* Celeste */
-  --color-tarjetas: #B2E2F2; /* Celeste Claro */
-  --color-nota: #5DADEC; /* Celeste Intenso */
-  --color-detalles: #000; /* Blanco */
-  --color-bordes: #D6EAF8; /* Celeste Muy Claro */
+  --color-banner: #89CFF0;
+  /* Celeste */
+  --color-tarjetas: #B2E2F2;
+  /* Celeste Claro */
+  --color-nota: #5DADEC;
+  /* Celeste Intenso */
+  --color-detalles: #000;
+  /* Blanco */
+  --color-bordes: #D6EAF8;
+  /* Celeste Muy Claro */
 }
 
 /* COLORES TONO ROSA */
@@ -64,12 +69,12 @@ body.dark-mode {
 /* COLORES TONO AZUL */
 .violeta,
 .violetaBackground {
-    --color-banner: #6A4C93; 
-    --color-tarjetas: #C996CC; 
-    --color-nota: #9D7BB5;
-    --color-detalles: #F2E1F1;
-    --color-bordes: #503285;
-  }
+  --color-banner: #6A4C93;
+  --color-tarjetas: #C996CC;
+  --color-nota: #9D7BB5;
+  --color-detalles: #F2E1F1;
+  --color-bordes: #503285;
+}
 
 
 /*                       MODO OSCURO                */
@@ -107,42 +112,45 @@ body.dark-mode {
 
 /* CHECK BORDE */
 .dark-mode-check {
-  --mdc-checkbox-unselected-hover-icon-color: #afafaf; /* HOVER */
-  --mdc-checkbox-unselected-icon-color: #ffffff; /* ICONO */
-  --mdc-checkbox-unselected-pressed-icon-color: #696969; /* ICONO PRESIONAR */
+  --mdc-checkbox-unselected-hover-icon-color: #afafaf;
+  /* HOVER */
+  --mdc-checkbox-unselected-icon-color: #ffffff;
+  /* ICONO */
+  --mdc-checkbox-unselected-pressed-icon-color: #696969;
+  /* ICONO PRESIONAR */
 }
 
 /* CALENDARIO FONDO */
-.dark-mode-calendar .mat-calendar,
-.dark-mode-calendar .mat-calendar-table-header th,
-.dark-mode-calendar .mat-calendar-body-label,
-.dark-mode-calendar .mat-calendar-body-cell::before,
-.dark-mode-calendar .mat-calendar-body-cell::after,
-.dark-mode-calendar .mat-calendar-body-cell-container {
-  background-color: black;
+.mat-calendar,
+.mat-calendar-table-header th,
+.mat-calendar-body-label,
+.mat-calendar-body-cell::before,
+.mat-calendar-body-cell::after,
+.mat-calendar-body-cell-container {
+  background-color: var(--color-banner);
 }
 
 /* CALENDARIO TEXTO */
-.dark-mode-calendar2 .mat-calendar-body-cell-content,
-.dark-mode-calendar2 .mat-focus-indicator,
-.dark-mode-calendar2 th,
-.dark-mode-calendar2 td,
-.dark-mode-calendar2 button,
-.dark-mode-calendar2 .mat-calendar-arrow {
-  color: #fff !important;
-  fill: #fff !important;
+.mat-calendar-body-cell-content,
+.mat-focus-indicator,
+th,
+td,
+button,
+.mat-calendar-arrow {
+  color: var(--color-detalles) !important;
+  fill: var(--color-detalles) !important;
 
 }
 
 /* CALENDARIO SELECCIONAR */
-.dark-mode-calendar3 .mat-calendar-body-selected,
-.dark-mode-calendar3 .mat-calendar-table-header-divider::after {
-  background-color: rgb(178, 152, 231) !important;
+.mat-calendar-body-selected,
+.mat-calendar-table-header-divider::after {
+  background-color: var(--color-nota) !important;
 }
 
 /* BORDE SELECCIONADO CALENDARIO */
-.dark-mode-calendar3 .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
-  border-color: #fff !important;
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  border-color: var(--color-detalles) !important;
 }
 
 /*            LOGO PINKY           */
@@ -150,3 +158,4 @@ body.dark-mode {
   height: 30px;
   width: 30px;
 }
+

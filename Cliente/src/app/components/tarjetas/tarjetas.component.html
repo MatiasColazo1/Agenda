@@ -1,3 +1,4 @@
+<h1 [class.dark-mode-text]="darkModeService.isDarkMode">Tarjetas</h1>
 <div>
   <div cdkDropList (cdkDropListDropped)="drop($event)" >
     <div class="card formato-card mb-3" [ngClass]="color" *ngFor="let tarjeta of tarjetas" (click)="toggleTarjeta(tarjeta)" cdkDrag >

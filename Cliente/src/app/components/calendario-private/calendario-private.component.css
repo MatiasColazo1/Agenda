@@ -76,9 +76,6 @@ mat-checkbox {
   margin-right: 10px;
 }
 
-::ng-deep .fc-day-today  {
-  background-color: var(--color-tarjetas) !important;
-}
 
 ::ng-deep .fc-event-main{
   background-color: var(--color-nota);
@@ -94,4 +91,28 @@ mat-checkbox {
 ::ng-deep .fc .fc-button-primary {
   background-color: var(--color-nota) !important;
   color: var(--color-detalles);
+}
+
+
+
+
+
+
+
+
+
+::ng-deep .fc-scrollgrid-sync-inner {
+  background-color: var(--color-tarjetas);
+}
+
+::ng-deep .fc-day-today .fc-scrollgrid-sync-inner  {
+  background-color: var(--color-nota) !important;
+}
+
+::ng-deep .fc-theme-standard .fc-scrollgrid {
+  border: solid 1px var(--color-bordes);
+}
+
+::ng-deep .fc-timegrid-axis {
+  background-color: var(--color-tarjetas);
 }

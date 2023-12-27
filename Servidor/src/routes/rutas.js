@@ -9,6 +9,7 @@ const Tarjeta = require('../models/Tarjetas');
 
 const Tarea = require('../models/Tareas');
 
+const Evento = require('../models/Eventos');
 
 router.get('/', (req, res) => res.send('Hola mundo'));
 
@@ -239,6 +240,78 @@ router.delete('/tarea/:id', verifyToken, async (req, res) => {
         res.status(200).json({ message: 'Tarea eliminada con éxito', deleteTarea });
     } catch (error) {
         res.status(500).json({ error: 'Error al eliminar la tarea', details: error.message });
+    }
+});
+
+// -------------------- Eventos ----------------------- //
+
+// CREAR EVENTO
+router.post('/calendario', verifyToken, async (req, res) => {
+    const { titulo, descripcion, inicio, fin } = req.body;
+    const userId = req.userUd;
+
+    const nuevoEvento = new Evento({
+        titulo,
+        descripcion,
+        inicio,
+        fin,
+        usuario: userId
+    });
+
+    try {
+        await nuevoEvento.save();
+        res.status(200).json(nuevoEvento);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al crear el evento', details: error.message });
+    }
+});
+
+// OBTENER EVENTOS
+router.get('/calendario', verifyToken, async (req, res) => {
+    const userId = req.userUd;
+    try {
+        const eventos = await Evento.find({ usuario: userId });
+        res.status(200).json(eventos);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener los eventos', details: error.message });
+    }
+});
+
+// ACTUALIZAR EVENTO
+router.put('/calendario/:id', verifyToken, async (req, res) => {
+    const { titulo, descripcion, inicio, fin } = req.body;
+    const eventoId = req.params.id;
+
+    try {
+        const evento = await Evento.findByIdAndUpdate(eventoId, {
+            titulo,
+            descripcion,
+            inicio,
+            fin
+        }, { new: true });
+
+        if (!evento) {
+            return res.status(404).json({ message: 'Evento no encontrado' });
+        }
+        res.status(200).json(evento);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al actualizar el evento', details: error.message });
+    }
+});
+
+// ELIMINAR EVENTO
+router.delete('/calendario/:id', verifyToken, async (req, res) => {
+    const eventoId = req.params.id;
+
+    try {
+        const deleteEvento = await Evento.findByIdAndDelete(eventoId);
+
+        if (!deleteEvento) {
+            return res.status(404).json({ message: 'Evento no encontrado' });
+        }
+        res.status(200).json({ message: 'Evento eliminado con éxito', deleteEvento });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al eliminar el evento', details: error.message });
     }
 });
 

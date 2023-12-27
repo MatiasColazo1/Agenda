@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, OnInit, OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ColoresService } from 'src/app/services/colores.service';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 @Component({
   selector: 'app-notas',
@@ -13,7 +14,7 @@ export class NotasComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   @ViewChild('textareaElement') textareaElement!: ElementRef;
 
-  constructor(private colorService: ColoresService) { }
+  constructor(private colorService: ColoresService, public darkModeService: DarkModeService) { }
 
   ngOnInit(): void {
     this.subscription = this.colorService.currentColor.subscribe(color => {
