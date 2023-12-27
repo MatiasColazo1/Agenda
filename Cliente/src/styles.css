@@ -25,15 +25,14 @@ body.dark-mode {
 /* COLORES DEFAULT */
 :root {
   --color-banner: #89CFF0;
-  /* Celeste */
   --color-tarjetas: #B2E2F2;
-  /* Celeste Claro */
   --color-nota: #5DADEC;
-  /* Celeste Intenso */
   --color-detalles: #000;
-  /* Blanco */
   --color-bordes: #D6EAF8;
-  /* Celeste Muy Claro */
+  --color-calendario: #5DADEC;
+  --color-calendario-btn: #7fc6fc;
+  --color-calendario-dia: #7fc6fc;
+  --color-calendario-evento: #7fc6fc;
 }
 
 /* COLORES TONO ROSA */
@@ -44,6 +43,10 @@ body.dark-mode {
   --color-nota: #E45B78;
   --color-detalles: #000;
   --color-bordes: #000;
+  --color-calendario: #E45B78;
+  --color-calendario-btn: #e39fb6;
+  --color-calendario-dia: #e39fb6;
+  --color-calendario-evento: #e39fb6;
 }
 
 /* COLORES TONO VERDE */
@@ -54,6 +57,10 @@ body.dark-mode {
   --color-nota: #AAAAAA;
   --color-detalles: #EEEEEE;
   --color-bordes: #000000;
+  --color-calendario: #3c8c57;
+  --color-calendario-btn: #AAAAAA;
+  --color-calendario-dia: #AAAAAA;
+  --color-calendario-evento: #AAAAAA;
 }
 
 /* COLORES TONO AZUL */
@@ -64,6 +71,10 @@ body.dark-mode {
   --color-nota: #4b5d74;
   --color-detalles: #ffffff;
   --color-bordes: #1D3557;
+  --color-calendario: #6a84a5;
+  --color-calendario-btn: #4b5d74;
+  --color-calendario-dia: #4b5d74;
+  --color-calendario-evento: #4b5d74;
 }
 
 /* COLORES TONO AZUL */
@@ -74,6 +85,10 @@ body.dark-mode {
   --color-nota: #9D7BB5;
   --color-detalles: #F2E1F1;
   --color-bordes: #503285;
+  --color-calendario: #C996CC;
+  --color-calendario-btn: #9D7BB5;
+  --color-calendario-dia: #9D7BB5;
+  --color-calendario-evento: #9D7BB5;
 }
 
 

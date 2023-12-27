@@ -77,10 +77,6 @@ mat-checkbox {
 }
 
 
-::ng-deep .fc-event-main{
-  background-color: var(--color-nota);
-  border: solid 2px black !important;
-}
 
 .demo-app-sidebar {
   background-color: var(--color-banner);
@@ -88,10 +84,6 @@ mat-checkbox {
 }
 
 
-::ng-deep .fc .fc-button-primary {
-  background-color: var(--color-nota) !important;
-  color: var(--color-detalles);
-}
 
 
 
@@ -102,17 +94,20 @@ mat-checkbox {
 
 
 ::ng-deep .fc-scrollgrid-sync-inner {
-  background-color: var(--color-tarjetas);
+  background-color: var(--color-calendario);
 }
 
 ::ng-deep .fc-day-today .fc-scrollgrid-sync-inner  {
-  background-color: var(--color-nota) !important;
+  background-color: var(--color-calendario-dia) !important;
 }
 
-::ng-deep .fc-theme-standard .fc-scrollgrid {
-  border: solid 1px var(--color-bordes);
+::ng-deep .fc .fc-button-primary {
+  background-color: var(--color-calendario-btn) !important;
+  color: var(--color-detalles);
 }
 
-::ng-deep .fc-timegrid-axis {
-  background-color: var(--color-tarjetas);
+::ng-deep .fc-event-main{
+  background-color: var(--color-calendario-evento);
+  color: var(--color-detalles) !important;
+  border: solid 2px black !important;
 }
