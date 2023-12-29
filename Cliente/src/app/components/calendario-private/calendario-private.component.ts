@@ -10,6 +10,7 @@ import esLocale from '@fullcalendar/core/locales/es';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { ColoresService } from 'src/app/services/colores.service';
 import { Subscription } from 'rxjs';
+import { CalendarioService, Evento } from 'src/app/services/calendario.service';
 
 @Component({
   selector: 'app-calendario-private',
@@ -42,7 +43,8 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
     locale: esLocale,
     select: this.handleDateSelect.bind(this),
     eventClick: this.handleEventClick.bind(this),
-    eventsSet: this.handleEvents.bind(this)
+    eventsSet: this.handleEvents.bind(this),
+    events: []
     /* you can update a remote database when these fire:
     eventAdd:
     eventChange:
@@ -52,10 +54,11 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
   
   currentEvents = signal<EventApi[]>([]);
 
-  constructor(private changeDetector: ChangeDetectorRef, public darkModeService: DarkModeService, private colorService: ColoresService) {
+  constructor(private changeDetector: ChangeDetectorRef, public darkModeService: DarkModeService, private colorService: ColoresService, private calendarioService: CalendarioService) {
   }
 
   ngOnInit(): void {
+    this.loadEvents();
     this.subscription = this.colorService.currentColor.subscribe(color => {
       this.color = color;
     })
@@ -66,6 +69,24 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
+
+  
+  loadEvents(): void {
+    this.calendarioService.getEvents('2023-01-01', '2023-12-31').subscribe(events => {
+      this.calendarOptions.update((options) => {
+        return {
+          ...options,
+          initialView: 'dayGridMonth',
+          weekends: false,
+          eventClick: this.handleEventClick.bind(this),
+          plugins: [dayGridPlugin],
+          events: events
+        };
+      });
+    });
+  }
+  
+
 
   toggleDarkMode(){
     this.darkModeService.toggleDarkMode()
@@ -82,7 +103,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
   }
 
   handleDateSelect(selectInfo: DateSelectArg) {
-    const title = prompt('Por favor ingresa un nuevo título para tu evento');
+    const title = prompt('Please enter a new title for your event');
     const calendarApi = selectInfo.view.calendar;
 
     calendarApi.unselect(); // clear date selection
@@ -99,7 +120,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    if (confirm(`¿Estás segura de que quieres eliminar el evento?'  ${clickInfo.event.title}'`)) {
+    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
       clickInfo.event.remove();
     }
   }

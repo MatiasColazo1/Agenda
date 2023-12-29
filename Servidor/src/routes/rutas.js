@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const router = Router();
+const moment = require('moment');
 
 const User = require('../models/User')
 
@@ -11,7 +12,6 @@ const Tarea = require('../models/Tareas');
 
 const Evento = require('../models/Eventos');
 
-router.get('/', (req, res) => res.send('Hola mundo'));
 
 // -------------------- LOGIN ----------------------- //
 router.post('/signin', async (req, res) => {
@@ -244,55 +244,59 @@ router.delete('/tarea/:id', verifyToken, async (req, res) => {
 });
 
 // -------------------- Eventos ----------------------- //
-
 // CREAR EVENTO
 router.post('/calendario', verifyToken, async (req, res) => {
-    const { titulo, descripcion, inicio, fin } = req.body;
-    const userId = req.userUd;
-
-    const nuevoEvento = new Evento({
-        titulo,
-        descripcion,
-        inicio,
-        fin,
-        usuario: userId
-    });
-
     try {
-        await nuevoEvento.save();
-        res.status(200).json(nuevoEvento);
+        // Obtener el ID del usuario desde el token
+        const userId = req.userId; // Asegúrate de que esta es la propiedad correcta
+
+        // Crear un nuevo evento y asociarlo con el usuario
+        const newEvento = new Evento({
+            ...req.body,
+            user: userId // Asegúrate de que el modelo Evento tiene un campo para almacenar el ID del usuario
+        });
+
+        // Guardar el evento en la base de datos
+        await newEvento.save();
+
+        res.sendStatus(201);
     } catch (error) {
         res.status(500).json({ error: 'Error al crear el evento', details: error.message });
     }
 });
 
-// OBTENER EVENTOS
+// TRAER EVENTOS
 router.get('/calendario', verifyToken, async (req, res) => {
-    const userId = req.userUd;
-    try {
-        const eventos = await Evento.find({ usuario: userId });
-        res.status(200).json(eventos);
-    } catch (error) {
-        res.status(500).json({ error: 'Error al obtener los eventos', details: error.message });
-    }
-});
+    const eventos = await Evento.find({
+        start: {
+            $gte: moment(req.query.start).toDate()
+        },
+        end: {
+            $lte: moment(req.query.end).toDate()
+        }
+    });
+    res.send(eventos)
+})
 
-// ACTUALIZAR EVENTO
+
+// EDITAR EVENTO
 router.put('/calendario/:id', verifyToken, async (req, res) => {
-    const { titulo, descripcion, inicio, fin } = req.body;
-    const eventoId = req.params.id;
-
     try {
-        const evento = await Evento.findByIdAndUpdate(eventoId, {
-            titulo,
-            descripcion,
-            inicio,
-            fin
-        }, { new: true });
+        const { title, start, end, allDay } = req.body;
+        const eventoId = req.params.id;
+
+        const evento = await Evento.findById(eventoId);
 
         if (!evento) {
             return res.status(404).json({ message: 'Evento no encontrado' });
         }
+
+        evento.title = title;
+        evento.start = start;
+        evento.end = end === undefined ? evento.end : end;
+        evento.allDay = allDay !== undefined ? allDay : evento.allDay;
+
+        await evento.save();
         res.status(200).json(evento);
     } catch (error) {
         res.status(500).json({ error: 'Error al actualizar el evento', details: error.message });
@@ -309,6 +313,7 @@ router.delete('/calendario/:id', verifyToken, async (req, res) => {
         if (!deleteEvento) {
             return res.status(404).json({ message: 'Evento no encontrado' });
         }
+
         res.status(200).json({ message: 'Evento eliminado con éxito', deleteEvento });
     } catch (error) {
         res.status(500).json({ error: 'Error al eliminar el evento', details: error.message });

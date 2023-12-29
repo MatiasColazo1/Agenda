@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const eventoSchema = new mongoose.Schema({
-    titulo: String,
-    inicio: Date,
-    fin: Date,
-    usuario: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    start: Date,
+    end: Date,
+    title: String
 });
 
 module.exports = mongoose.model('Evento', eventoSchema);

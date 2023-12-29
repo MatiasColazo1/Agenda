@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 
 const { google } = require('googleapis');
@@ -25,6 +26,7 @@ require('./database');
 //json
 app.use(cors());
 app.use(express.json());
+
 
 //rutas
 app.use('/api', require('./routes/rutas'));
