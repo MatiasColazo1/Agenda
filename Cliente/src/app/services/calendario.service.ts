@@ -16,7 +16,7 @@ export class CalendarioService {
   }
 
   getEvents(start: string, end: string): Observable<Evento[]> {
-    return this.http.get<Evento[]>(`${this.URL}?start=${start}&end=${end}`);
+    return this.http.get<Evento[]>(`${this.URL}/calendario/?start=${start}&end=${end}`);
   }
 
   crearEvento(evento: Evento): Observable<Evento> {
@@ -24,7 +24,7 @@ export class CalendarioService {
   }
 
   actualizarEvento(evento: Evento): Observable<Evento> {
-    return this.http.put<Evento>(`${this.URL}/calendario/${evento._id}`, evento);
+    return this.http.put<Evento>(`${this.URL}/calendario/${evento.id}`, evento);
   }
 
   eliminarEvento(_id: string): Observable<any> {
@@ -33,9 +33,8 @@ export class CalendarioService {
 }
 
 export interface Evento {
-  _id?: string;
+  id?: string;
   title: string;
   start: string;
   end?: string;
-  allDay: boolean;
 }

@@ -5,7 +5,7 @@ import { DateSelectArg, EventApi, EventClickArg } from 'fullcalendar';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { INITIAL_EVENTS, createEventId } from 'src/app/event-utils';
+
 import esLocale from '@fullcalendar/core/locales/es';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { ColoresService } from 'src/app/services/colores.service';
@@ -34,25 +34,25 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
     initialView: 'dayGridMonth',
-    initialEvents: INITIAL_EVENTS, // alternatively, use the `events` setting to fetch from a feed
+
     weekends: true,
     editable: true,
     selectable: true,
     selectMirror: true,
     dayMaxEvents: true,
     locale: esLocale,
-    select: this.handleDateSelect.bind(this),
-    eventClick: this.handleEventClick.bind(this),
-    eventsSet: this.handleEvents.bind(this),
-    events: []
-    /* you can update a remote database when these fire:
-    eventAdd:
-    eventChange:
-    eventRemove:
-    */
+  
+   /*  eventClick: this.handleEventClick.bind(this), */
+
+    events: [],
+    eventAdd: this.handleEventAdd.bind(this),
+    eventChange: this.handleEventChange.bind(this),
+    eventRemove: this.handleEventRemove.bind(this),
   });
   
   currentEvents = signal<EventApi[]>([]);
+
+  Eventos: Evento[] = [];
 
   constructor(private changeDetector: ChangeDetectorRef, public darkModeService: DarkModeService, private colorService: ColoresService, private calendarioService: CalendarioService) {
   }
@@ -72,19 +72,71 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
 
   
   loadEvents(): void {
-    this.calendarioService.getEvents('2023-01-01', '2023-12-31').subscribe(events => {
+    const start = '2023-01-01';
+    const end = '9999-12-31';
+  
+    this.calendarioService.getEvents(start, end).subscribe(events => {
       this.calendarOptions.update((options) => {
         return {
           ...options,
-          initialView: 'dayGridMonth',
-          weekends: false,
-          eventClick: this.handleEventClick.bind(this),
-          plugins: [dayGridPlugin],
-          events: events
+          events: events.map(event => ({
+            id: event.id,
+            title: event.title,
+            start: event.start,
+            end: event.end
+          }))
         };
       });
     });
   }
+
+  handleEventAdd(addInfo: any) {
+    // Convertir el evento de FullCalendar a tu formato de evento
+    const newEvent = {
+      title: addInfo.event.title,
+      start: addInfo.event.start.toISOString(),
+      end: addInfo.event.end?.toISOString(),
+    };
+
+    this.calendarioService.crearEvento(newEvent).subscribe(
+      (createdEvent) => {
+        // Opcional: Actualizar ID del evento en el calendario si es necesario
+        addInfo.event.setProp('_id', createdEvent.id);
+      },
+      error => {
+        console.error('Error al crear el evento', error);
+        addInfo.revert();
+      }
+    );
+  }
+
+  handleEventChange(changeInfo: any) {
+    const updatedEvent = {
+      _id: changeInfo.event._id,
+      title: changeInfo.event.title,
+      start: changeInfo.event.start.toISOString(),
+      end: changeInfo.event.end?.toISOString(),
+
+    };
+
+    this.calendarioService.actualizarEvento(updatedEvent).subscribe(
+      () => {/* Manejar éxito */},
+      error => {
+        console.error('Error al actualizar el evento', error);
+        changeInfo.revert();
+      }
+    );
+  }
+
+  handleEventRemove(eventoId: any) {
+    this.calendarioService.eliminarEvento(eventoId).subscribe(() => {
+        this.Eventos = this.Eventos.filter(evento => evento.id !== eventoId);
+    }, error => {
+      console.error('Error al eliminar el evento', error);
+    });
+  }
+  
+
   
 
 
@@ -110,7 +162,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
 
     if (title) {
       calendarApi.addEvent({
-        id: createEventId(),
+
         title,
         start: selectInfo.startStr,
         end: selectInfo.endStr,
@@ -121,7 +173,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
 
   handleEventClick(clickInfo: EventClickArg) {
     if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-      clickInfo.event.remove();
+      this.handleEventRemove(clickInfo.event.id);
     }
   }
 

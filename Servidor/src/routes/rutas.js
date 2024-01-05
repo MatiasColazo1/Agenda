@@ -10,7 +10,11 @@ const Tarjeta = require('../models/Tarjetas');
 
 const Tarea = require('../models/Tareas');
 
-const Evento = require('../models/Eventos');
+const { CreateEventCalendarController } = require('../Controllers/CreateEventCalendar');
+const { GetAllEventCalendarController } = require('../Controllers/GetAllEventCalendar');
+const { GetOneEventCalendarController } = require('../Controllers/GetOneEventCalendar');
+const { DeleteEventCalendarController } = require('../Controllers/DeleteEventCalendar');
+const { UpdateEventCalendarController } = require('../Controllers/UpdateEventCalendar');
 
 
 // -------------------- LOGIN ----------------------- //
@@ -244,81 +248,25 @@ router.delete('/tarea/:id', verifyToken, async (req, res) => {
 });
 
 // -------------------- Eventos ----------------------- //
-// CREAR EVENTO
-router.post('/calendario', verifyToken, async (req, res) => {
-    try {
-        // Obtener el ID del usuario desde el token
-        const userId = req.userId; // Asegúrate de que esta es la propiedad correcta
-
-        // Crear un nuevo evento y asociarlo con el usuario
-        const newEvento = new Evento({
-            ...req.body,
-            user: userId // Asegúrate de que el modelo Evento tiene un campo para almacenar el ID del usuario
-        });
-
-        // Guardar el evento en la base de datos
-        await newEvento.save();
-
-        res.sendStatus(201);
-    } catch (error) {
-        res.status(500).json({ error: 'Error al crear el evento', details: error.message });
-    }
-});
+// CREAR EVENTOS
+const createEventCalendarController = new CreateEventCalendarController();
+router.post("/calendario", (req, res) => createEventCalendarController.handle(req, res));
 
 // TRAER EVENTOS
-router.get('/calendario', verifyToken, async (req, res) => {
-    const eventos = await Evento.find({
-        start: {
-            $gte: moment(req.query.start).toDate()
-        },
-        end: {
-            $lte: moment(req.query.end).toDate()
-        }
-    });
-    res.send(eventos)
-})
+const getAllEventCalendarController = new GetAllEventCalendarController();
+router.get('/calendario', (req, res) => getAllEventCalendarController.handle(req, res));
 
+// TRAER UN EVENTO
+const getOneEventCalendarController = new GetOneEventCalendarController();
+router.get('/calendario/:id', (req, res) => getOneEventCalendarController.handle(req, res));
 
-// EDITAR EVENTO
-router.put('/calendario/:id', verifyToken, async (req, res) => {
-    try {
-        const { title, start, end, allDay } = req.body;
-        const eventoId = req.params.id;
+// ELIMINAR UN EVENTO
+const deleteEventCalendarController = new DeleteEventCalendarController();
+router.delete('/calendario/:id', (req, res) => deleteEventCalendarController.handle(req, res));
 
-        const evento = await Evento.findById(eventoId);
-
-        if (!evento) {
-            return res.status(404).json({ message: 'Evento no encontrado' });
-        }
-
-        evento.title = title;
-        evento.start = start;
-        evento.end = end === undefined ? evento.end : end;
-        evento.allDay = allDay !== undefined ? allDay : evento.allDay;
-
-        await evento.save();
-        res.status(200).json(evento);
-    } catch (error) {
-        res.status(500).json({ error: 'Error al actualizar el evento', details: error.message });
-    }
-});
-
-// ELIMINAR EVENTO
-router.delete('/calendario/:id', verifyToken, async (req, res) => {
-    const eventoId = req.params.id;
-
-    try {
-        const deleteEvento = await Evento.findByIdAndDelete(eventoId);
-
-        if (!deleteEvento) {
-            return res.status(404).json({ message: 'Evento no encontrado' });
-        }
-
-        res.status(200).json({ message: 'Evento eliminado con éxito', deleteEvento });
-    } catch (error) {
-        res.status(500).json({ error: 'Error al eliminar el evento', details: error.message });
-    }
-});
+// EDITAR UN EVENTO
+const updateEventCalendarController = new UpdateEventCalendarController();
+router.put('/calendario', (req, res) => updateEventCalendarController.handle(req, res));
 
 module.exports = router;
 
