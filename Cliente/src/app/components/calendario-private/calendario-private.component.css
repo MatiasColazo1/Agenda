@@ -109,3 +109,14 @@ mat-checkbox {
 ::ng-deep .fc-event-main{
   border: solid 2px black !important;
 }
+
+
+::ng-deep  .fc-theme-standard th{
+  background-color: var(--color-calendario-btn) !important;
+}
+
+
+::ng-deep .fc-theme-standard td, .fc-theme-standard th{
+  background-color: var(--color-calendario-btn) !important;
+}
+

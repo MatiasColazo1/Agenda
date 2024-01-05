@@ -21,7 +21,7 @@ export class ModalComponent implements OnInit {
   event: EventoCalendario | undefined;
 
   listColorsCard: ColorsCard[] = [
-    { backgroundColor: 'rgb(213, 0, 0) !important', textColor: '#fff' },
+    { backgroundColor: 'rgb(213, 0, 0)', textColor: '#fff' },
     { backgroundColor: 'rgb(51, 182, 121)', textColor: '#fff' },
     { backgroundColor: 'rgb(246, 191, 38)', textColor: '#fff' },
     { backgroundColor: 'rgb(3, 155, 229)', textColor: '#fff' },
@@ -61,6 +61,7 @@ export class ModalComponent implements OnInit {
         next: (response) => {
           console.log('Respuesta del servidor:', response);
           this.dialogRef.close('updated');
+          this.data.eventUpdateCallback('updated');
         },
         error: (error) => {
           console.error('Error en la solicitud:', error);
@@ -79,6 +80,7 @@ export class ModalComponent implements OnInit {
         next: (response) => {
           console.log('Respuesta del servidor:', response);
           this.dialogRef.close('updated');
+          this.data.eventUpdateCallback('updated');
         },
         error: (error) => {
           console.error('Error en la solicitud:', error);
@@ -119,7 +121,7 @@ export class ModalComponent implements OnInit {
   }
 
   closeDialog(): void {
-    this.dialogRef.close();
+    this.dialogRef.close('updated');
   }
 }
 

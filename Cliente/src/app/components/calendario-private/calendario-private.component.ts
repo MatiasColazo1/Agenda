@@ -119,7 +119,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
   
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '250px',
-      data: { eventInfos, isEdit: false }
+      data: { eventInfos, isEdit: false, eventUpdateCallback: this.fetchAndUpdateEvents.bind(this) }
     });
   
     dialogRef.afterClosed().subscribe(result => {
@@ -145,6 +145,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
 
  
   updateEvents(events: any[]) {
+    console.log('Actualizando eventos:', events);
     this.calendarOptions.events = events;
     this.currentEvents.set(events);
     this.changeDetector.detectChanges();
