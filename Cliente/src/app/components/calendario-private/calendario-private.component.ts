@@ -35,7 +35,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
     initialView: 'dayGridMonth',
-
+    firstDay: 0,
     weekends: true,
     editable: true,
     selectable: true,
@@ -136,7 +136,11 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
   }
 
   handleWeekendsToggle() {
-
+    this.calendarOptions = {
+      ...this.calendarOptions,
+      weekends: !this.calendarOptions.weekends
+    };
+    this.changeDetector.detectChanges();
   }
 
  

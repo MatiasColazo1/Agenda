@@ -59,11 +59,11 @@ export class ModalComponent implements OnInit {
         textColor: this.cardColor.textColor,
       }).subscribe({
         next: (response) => {
-          // Maneja la respuesta
+          console.log('Respuesta del servidor:', response);
           this.dialogRef.close('updated');
         },
         error: (error) => {
-          // Maneja el error
+          console.error('Error en la solicitud:', error);
         }
       });
     } else {
@@ -80,7 +80,6 @@ export class ModalComponent implements OnInit {
           console.log('Respuesta del servidor:', response);
           this.dialogRef.close('updated');
         },
-        
         error: (error) => {
           console.error('Error en la solicitud:', error);
         }
