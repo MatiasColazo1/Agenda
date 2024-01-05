@@ -16,7 +16,7 @@
 
       <div class="navbar-nav">
         <li class="nav-item botones">
-          <a><mat-checkbox [checked]='calendarOptions().weekends' (change)='handleWeekendsToggle()'/>Alternar fines de
+          <a><mat-checkbox [checked]='calendarOptions.weekends' (change)='handleWeekendsToggle()'/>Alternar fines de
             semana</a>
         </li>
       </div>
@@ -43,7 +43,7 @@
   </div>
 
   <div class='demo-app-main' [class.dark-mode-text]="darkModeService.isDarkMode">
-    <full-calendar *ngIf='calendarVisible()' [options]='calendarOptions()'>
+    <full-calendar *ngIf='calendarVisible()' [options]="calendarOptions">
       <ng-template #eventContent let-arg>
         <b>{{ arg.timeText }}</b>
         <i>{{ arg.event.title }}</i>

@@ -37,6 +37,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import localeEs from '@angular/common/locales/es';
+import { ModalComponent } from './components/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 registerLocaleData(localeEs);
 
@@ -55,6 +57,7 @@ registerLocaleData(en);
     TareasComponent,
     CalendarioPrivateComponent,
     CalendarioComponent,
+    ModalComponent,
  
   ],
   imports: [
@@ -76,6 +79,7 @@ registerLocaleData(en);
     NgbPopoverModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
     ToastrModule.forRoot({
       timeOut:4000,
       positionClass:"toast-top-right",

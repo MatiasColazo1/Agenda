@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{ data.isEdit ? 'Editar Evento' : 'Nuevo Evento' }}</h2>
+<mat-dialog-content class="mat-typography">
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Título del Evento</mat-label>
+      <input matInput [(ngModel)]="title" name="title" placeholder="Introduce un título">
+    </mat-form-field>
+
+    <div>
+      <label>Color del Evento:</label>
+      <div class="color-container">
+        <div *ngFor="let color of listColorsCard" class="color-circle" [style.background-color]="color.backgroundColor"
+              (click)="handleSelectCardColor(color)"></div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button *ngIf="data.isEdit" (click)="handleDeleteEvent()">Eliminar</button>
+  <button mat-button (click)="handleAddedEvent()">{{ data.isEdit ? 'Actualizar' : 'Agregar' }}</button>
+</mat-dialog-actions>

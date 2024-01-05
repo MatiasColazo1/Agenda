@@ -107,7 +107,5 @@ mat-checkbox {
 }
 
 ::ng-deep .fc-event-main{
-  background-color: var(--color-calendario-evento);
-  color: var(--color-detalles) !important;
   border: solid 2px black !important;
 }

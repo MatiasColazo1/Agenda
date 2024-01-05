@@ -1,0 +1,12 @@
+.color-container {
+    display: flex;
+    padding: 10px 0;
+  }
+  
+  .color-circle {
+    width: 30px; /* Tamaño del círculo */
+    height: 30px;
+    border-radius: 50%; /* Esto crea el círculo */
+    margin-right: 10px;
+    cursor: pointer;
+  }
