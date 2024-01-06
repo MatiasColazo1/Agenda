@@ -250,23 +250,23 @@ router.delete('/tarea/:id', verifyToken, async (req, res) => {
 // -------------------- Eventos ----------------------- //
 // CREAR EVENTOS
 const createEventCalendarController = new CreateEventCalendarController();
-router.post("/calendario", (req, res) => createEventCalendarController.handle(req, res));
+router.post("/calendario", verifyToken, (req, res) => createEventCalendarController.handle(req, res));
 
 // TRAER EVENTOS
 const getAllEventCalendarController = new GetAllEventCalendarController();
-router.get('/calendario', (req, res) => getAllEventCalendarController.handle(req, res));
+router.get('/calendario', verifyToken, (req, res) => getAllEventCalendarController.handle(req, res));
 
 // TRAER UN EVENTO
 const getOneEventCalendarController = new GetOneEventCalendarController();
-router.get('/calendario/:id', (req, res) => getOneEventCalendarController.handle(req, res));
+router.get('/calendario/:id', verifyToken, (req, res) => getOneEventCalendarController.handle(req, res));
 
 // ELIMINAR UN EVENTO
 const deleteEventCalendarController = new DeleteEventCalendarController();
-router.delete('/calendario/:id', (req, res) => deleteEventCalendarController.handle(req, res));
+router.delete('/calendario/:id', verifyToken, (req, res) => deleteEventCalendarController.handle(req, res));
 
 // EDITAR UN EVENTO
 const updateEventCalendarController = new UpdateEventCalendarController();
-router.put('/calendario', (req, res) => updateEventCalendarController.handle(req, res));
+router.put('/calendario', verifyToken, (req, res) => updateEventCalendarController.handle(req, res));
 
 module.exports = router;
 

@@ -7,14 +7,14 @@ class GetAllEventCalendarService {
         this.eventCalendarRepository = eventCalendarRepository;
     }
 
-    async execute() {
+    async execute(userId) {
         try {
-            const eventsCalendar = await this.eventCalendarRepository.getAll();
-
+            const eventsCalendar = await this.eventCalendarRepository.getAll(userId);
+    
             if (!eventsCalendar) {
                 return [];
             }
-
+    
             return eventsCalendar;
         } catch (err) {
             throw err;
