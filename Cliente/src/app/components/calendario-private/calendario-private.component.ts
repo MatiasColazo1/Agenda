@@ -47,7 +47,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
     eventClick: this.handleEventClick.bind(this),
   };
   
-  currentEvents = signal<EventApi[]>([]);
+  currentEvents: EventApi[] = [];
 
   constructor(
      private changeDetector: ChangeDetectorRef,
@@ -147,7 +147,6 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
   updateEvents(events: any[]) {
     console.log('Actualizando eventos:', events);
     this.calendarOptions.events = events;
-    this.currentEvents.set(events);
     this.changeDetector.detectChanges();
   }
  

@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
-const EventoSchema = mongoose.Schema( 
-{
+const EventoSchema = mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      require: true
+    },
     title: {
       type: String,
       required: true,

@@ -26,11 +26,12 @@ class GetAllEventCalendarService {
 class GetAllEventCalendarController {
     async handle(request, response) {
         try {
+            const userId = request.userUd;
             const eventCalendarRepository = new EventCalendarRepository();
             const getAllEventCalendarService = new GetAllEventCalendarService(eventCalendarRepository);
-            const eventsCalendar = await getAllEventCalendarService.execute();
+            const eventsCalendar = await getAllEventCalendarService.execute(userId);
 
-            return response.status(200).json(eventsCalendar);
+            return response.status(200).json({ events: eventsCalendar });
         } catch (err) {
             if (err instanceof CustomError) {
                 response.status(err.status).json({ message: err.message });
@@ -48,3 +49,4 @@ module.exports = {
     GetAllEventCalendarService,
     GetAllEventCalendarController
 };
+

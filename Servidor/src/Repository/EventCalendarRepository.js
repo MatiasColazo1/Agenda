@@ -3,15 +3,16 @@ const EventCalendarModel = require("../models/Eventos");
 class EventCalendarRepository {
   async create(data) {
     try {
-      return await new EventCalendarModel(data).save();
+      const event = new EventCalendarModel(data);
+      return await event.save();
     } catch (err) {
       throw err;
     }
   }
 
-  async getAll() {
+  async getAll(userUd) {
     try {
-      return await EventCalendarModel.find({});
+      return await EventCalendarModel.find({ user: userUd });
     } catch (err) {
       throw err;
     }
