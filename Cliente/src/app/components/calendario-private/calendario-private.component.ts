@@ -149,5 +149,4 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
     this.calendarOptions.events = events;
     this.changeDetector.detectChanges();
   }
- 
 }
