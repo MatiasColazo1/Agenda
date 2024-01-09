@@ -42,11 +42,11 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
     selectMirror: true,
     dayMaxEvents: true,
     locale: esLocale,
-    events: [],
+   
     dateClick: this.handleDateClick.bind(this),
     eventClick: this.handleEventClick.bind(this),
   };
-  
+
   currentEvents: EventApi[] = [];
 
   constructor(
