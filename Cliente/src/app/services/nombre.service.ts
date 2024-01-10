@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class NombreService {
 
-  private URL = 'http://localhost:3000/api';
+  private URL = 'https://back-agenda.onrender.com/api';
 
   constructor(private http: HttpClient) { }
 

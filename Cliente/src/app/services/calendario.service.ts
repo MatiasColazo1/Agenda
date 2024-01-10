@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CalendarioService {
-  private URL = 'http://localhost:3000/api';
+  private URL = 'https://back-agenda.onrender.com/api';
 
   constructor(private http: HttpClient) { }
 
