@@ -27,6 +27,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cargarColorInicial();
     this.colorService.currentBackgroundColor.subscribe(color => {
       this.backgroundColor = color;
     });
@@ -43,6 +44,26 @@ export class NavComponent implements OnInit {
       }
     );
   }
+
+  cargarColorInicial() {
+    const colorGuardado = localStorage.getItem('colorUser');
+    if (colorGuardado) {
+      this.colorService.cambiarColor(colorGuardado);
+    } else {
+      // Aquí llamas a tu servicio AuthService para obtener el color desde el servidor
+      this.authService.getColorUser().subscribe(
+        (colorDelServidor) => {
+          if (colorDelServidor) {
+            this.colorService.cambiarColor(colorDelServidor);
+          }
+        },
+        (error) => {
+          console.error('Error al obtener el color del usuario desde el servidor', error);
+        }
+      );
+    }
+  }
+
 
   toggleDarkMode() {
     this.darkModeService.toggleDarkMode();

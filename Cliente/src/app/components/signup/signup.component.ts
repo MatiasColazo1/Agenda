@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
   cuenta = {
     usuario: '',
     password: '',
+    
   }
   loading: boolean = false;
 

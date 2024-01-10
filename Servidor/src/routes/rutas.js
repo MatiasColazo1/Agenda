@@ -30,7 +30,7 @@ router.post('/signin', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     try {
-        const { usuario, password, colorUser } = req.body;
+        const { usuario, password } = req.body;
 
         // Verificar si el usuario ya existe en la base de datos
         const existingUser = await User.findOne({ usuario });
@@ -40,7 +40,7 @@ router.post('/signup', async (req, res) => {
         }
 
         // Crear una nueva instancia del modelo usuario con el usuario y el password
-        const newUser = new User({ usuario, password, colorUser });
+        const newUser = new User({ usuario, password});
 
         // Guardar el nuevo usuario en la base de datos
         await newUser.save();
