@@ -7,6 +7,7 @@ import { Observable, catchError } from 'rxjs';
 })
 export class TarjetasService {
 private URL='https://back-agenda.onrender.com/api';
+/* private URL = 'http://localhost:3000/api'; */
 
   constructor(private http:HttpClient) { }
 

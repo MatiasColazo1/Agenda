@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
     usuario: '',
     password: '',
   }
+  loading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService, private toastrService: ToastrService, private errorService: ErrorService) { }
   
@@ -38,6 +39,7 @@ export class SignupComponent implements OnInit {
     }
 
     if (form.valid) {
+      this.loading = true;
     this.authService.signUp(this.cuenta)
       .subscribe(
         (res: any) => {
@@ -45,9 +47,10 @@ export class SignupComponent implements OnInit {
           localStorage.setItem('token', res.token);
           this.toastrService.success('Cuenta creada exitosamente', 'Éxito');
           this.router.navigate(['/signin']);
-
+          this.loading = false;
         }, (error: HttpErrorResponse) => {
           this.errorService.msjError(error);
+          this.loading = false;
         }
       )
     }

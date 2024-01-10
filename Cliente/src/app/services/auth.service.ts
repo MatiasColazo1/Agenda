@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private URL = 'https://back-agenda.onrender.com/api'
+  /* private URL = 'http://localhost:3000/api'; */
 
   constructor(private http: HttpClient, private router: Router) { }
 
