@@ -39,6 +39,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import localeEs from '@angular/common/locales/es';
 import { ModalComponent } from './components/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 registerLocaleData(localeEs);
 
@@ -58,6 +59,7 @@ registerLocaleData(en);
     CalendarioPrivateComponent,
     CalendarioComponent,
     ModalComponent,
+    SpinnerComponent,
  
   ],
   imports: [

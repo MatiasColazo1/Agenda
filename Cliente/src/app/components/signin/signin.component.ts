@@ -19,6 +19,7 @@ export class SigninComponent implements OnInit {
     usuario: '',
     password: ''
   }
+  loading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, public darkModeService: DarkModeService, private toastrService: ToastrService) { }
   
@@ -39,6 +40,7 @@ export class SigninComponent implements OnInit {
       return;
     }
     if (form.valid) {
+      this.loading = true;
       this.authService.signIn(this.cuenta)
         .subscribe(
           res => {
@@ -46,10 +48,12 @@ export class SigninComponent implements OnInit {
             localStorage.setItem('token', res.token);
             this.toastrService.success('Ingreso con éxito', 'Bienvenido')
             this.router.navigate(['/private']);
+            this.loading = false;
           },
           err => {
             console.log(err);
             this.toastrService.error('El usuario no existe!', 'Error de autenticación');
+            this.loading = false;
           }
         );
     }
