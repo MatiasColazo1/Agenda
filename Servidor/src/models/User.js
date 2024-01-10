@@ -5,7 +5,8 @@ const userSchema = new Schema({
   password: String,
   tarjetas: [{ type: Schema.Types.ObjectId, ref: 'Tarjeta' }],
   tareas: [{ type: Schema.Types.ObjectId, ref: 'Tarea' }],
-  eventos: [{ type: Schema.Types.ObjectId, ref: 'Evento' }]
+  eventos: [{ type: Schema.Types.ObjectId, ref: 'Evento' }],
+  colorUser: String,
 }, {
   timestamps: true
 });

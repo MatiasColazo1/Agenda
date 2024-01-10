@@ -30,7 +30,7 @@ router.post('/signin', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     try {
-        const { usuario, password } = req.body;
+        const { usuario, password, colorUser } = req.body;
 
         // Verificar si el usuario ya existe en la base de datos
         const existingUser = await User.findOne({ usuario });
@@ -40,7 +40,7 @@ router.post('/signup', async (req, res) => {
         }
 
         // Crear una nueva instancia del modelo usuario con el usuario y el password
-        const newUser = new User({ usuario, password });
+        const newUser = new User({ usuario, password, colorUser });
 
         // Guardar el nuevo usuario en la base de datos
         await newUser.save();
@@ -57,19 +57,36 @@ router.post('/signup', async (req, res) => {
 
 router.get('/private', verifyToken, async (req, res) => {
     try {
-      const userId = req.userUd;
-      const user = await User.findById(userId);
-      
-      if (!user) {
-        return res.status(404).json({ message: 'Usuario no encontrado' });
-      }
-  
-      res.status(200).json({ usuario: user.usuario, password: user.password });
+        const userId = req.userUd;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        res.status(200).json({ usuario: user.usuario, password: user.password });
     } catch (error) {
-      res.status(500).json({ error: 'Error al obtener detalles del usuario', details: error.message });
+        res.status(500).json({ error: 'Error al obtener detalles del usuario', details: error.message });
     }
-  });
-  
+});
+
+router.put('/private', verifyToken, async (req, res) => {
+    try {
+        const userId = req.userUd;
+        const { colorUser } = req.body;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+        user.colorUser = colorUser;
+        await user.save();
+        res.status(200).json({ usuario: user.usuario, password: user.password, colorUser: user.colorUser });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener detalles del usuario', details: error.message });
+    }
+});
+
 
 // -------------------- Tarjetas ----------------------- //
 // CREAR TARJETA
@@ -129,7 +146,7 @@ router.put('/tarjeta/:id', verifyToken, async (req, res) => {
         const tarjeta = await Tarjeta.findById(tarjetaId);
 
         if (!tarjeta) {
-            return res.status(400).json({message: 'Tarjeta no encontrada'});
+            return res.status(400).json({ message: 'Tarjeta no encontrada' });
         }
         tarjeta.titulo = titulo;
         tarjeta.descripcion = descripcion;
@@ -137,7 +154,7 @@ router.put('/tarjeta/:id', verifyToken, async (req, res) => {
         await tarjeta.save();
         res.status(200).json(tarjeta);
     } catch (error) {
-        res.status(500).json({ error: 'Error al actualizar la tarjeta', details: error.message})        
+        res.status(500).json({ error: 'Error al actualizar la tarjeta', details: error.message })
     }
 })
 
