@@ -14,6 +14,10 @@ const dotenv = require('dotenv');
 const { v4: uuid } = require('uuid');
 
 
+//json
+app.use(cors());
+app.use(express.json());
+
 dotenv.config({});
 
 const calendar = google.calendar({
@@ -26,9 +30,6 @@ const calendar = google.calendar({
 //base de datos
 require('./database');
 
-//json
-app.use(cors());
-app.use(express.json());
 
 
 //rutas
