@@ -1,6 +1,7 @@
 
 
 <app-nav></app-nav>
+<app-spinner *ngIf="loading"></app-spinner>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mb-3">
@@ -8,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col-lg-8">
-            <app-tarjetas></app-tarjetas>
+            <app-tarjetas (loaded)="onComponentLoaded()"></app-tarjetas>
         </div>
         <div class="col-lg-4">
             <div class="mb-4">

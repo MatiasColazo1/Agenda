@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { TarjetasService } from 'src/app/services/tarjetas.service';
@@ -14,7 +14,8 @@ import { ColoresService } from 'src/app/services/colores.service';
 })
 export class TarjetasComponent implements OnInit, OnDestroy {
   color: string = '';
-  
+  @Output() loaded = new EventEmitter<boolean>();
+
   private subscription: Subscription = new Subscription();
   public modalDelete: boolean = false;
   public modalEdit: boolean = false;
@@ -38,7 +39,7 @@ export class TarjetasComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.getTarjetas()
+    this.getTarjetas();
     this.subscription = this.colorService.currentColor.subscribe(color => {
       this.color = color;
     })
@@ -51,9 +52,16 @@ export class TarjetasComponent implements OnInit, OnDestroy {
   }
   //-------------------- TRAER TARJETAS--------------- // 
   getTarjetas() {
-    this.tarjetasService.getTarjeta().subscribe((data: any) => {
-      this.tarjetas = data.map((tarjeta: any) => ({ ...tarjeta, expandida: false }));
-    })
+    // Simulando un retraso con setTimeout
+    setTimeout(() => {
+      this.tarjetasService.getTarjeta().subscribe((data: any) => {
+        this.tarjetas = data.map((tarjeta: any) => ({ ...tarjeta, expandida: false }));
+        this.loaded.emit(true); // Emitir el evento después de cargar los datos
+      }, error => {
+        console.error('Error al cargar tarjetas: ', error);
+        this.loaded.emit(false); // También puedes emitir en caso de error
+      });
+    }, 10000); // 3000 milisegundos = 3 segundos de retraso
   }
 
   //-------------------- CREAR TARJETAS--------------- // 

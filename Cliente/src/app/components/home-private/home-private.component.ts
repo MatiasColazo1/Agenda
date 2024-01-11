@@ -7,6 +7,8 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
   styleUrls: ['./home-private.component.css']
 })
 export class HomePrivateComponent implements OnInit {
+  loading: boolean = true;
+  private componentsLoaded = 0;
 
   constructor(public darkModeService: DarkModeService) {}
 
@@ -14,4 +16,10 @@ export class HomePrivateComponent implements OnInit {
     
   }
 
+  onComponentLoaded(): void {
+    this.componentsLoaded++;
+    if (this.componentsLoaded === 1) { // Número total de componentes
+      this.loading = false;
+    }
+  }
 }
