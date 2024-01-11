@@ -90,7 +90,16 @@ export class NotasComponent implements OnInit, OnDestroy {
   }
 
   save(): void {
-
+    this.notas.forEach(nota => {
+      this.notasService.putNota(nota._id, { contenido: nota.contenido }).subscribe(
+        response => {
+          console.log('Nota actualizada con éxito', response);
+        },
+        error => {
+          console.error('Error al actualizar la nota', error);
+        }
+      );
+    });
   }
 }
 

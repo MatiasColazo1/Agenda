@@ -52,7 +52,6 @@ export class TarjetasComponent implements OnInit, OnDestroy {
   }
   //-------------------- TRAER TARJETAS--------------- // 
   getTarjetas() {
-    // Simulando un retraso con setTimeout
     setTimeout(() => {
       this.tarjetasService.getTarjeta().subscribe((data: any) => {
         this.tarjetas = data.map((tarjeta: any) => ({ ...tarjeta, expandida: false }));
@@ -61,7 +60,7 @@ export class TarjetasComponent implements OnInit, OnDestroy {
         console.error('Error al cargar tarjetas: ', error);
         this.loaded.emit(false); // También puedes emitir en caso de error
       });
-    }, 10000); // 3000 milisegundos = 3 segundos de retraso
+    }, 10000);
   }
 
   //-------------------- CREAR TARJETAS--------------- // 

@@ -19,7 +19,7 @@ export class NotasService {
     return this.http.post<any>(`${this.URL}/nota`, { contenido })
   }
 
-  putNota(id: string, nota: any): Observable<any> {
+  putNota(id: string, nota: { contenido: string }): Observable<any> {
     return this.http.put<any>(`${this.URL}/nota/${id}`, nota);
   }
 }
