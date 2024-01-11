@@ -39,7 +39,7 @@
 .icono{
     font-size: 20px;
     margin-right: 10px;
-    color: var(--color-detalles);
+    color: var(--color-tarjetas-iconos);
 }
 
 /* TAMAÑO DEL ICONO AGREGAR */

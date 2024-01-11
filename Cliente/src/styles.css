@@ -24,9 +24,12 @@ body.dark-mode {
 /*                       COLORES PREDETERMINADOS                 */
 /* COLORES DEFAULT */
 :root {
+  /* BANNER */
   --color-banner: #89CFF0;
+  /* TARJETAS */
   --color-tarjetas: #B2E2F2;
   --color-tarjetas-text: #000;
+  --color-tarjetas-iconos: #000;
   /* NOTA */
   --color-nota: #5DADEC;
   --color-nota-circulo: #000;
@@ -44,9 +47,12 @@ body.dark-mode {
 /* COLORES TONO ROSA */
 .rosa,
 .rosaBackground {
+  /* BANNER */
   --color-banner: #FF87AB;
+  /* TARJETAS */
   --color-tarjetas: #FFC3D7;
   --color-tarjetas-text: #000;
+  --color-tarjetas-iconos: #000;
   /* NOTA */
   --color-nota: #E45B78;
   --color-nota-circulo: #232526;
@@ -64,9 +70,12 @@ body.dark-mode {
 /* COLORES TONO VERDE */
 .verde,
 .verdeBackground {
+  /* BANNER */
   --color-banner: #1A472A;
+  /* TARJETAS */
   --color-tarjetas: #3c8c57;
   --color-tarjetas-text: #EEEEEE;
+  --color-tarjetas-iconos: #EEEEEE;
   /* NOTA */
   --color-nota: #AAAAAA;
   --color-nota-circulo: #000;
@@ -84,9 +93,12 @@ body.dark-mode {
 /* COLORES TONO AZUL */
 .azul,
 .azulBackground {
+   /* BANNER */
   --color-banner: #264653;
+  /* TARJETAS */
   --color-tarjetas: #6a84a5;
   --color-tarjetas-text: #ffffff;
+  --color-tarjetas-iconos: #ffffff;
   /* NOTA */
   --color-nota: #4b5d74;
   --color-nota-circulo: #fff;
@@ -104,16 +116,19 @@ body.dark-mode {
 /* COLORES TONO AZUL */
 .violeta,
 .violetaBackground {
-  --color-banner: #6A4C93;
+  /* BANNER 6A4C93 F2E1F1*/
+  --color-banner: #804c93;
+  /* TARJETAS */
   --color-tarjetas: #C996CC;
   --color-tarjetas-text: #000;
+  --color-tarjetas-iconos: #000;
   /* NOTA */
   --color-nota: #9D7BB5;
   --color-nota-circulo: #000;
   --color-nota-icono: #000;
   --color-nota-text: #000;
 
-  --color-detalles: #F2E1F1;
+  --color-detalles: #000;
   --color-bordes: #503285;
   --color-calendario: #C996CC;
   --color-calendario-btn: #9D7BB5;
