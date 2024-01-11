@@ -46,22 +46,17 @@ export class NavComponent implements OnInit {
   }
 
   cargarColorInicial() {
-    const colorGuardado = localStorage.getItem('colorUser');
-    if (colorGuardado) {
-      this.colorService.cambiarColor(colorGuardado);
-    } else {
-      // Aquí llamas a tu servicio AuthService para obtener el color desde el servidor
-      this.authService.getColorUser().subscribe(
-        (colorDelServidor) => {
-          if (colorDelServidor) {
-            this.colorService.cambiarColor(colorDelServidor);
-          }
-        },
-        (error) => {
-          console.error('Error al obtener el color del usuario desde el servidor', error);
+    // Obtiene el color desde el servidor
+    this.authService.getColorUser().subscribe(
+      (response) => {
+        if (response && response.colorUser) {
+          this.colorService.cambiarColor(response.colorUser);
         }
-      );
-    }
+      },
+      (error) => {
+        console.error('Error al obtener el color del usuario desde el servidor', error);
+      }
+    );
   }
 
 

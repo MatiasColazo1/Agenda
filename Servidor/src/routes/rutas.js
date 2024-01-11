@@ -64,7 +64,7 @@ router.get('/private', verifyToken, async (req, res) => {
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
 
-        res.status(200).json({ usuario: user.usuario, password: user.password });
+        res.status(200).json({ usuario: user.usuario, password: user.password, colorUser: user.colorUser });
     } catch (error) {
         res.status(500).json({ error: 'Error al obtener detalles del usuario', details: error.message });
     }

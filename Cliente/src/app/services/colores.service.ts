@@ -19,7 +19,6 @@ export class ColoresService {
   cambiarColor(color: string) {
     this.colorSource.next(color);
     this.backgroundColorSource.next(color + 'Background');
-    localStorage.setItem('colorUser', color);
     this.updateColorUser(color); // Actualizar el color en el backend
   }
 
