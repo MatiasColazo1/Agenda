@@ -2,8 +2,7 @@ const { Schema, model} = require('mongoose');
 
 const notaSchema = new Schema ({
     contenido: {
-        type: String,
-        required: true,
+        type: String
     }
 });
 

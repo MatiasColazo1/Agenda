@@ -81,24 +81,39 @@ export class NotasComponent implements OnInit, OnDestroy {
   getNota() {
     this.notasService.getNota().subscribe(
       (data) => {
-        this.notas = data;
+        // Si no hay notas, inicializa con una nota vacía
+        this.notas = data.length > 0 ? data : [{ contenido: '' }];
         console.log('Nota obtenida: ', this.notas);
-      }, (error)=> {
+      }, (error) => {
         console.error('Error al obtener las notas: ', error);
       }
-    )
+    );
   }
-
   save(): void {
     this.notas.forEach(nota => {
-      this.notasService.putNota(nota._id, { contenido: nota.contenido }).subscribe(
-        response => {
-          console.log('Nota actualizada con éxito', response);
-        },
-        error => {
-          console.error('Error al actualizar la nota', error);
-        }
-      );
+      if (nota._id) {
+        // Actualizar nota existente
+        this.notasService.putNota(nota._id, { contenido: nota.contenido }).subscribe(
+          response => {
+            console.log('Nota actualizada con éxito', response);
+          },
+          error => {
+            console.error('Error al actualizar la nota', error);
+          }
+        );
+      } else if (nota.contenido) {
+        // Crear nueva nota
+        this.notasService.postNota(nota.contenido).subscribe(
+          response => {
+            console.log('Nueva nota creada con éxito', response);
+            // Actualiza el ID de la nota con el recibido del servidor
+            nota._id = response._id;
+          },
+          error => {
+            console.error('Error al crear la nota', error);
+          }
+        );
+      }
     });
   }
 }
