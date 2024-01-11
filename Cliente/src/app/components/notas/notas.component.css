@@ -27,6 +27,7 @@
 
 /* CONTIENE TEXTAREA */
 .darksoul-textarea {
+    color: red;
     height: 100%;
     width: 100%;
     display: flex;
@@ -43,7 +44,7 @@ textarea {
     border: none;
     outline: none;
     font-weight: 500;
-    color: rgb(0, 0, 0);
+    color: var(--color-nota-text);
     padding-left: 20px;
     padding-right: 20px;
 
@@ -52,7 +53,8 @@ textarea {
 /* BOTONES DE MENU */
 .menu {
     background-color: var(--color-nota);
-    border: solid 2px var(--color-detalles);
+    border: solid 2px var(--color-nota-circulo);
+    color: var(--color-nota-icono);
     height: 60%;
     padding: 8px;
     display: flex;

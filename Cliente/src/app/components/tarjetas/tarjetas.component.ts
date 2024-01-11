@@ -52,7 +52,6 @@ export class TarjetasComponent implements OnInit, OnDestroy {
   }
   //-------------------- TRAER TARJETAS--------------- // 
   getTarjetas() {
-    setTimeout(() => {
       this.tarjetasService.getTarjeta().subscribe((data: any) => {
         this.tarjetas = data.map((tarjeta: any) => ({ ...tarjeta, expandida: false }));
         this.loaded.emit(true); // Emitir el evento después de cargar los datos
@@ -60,7 +59,6 @@ export class TarjetasComponent implements OnInit, OnDestroy {
         console.error('Error al cargar tarjetas: ', error);
         this.loaded.emit(false); // También puedes emitir en caso de error
       });
-    }, 10000);
   }
 
   //-------------------- CREAR TARJETAS--------------- // 

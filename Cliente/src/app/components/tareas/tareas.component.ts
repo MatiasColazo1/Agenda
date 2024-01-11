@@ -51,7 +51,6 @@ export class TareasComponent implements OnInit {
 
   // ----------------------- TRAER TAREAS ----------------- //
   getTareas() {
-    setTimeout(() => {
       this.tareasService.getTarea().subscribe((data: any) => {
         this.tareas = data.map((tarea: any, index: number) => ({
           ...tarea,
@@ -62,7 +61,6 @@ export class TareasComponent implements OnInit {
         console.error('Error al cargar tareas: ', error);
         this.loaded.emit(false);
       });
-    }, 10000)
   }
 
   // ----------------------- CREAR TAREAS ----------------- //
