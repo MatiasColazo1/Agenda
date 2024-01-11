@@ -2,16 +2,25 @@
 <div class="card" [ngClass]="color">
     <div class="darksoul-window" id="notepad" [ngClass]="color">
         <div class="darksoul-menubar" [ngClass]="color">
-            <div >
-                <div class="menu rounded-5" [ngbPopover]="copiar" popoverTitle="Copiar" placement="top" triggers="mouseenter:mouseleave" (click)="copy()" [ngClass]="color">
+            <div>
+                <div class="menu rounded-5" [ngbPopover]="copiar" popoverTitle="Copiar" placement="top"
+                    triggers="mouseenter:mouseleave" (click)="copy()" [ngClass]="color">
                     <i class='bx bx-copy-alt'></i>
                     <ng-template #copiar>Copiar nota</ng-template>
                 </div>
             </div>
             <div>
-                <div class="menu rounded-5" [ngbPopover]="descargar" popoverTitle="Descargar" placement="top" triggers="mouseenter:mouseleave" (click)="download()" [ngClass]="color">
+                <div class="menu rounded-5" [ngbPopover]="descargar" popoverTitle="Descargar" placement="top"
+                    triggers="mouseenter:mouseleave" (click)="download()" [ngClass]="color">
                     <i class='bx bx-cloud-download'></i>
                     <ng-template #descargar>Descargar nota</ng-template>
+                </div>
+            </div>
+            <div>
+                <div class="menu rounded-5" [ngbPopover]="guardar" popoverTitle="Guardar" placement="top"
+                    triggers="mouseenter:mouseleave" (click)="save()" [ngClass]="color">
+                    <i class='bx bx-save'></i>
+                    <ng-template #guardar>Guardar nota</ng-template>
                 </div>
             </div>
         </div>

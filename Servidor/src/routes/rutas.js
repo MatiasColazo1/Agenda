@@ -10,6 +10,8 @@ const Tarjeta = require('../models/Tarjetas');
 
 const Tarea = require('../models/Tareas');
 
+const Nota = require('../models/Notas');
+
 const { CreateEventCalendarController } = require('../Controllers/CreateEventCalendar');
 const { GetAllEventCalendarController } = require('../Controllers/GetAllEventCalendar');
 const { GetOneEventCalendarController } = require('../Controllers/GetOneEventCalendar');
@@ -40,7 +42,7 @@ router.post('/signup', async (req, res) => {
         }
 
         // Crear una nueva instancia del modelo usuario con el usuario y el password
-        const newUser = new User({ usuario, password});
+        const newUser = new User({ usuario, password });
 
         // Guardar el nuevo usuario en la base de datos
         await newUser.save();
@@ -261,6 +263,75 @@ router.delete('/tarea/:id', verifyToken, async (req, res) => {
         res.status(200).json({ message: 'Tarea eliminada con éxito', deleteTarea });
     } catch (error) {
         res.status(500).json({ error: 'Error al eliminar la tarea', details: error.message });
+    }
+});
+
+// -------------------- Notas ----------------------- //
+// CREAR NOTAS
+router.post('/nota', verifyToken, async (req, res) => {
+    const { contenido } = req.body;
+
+    try {
+        // Obtener el ID del usuario desde el token
+        const userId = req.userUd;
+
+        // Crear una nueva nota
+        const newNota = new Nota({
+            contenido
+        });
+
+        // Guardar la nota en la base de datos
+        await newNota.save();
+
+        // Asociar la nota al usuario
+        const user = await User.findById(userId);
+        user.notas.push(newNota);
+        await user.save();
+
+        res.status(200).json(newNota);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al crear la Nota', details: error.message });
+    }
+});
+
+// TRAER NOTA
+router.get('/nota', verifyToken, async (req, res) => {
+    try {
+        // Obtener el ID del usuario desde el token
+        const userId = req.userUd;
+
+        // Buscar las notas asociadas al usuario
+        const user = await User.findById(userId).populate('notas');
+        const notas = user.notas;
+
+        if (!notas) {
+            return res.status(404).json({ message: 'Notas no encontradas' });
+        }
+
+        res.status(200).json(notas);
+    } catch (error) {
+        return res.status(500).json({ message: 'Error interno del servidor' });
+    }
+});
+
+// EDITAR NOTAS
+router.put('/nota/:id', verifyToken, async (req, res) => {
+    try {
+        const { contenido } = req.body;
+        const notaId = req.params.id;
+
+        const nota = await Nota.findById(notaId);
+
+        if (!nota) {
+            return res.status(400).json({ message: 'Nota no encontrada' });
+        }
+
+        nota.contenido = contenido;
+
+        await nota.save();
+        res.status(200).json(nota);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al actualizar la nota', details: error.message });
     }
 });
 
