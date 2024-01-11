@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ColoresService } from 'src/app/services/colores.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
@@ -10,6 +10,7 @@ import { NotasService } from 'src/app/services/notas.service';
   styleUrls: ['./notas.component.css']
 })
 export class NotasComponent implements OnInit, OnDestroy {
+  @Output() loaded = new EventEmitter<boolean>();
   color: string = '';
   notas: any[] = [];
 
@@ -79,16 +80,19 @@ export class NotasComponent implements OnInit, OnDestroy {
   }
 
   getNota() {
+    this.loaded.emit(true); // Emitir evento al iniciar la carga
     this.notasService.getNota().subscribe(
       (data) => {
-        // Si no hay notas, inicializa con una nota vacía
         this.notas = data.length > 0 ? data : [{ contenido: '' }];
         console.log('Nota obtenida: ', this.notas);
+        this.loaded.emit(false); // Emitir evento al finalizar la carga
       }, (error) => {
         console.error('Error al obtener las notas: ', error);
+        this.loaded.emit(false); // Emitir evento también en caso de error
       }
     );
   }
+  
   save(): void {
     this.notas.forEach(nota => {
       if (nota._id) {

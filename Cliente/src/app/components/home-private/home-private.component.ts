@@ -18,7 +18,7 @@ export class HomePrivateComponent implements OnInit {
 
   onComponentLoaded(): void {
     this.componentsLoaded++;
-    if (this.componentsLoaded === 1) { // Número total de componentes
+    if (this.componentsLoaded === 3) { // Número total de componentes
       this.loading = false;
     }
   }

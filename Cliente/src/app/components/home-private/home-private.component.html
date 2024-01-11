@@ -13,7 +13,7 @@
         </div>
         <div class="col-lg-4">
             <div class="mb-4">
-                <app-notas></app-notas>
+                <app-notas (loaded)="onComponentLoaded()"></app-notas>
             </div>
             <div class="mb-4">
                 <app-tareas (loaded)="onComponentLoaded()"></app-tareas>
