@@ -24,8 +24,8 @@
                 </div>
             </div>
         </div>
-        <div class="darksoul-textarea">
-            <textarea #textareaElement id="textarea" [ngClass]="color"></textarea>
+        <div class="darksoul-textarea" *ngFor="let nota of notas">
+            <textarea #textareaElement id="textarea" [ngClass]="color" [value]="nota.contenido"></textarea>
         </div>
     </div>
 </div>

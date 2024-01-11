@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/co
 import { Subscription } from 'rxjs';
 import { ColoresService } from 'src/app/services/colores.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { NotasService } from 'src/app/services/notas.service';
 
 @Component({
   selector: 'app-notas',
@@ -10,13 +11,15 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 })
 export class NotasComponent implements OnInit, OnDestroy {
   color: string = '';
+  notas: any[] = [];
 
   private subscription: Subscription = new Subscription();
   @ViewChild('textareaElement') textareaElement!: ElementRef;
 
-  constructor(private colorService: ColoresService, public darkModeService: DarkModeService) { }
+  constructor(private colorService: ColoresService, public darkModeService: DarkModeService, private notasService: NotasService) { }
 
   ngOnInit(): void {
+    this.getNota();
     this.subscription = this.colorService.currentColor.subscribe(color => {
       this.color = color;
     })
@@ -49,7 +52,6 @@ export class NotasComponent implements OnInit, OnDestroy {
     });
   }
 
-
   download(): void {
     // Obtener el texto del textarea
     const textareaValue = this.textareaElement.nativeElement.value;
@@ -75,7 +77,18 @@ export class NotasComponent implements OnInit, OnDestroy {
     window.URL.revokeObjectURL(url);
     document.body.removeChild(a);
   }
-  
+
+  getNota() {
+    this.notasService.getNota().subscribe(
+      (data) => {
+        this.notas = data;
+        console.log('Nota obtenida: ', this.notas);
+      }, (error)=> {
+        console.error('Error al obtener las notas: ', error);
+      }
+    )
+  }
+
   save(): void {
 
   }
