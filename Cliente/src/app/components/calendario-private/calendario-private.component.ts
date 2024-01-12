@@ -12,6 +12,7 @@ import { ColoresService } from 'src/app/services/colores.service';
 import { Subscription } from 'rxjs';
 import { CalendarioService } from 'src/app/services/calendario.service';
 import { ModalComponent } from '../modal/modal.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-calendario-private',
@@ -55,7 +56,8 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
      public darkModeService: DarkModeService, 
      private colorService: ColoresService, 
      private calendarioService: CalendarioService, 
-     public dialog: MatDialog) {
+     public dialog: MatDialog,
+     private authService: AuthService) {
   }
 
   ngOnInit(): void {

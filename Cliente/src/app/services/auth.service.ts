@@ -27,6 +27,7 @@ export class AuthService {
     });
   }
 
+
   signUp(user: User){
     return this.http.post<User>(this.URL + '/signup', user)
   }
