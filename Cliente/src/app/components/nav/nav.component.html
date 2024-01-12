@@ -12,18 +12,19 @@
     <i class='bx bx-calendar'  [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="calendar" popoverTitle="Calendario" placement="top" triggers="mouseenter:mouseleave" routerLink="/calendario"></i>
     <ng-template #calendar>Organiza tus días</ng-template>
     
-    <div class="dropdown">
-      <i class="bx bx-palette" [class.dark-mode-text]="darkModeService.isDarkMode" data-bs-toggle="dropdown" aria-expanded="false">
-        <ng-template #color>Elije tu color</ng-template>
-      </i>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" (click)="setColor('rosa')">rosa</a></li>
-        <li><a class="dropdown-item" (click)="setColor('verde')">verde</a></li>
-        <li><a class="dropdown-item" (click)="setColor('azul')">azul</a></li>
-        <li><a class="dropdown-item" (click)="setColor('violeta')">violeta</a></li>
-      </ul>
+    <div>
+      <i class="bx bx-palette" [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="color" popoverTitle="Colores" placement="top" triggers="mouseenter:mouseleave" data-bs-toggle="dropdown" aria-expanded="false"></i>
+      <ng-template #color>Elije tu color</ng-template>
+      <div class="dropdown">
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="setColor('rosa')">rosa</a></li>
+          <li><a class="dropdown-item" (click)="setColor('verde')">verde</a></li>
+          <li><a class="dropdown-item" (click)="setColor('azul')">azul</a></li>
+          <li><a class="dropdown-item" (click)="setColor('violeta')">violeta</a></li>
+        </ul>
+      </div>
     </div>
-
+      
     <i class='bx bx-log-out'  [class.dark-mode-text]="darkModeService.isDarkMode" [ngbPopover]="content" popoverTitle="Cerrar Sesión" placement="top" triggers="mouseenter:mouseleave" [class.dark-mode]="darkModeService.isDarkMode" routerLink="/signin" (click)="authService.logOut()"></i>
     <ng-template #content>Hasta luego {{ nombreUsuario }}</ng-template>
   </div>

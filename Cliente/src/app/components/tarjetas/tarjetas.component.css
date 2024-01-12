@@ -51,17 +51,29 @@
 /*           MODAL AGREGAR, EDITAR, ELIMINAR           */
 /* COLOR PRINCIPAL */
 .modal-content{
-    background-color: var(--color-banner);
-    color: var(--color-detalles);
+    background-color: var(--color-modal);
+    color: var(--color-modal-text);
 }
 
 /* COLOR DE INPUT ITUTLO */
 .input-titulo{
-    background-color: var(--color-tarjetas);
+    background-color: var(--color-modal-input);
+    color: var( --color-modal-text)
 }
 
 /* COLOR DE TEXTAREA DESCRIPCION */
 .textarea-descripcion{
-    background-color: var(--color-tarjetas);
+    background-color: var(--color-modal-input);
+    color: var( --color-modal-text)
+}
+
+.btn-secondary {
+    background-color: var(--color-modal-cerrar);
+    color: var(--color-modal-text) !important;
+}
+
+.btn-primary {
+    background-color: var(--color-modal-guardar);
+    color: var(--color-modal-text) !important;
 }
 

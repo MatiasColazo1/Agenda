@@ -30,6 +30,12 @@ body.dark-mode {
   --color-tarjetas: #B2E2F2;
   --color-tarjetas-text: #000;
   --color-tarjetas-iconos: #000;
+  /* MODAL */
+  --color-modal: #000;
+  --color-modal-text: #000;
+  --color-modal-input: #FF87AB;
+  --color-modal-cerrar: #000;
+  --color-modal-guardar: #000;
   /* NOTA */
   --color-nota: #5DADEC;
   --color-nota-circulo: #000;
@@ -53,6 +59,12 @@ body.dark-mode {
   --color-tarjetas: #FFC3D7;
   --color-tarjetas-text: #000;
   --color-tarjetas-iconos: #000;
+  /* MODAL */
+  --color-modal: #E76A96;
+  --color-modal-text: #000;
+  --color-modal-input: #FF87AB;
+  --color-modal-cerrar: #FFA0C2;
+  --color-modal-guardar: #CC527A;
   /* NOTA */
   --color-nota: #E45B78;
   --color-nota-circulo: #232526;
@@ -74,8 +86,15 @@ body.dark-mode {
   --color-banner: #1A472A;
   /* TARJETAS */
   --color-tarjetas: #3c8c57;
+  --color-modal-text: #000;
   --color-tarjetas-text: #EEEEEE;
   --color-tarjetas-iconos: #EEEEEE;
+  /* MODAL */
+  --color-modal: #3c8c57;
+  --color-modal-text: #000;
+  --color-modal-input: #6EB089;
+  --color-modal-cerrar: #A0A4A8;
+  --color-modal-guardar: #808385;
   /* NOTA */
   --color-nota: #AAAAAA;
   --color-nota-circulo: #000;
@@ -97,15 +116,21 @@ body.dark-mode {
   --color-banner: #264653;
   /* TARJETAS */
   --color-tarjetas: #6a84a5;
-  --color-tarjetas-text: #ffffff;
-  --color-tarjetas-iconos: #ffffff;
+  --color-tarjetas-text: #d2d0d0;
+  --color-tarjetas-iconos: #d2d0d0;
+  /* MODAL */
+  --color-modal: #264653;
+  --color-modal-text: #d2d0d0;
+  --color-modal-input: #3A6972;
+  --color-modal-cerrar: #5E8B94;
+  --color-modal-guardar: #2A9D8F;
   /* NOTA */
   --color-nota: #4b5d74;
-  --color-nota-circulo: #fff;
-  --color-nota-icono: #fff;
-  --color-nota-text: #fff;
+  --color-nota-circulo: #d2d0d0;
+  --color-nota-icono: #d2d0d0;
+  --color-nota-text: #d2d0d0;
 
-  --color-detalles: #ffffff;
+  --color-detalles: #d2d0d0;
   --color-bordes: #1D3557;
   --color-calendario: #6a84a5;
   --color-calendario-btn: #4b5d74;
@@ -122,6 +147,12 @@ body.dark-mode {
   --color-tarjetas: #C996CC;
   --color-tarjetas-text: #000;
   --color-tarjetas-iconos: #000;
+  /* MODAL */
+  --color-modal: #804c93;
+  --color-modal-text: #000;
+  --color-modal-input: #9B72AA;
+  --color-modal-cerrar: #B8A0C0;
+  --color-modal-guardar: #663d74;
   /* NOTA */
   --color-nota: #9D7BB5;
   --color-nota-circulo: #000;
