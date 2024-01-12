@@ -25,41 +25,39 @@ body.dark-mode {
 /* COLORES DEFAULT */
 :root,
 .principal,
-.principalBackground  {
+.principalBackground {
   /* BANNER */
-  --color-banner: #FFFFFF; /* Blanco puro para un look limpio y minimalista */
-
+  --color-banner: #FFFFFF;
   /* TARJETAS */
-  --color-tarjetas: #F5F5F5; /* Gris muy claro para las tarjetas */
-  --color-tarjetas-text: #333333; /* Texto en gris oscuro para contraste */
-  --color-tarjetas-iconos: #333333; /* Iconos en gris oscuro para contraste */
-  
+  --color-tarjetas: #F5F5F5;
+  --color-tarjetas-text: #333333;
+  --color-tarjetas-iconos: #333333;
   /* MODAL */
-  --color-modal: #A9A9A9; /* Gris medio, neutral y versátil */
-  --color-modal-text: #FFFFFF; /* Texto blanco para legibilidad */
-  --color-modal-input: #DCDCDC; /* Gris claro para los inputs */
-  --color-modal-cerrar: #333333; /* Negro para botón cerrar */
-  --color-modal-guardar: #696969; /* Gris oscuro para guardar */
-
+  --color-modal: #A9A9A9;
+  --color-modal-text: #FFFFFF;
+  --color-modal-input: #DCDCDC;
+  --color-modal-cerrar: #333333;
+  --color-modal-guardar: #696969;
   /* NOTA */
-  --color-nota: #808080; /* Gris estándar, equilibrado y profesional */
-  --color-nota-circulo: #FFFFFF; /* Círculo blanco para contraste */
-  --color-nota-icono: #333333; /* Icono en gris oscuro para visibilidad */
-  --color-nota-text: #333333; /* Texto en gris oscuro para legibilidad */
-  
+  --color-nota: #808080;
+  --color-nota-circulo: #FFFFFF;
+  --color-nota-icono: #333333;
+  --color-nota-text: #333333;
+  /* CALENDARIO */
+  --color-calendario-text: #000;
   /* Detalles adicionales */
-  --color-detalles: #333333; /* Gris oscuro para detalles */
-  --color-bordes: #DCDCDC; /* Borde gris claro */
-  
+  --color-detalles: #333333;
+  --color-bordes: #DCDCDC;
+
   /* Calendario */
-  --color-calendario: #DCDCDC; /* Gris claro para un toque suave */
-  --color-calendario-btn: #808080; /* Botones en gris estándar */
-  --color-calendario-dia: #696969; /* Días en gris oscuro */
-  --color-calendario-evento: #A9A9A9; /* Eventos en gris medio */
+  --color-calendario: #DCDCDC;
+  --color-calendario-btn: #808080;
+  --color-calendario-dia: #696969;
+  --color-calendario-evento: #A9A9A9;
 }
 
 .celeste,
-.celesteBackground  {
+.celesteBackground {
   /* BANNER */
   --color-banner: #89CFF0;
   /* TARJETAS */
@@ -77,7 +75,9 @@ body.dark-mode {
   --color-nota-circulo: #000;
   --color-nota-icono: #000;
   --color-nota-text: #000;
-  
+  /* CALENDARIO */
+  --color-calendario-text: #000;
+
   --color-detalles: #000;
   --color-bordes: #D6EAF8;
   --color-calendario: #5DADEC;
@@ -106,6 +106,8 @@ body.dark-mode {
   --color-nota-circulo: #232526;
   --color-nota-icono: #232526;
   --color-nota-text: #232526;
+  /* CALENDARIO */
+  --color-calendario-text: #000;
 
   --color-detalles: #000;
   --color-bordes: #000;
@@ -136,6 +138,8 @@ body.dark-mode {
   --color-nota-circulo: #000;
   --color-nota-icono: #000;
   --color-nota-text: #000;
+  /* CALENDARIO */
+  --color-calendario-text: #000;
 
   --color-detalles: #EEEEEE;
   --color-bordes: #000000;
@@ -148,7 +152,7 @@ body.dark-mode {
 /* COLORES TONO AZUL */
 .azul,
 .azulBackground {
-   /* BANNER */
+  /* BANNER */
   --color-banner: #264653;
   /* TARJETAS */
   --color-tarjetas: #6a84a5;
@@ -165,6 +169,8 @@ body.dark-mode {
   --color-nota-circulo: #d2d0d0;
   --color-nota-icono: #d2d0d0;
   --color-nota-text: #d2d0d0;
+  /* CALENDARIO */
+  --color-calendario-text: #fff;
 
   --color-detalles: #d2d0d0;
   --color-bordes: #1D3557;
@@ -194,6 +200,8 @@ body.dark-mode {
   --color-nota-circulo: #000;
   --color-nota-icono: #000;
   --color-nota-text: #000;
+  /* CALENDARIO */
+  --color-calendario-text: #000;
 
   --color-detalles: #000;
   --color-bordes: #503285;
@@ -285,4 +293,3 @@ button,
   height: 30px;
   width: 30px;
 }
-

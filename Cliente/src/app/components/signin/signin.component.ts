@@ -41,7 +41,6 @@ export class SigninComponent implements OnInit {
     }
     if (form.valid) {
       this.loading = true;
-      setTimeout(() => {
       this.authService.signIn(this.cuenta)
         .subscribe(
           res => {
@@ -57,7 +56,6 @@ export class SigninComponent implements OnInit {
             this.loading = false;
           }
         );
-      }, 10000);
     }
 
   }
