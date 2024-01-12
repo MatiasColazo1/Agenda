@@ -8,8 +8,8 @@ import { ColoresService } from './colores.service';
 })
 export class AuthService {
 
-  /* private URL = 'https://back-agenda.onrender.com/api' */
-   private URL = 'http://localhost:3000/api';
+  private URL = 'https://back-agenda.onrender.com/api'
+  /*  private URL = 'http://localhost:3000/api'; */
 
   constructor(private http: HttpClient, private router: Router, private coloresService: ColoresService) { }
 
