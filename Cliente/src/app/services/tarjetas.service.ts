@@ -6,17 +6,17 @@ import { Observable, catchError } from 'rxjs';
   providedIn: 'root'
 })
 export class TarjetasService {
-private URL='https://back-agenda.onrender.com/api';
-/* private URL = 'http://localhost:3000/api';
- */
-  constructor(private http:HttpClient) { }
+  /*  private URL='https://back-agenda.onrender.com/api'; */
+  private URL = 'http://localhost:3000/api';
+
+  constructor(private http: HttpClient) { }
 
 
-  getTarjeta():Observable<any>{
+  getTarjeta(): Observable<any> {
     return this.http.get<any>(`${this.URL}/tarjeta`)
   }
 
-  postTarjeta(tarjeta: any):Observable<any>{
+  postTarjeta(tarjeta: any): Observable<any> {
     return this.http.post<any>(`${this.URL}/tarjeta`, tarjeta)
   }
 

@@ -13,8 +13,8 @@ export class ColoresService {
   private backgroundColorSource = new BehaviorSubject<string>('defaultBackground');
   currentBackgroundColor = this.backgroundColorSource.asObservable();
 
- /*  private apiUrl = 'http://localhost:3000/api/private';  */
- private apiUrl = 'https://back-agenda.onrender.com/api/private'
+ private apiUrl = 'http://localhost:3000/api/private';
+/*  private apiUrl = 'https://back-agenda.onrender.com/api/private' */
 
   constructor(private http: HttpClient) { }
 
