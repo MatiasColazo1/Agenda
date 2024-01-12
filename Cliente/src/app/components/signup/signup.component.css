@@ -3,13 +3,28 @@
 ::ng-deep html, body {
 	overflow-x: hidden;
   }
+/* BODY DEL SIGNIN */
 .body{
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	background: #CC95C0;  
- 	background: -webkit-linear-gradient(to left, #7AA1D2, #c8cbcc, #CC95C0); 
-  	background: linear-gradient(to bottom, #7AA1D2, #c8cbcc, #CC95C0);
+	
+
+  	background: linear-gradient(-45deg, #7AA1D2, #c8cbcc, #CC95C0);
+	  background-size: 400% 400%;
+	animation: gradiente 15s ease infinite;
+}
+
+@keyframes gradiente {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 /*  */
@@ -103,7 +118,7 @@
 .icono{
     margin-right: 20px;
     margin-top: 3px;
-    background-color: #a9abf8;
+    background-color: #a9baf866;
 }
 
 /* COLOR DE LOS INPUTS */
@@ -148,7 +163,7 @@ input {
 
 /* BOTON DE INGRESAR */
 .btn{
-	background-color: #a9baf8;
+	background-color: #a9baf866;
 	border: solid 2px #000;
 }
 
