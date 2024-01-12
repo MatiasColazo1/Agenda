@@ -5,9 +5,22 @@
 	flex-direction: column;
 	min-height: 100vh;
 	
-	background: #CC95C0;  
- 	background: -webkit-linear-gradient(to right, #7AA1D2, #c8cbcc, #CC95C0); 
-  	background: linear-gradient(to top, #7AA1D2, #c8cbcc, #CC95C0);
+
+  	background: linear-gradient(-45deg, #7AA1D2, #c8cbcc, #CC95C0);
+	  background-size: 400% 400%;
+	animation: gradiente 15s ease infinite;
+}
+
+@keyframes gradiente {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 /*  */
