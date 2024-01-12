@@ -23,7 +23,43 @@ body.dark-mode {
 
 /*                       COLORES PREDETERMINADOS                 */
 /* COLORES DEFAULT */
-:root {
+:root,
+.principal,
+.principalBackground  {
+  /* BANNER */
+  --color-banner: #FFFFFF; /* Blanco puro para un look limpio y minimalista */
+
+  /* TARJETAS */
+  --color-tarjetas: #F5F5F5; /* Gris muy claro para las tarjetas */
+  --color-tarjetas-text: #333333; /* Texto en gris oscuro para contraste */
+  --color-tarjetas-iconos: #333333; /* Iconos en gris oscuro para contraste */
+  
+  /* MODAL */
+  --color-modal: #A9A9A9; /* Gris medio, neutral y versátil */
+  --color-modal-text: #FFFFFF; /* Texto blanco para legibilidad */
+  --color-modal-input: #DCDCDC; /* Gris claro para los inputs */
+  --color-modal-cerrar: #333333; /* Negro para botón cerrar */
+  --color-modal-guardar: #696969; /* Gris oscuro para guardar */
+
+  /* NOTA */
+  --color-nota: #808080; /* Gris estándar, equilibrado y profesional */
+  --color-nota-circulo: #FFFFFF; /* Círculo blanco para contraste */
+  --color-nota-icono: #333333; /* Icono en gris oscuro para visibilidad */
+  --color-nota-text: #333333; /* Texto en gris oscuro para legibilidad */
+  
+  /* Detalles adicionales */
+  --color-detalles: #333333; /* Gris oscuro para detalles */
+  --color-bordes: #DCDCDC; /* Borde gris claro */
+  
+  /* Calendario */
+  --color-calendario: #DCDCDC; /* Gris claro para un toque suave */
+  --color-calendario-btn: #808080; /* Botones en gris estándar */
+  --color-calendario-dia: #696969; /* Días en gris oscuro */
+  --color-calendario-evento: #A9A9A9; /* Eventos en gris medio */
+}
+
+.celeste,
+.celesteBackground  {
   /* BANNER */
   --color-banner: #89CFF0;
   /* TARJETAS */
@@ -31,11 +67,11 @@ body.dark-mode {
   --color-tarjetas-text: #000;
   --color-tarjetas-iconos: #000;
   /* MODAL */
-  --color-modal: #000;
+  --color-modal: #89CFF0;
   --color-modal-text: #000;
-  --color-modal-input: #FF87AB;
-  --color-modal-cerrar: #000;
-  --color-modal-guardar: #000;
+  --color-modal-input: #A3D7FF;
+  --color-modal-cerrar: #6EB5E6;
+  --color-modal-guardar: #4D9DD7;
   /* NOTA */
   --color-nota: #5DADEC;
   --color-nota-circulo: #000;

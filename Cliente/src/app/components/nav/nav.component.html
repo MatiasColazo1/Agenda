@@ -17,9 +17,11 @@
       <ng-template #color>Elije tu color</ng-template>
       <div class="dropdown">
         <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="setColor('principal')">principal</a></li>
           <li><a class="dropdown-item" (click)="setColor('rosa')">rosa</a></li>
           <li><a class="dropdown-item" (click)="setColor('verde')">verde</a></li>
           <li><a class="dropdown-item" (click)="setColor('azul')">azul</a></li>
+          <li><a class="dropdown-item" (click)="setColor('celeste')">celeste</a></li>
           <li><a class="dropdown-item" (click)="setColor('violeta')">violeta</a></li>
         </ul>
       </div>
