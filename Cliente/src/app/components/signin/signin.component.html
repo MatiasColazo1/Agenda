@@ -19,8 +19,7 @@
             <div class="w-10">
                 <div class="">
                     <form #form="ngForm" (submit)="signIn(form)">
-                        <h1 class="mb-4 d-flex justify-content-center"
-                            [class.dark-mode-text]="darkModeService.isDarkMode">
+                        <h1 class="mb-4 d-flex justify-content-center">
                             INICIAR</h1>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -54,7 +53,7 @@
                         </div>
                     </form>
                     <div class="d-flex justify-content-center mt-3">
-                        <a class="links" routerLink="/signup" [class.dark-mode-text]="darkModeService.isDarkMode">Crear
+                        <a class="links" routerLink="/signup">Crear
                             una
                             cuenta</a>
                     </div>
