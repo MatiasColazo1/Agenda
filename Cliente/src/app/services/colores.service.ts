@@ -12,7 +12,7 @@ export class ColoresService {
   private backgroundColorSource = new BehaviorSubject<string>('defaultBackground');
   currentBackgroundColor = this.backgroundColorSource.asObservable();
 
-  private apiUrl = 'http://localhost:3000/api/private'; // Asegúrate de que esta URL sea correcta
+  private apiUrl = 'http://localhost:3000/api/private'; 
 
   constructor(private http: HttpClient) { }
 
@@ -23,13 +23,13 @@ export class ColoresService {
   }
 
   updateColorUser(color: string) {
-    // Asegúrate de enviar el token de autenticación si es necesario
-    return this.http.put(this.apiUrl, { colorUser: color }).subscribe(
+    // Primera llamada HTTP usando apiUrl
+    this.http.put(this.apiUrl, { colorUser: color }).subscribe(
       response => {
-        console.log('Color actualizado con éxito', response);
+        console.log('Color actualizado con éxito en apiUrl', response);
       },
       error => {
-        console.error('Error al actualizar el color', error);
+        console.error('Error al actualizar el color en apiUrl', error);
       }
     );
   }

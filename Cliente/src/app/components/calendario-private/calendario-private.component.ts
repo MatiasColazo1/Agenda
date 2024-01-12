@@ -19,6 +19,7 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./calendario-private.component.css']
 })
 export class CalendarioPrivateComponent implements OnInit, OnDestroy {
+  loading = true;
   color: string = '';
   private subscription: Subscription = new Subscription();
   calendarVisible = signal(true);
@@ -63,6 +64,7 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
     });
     this.calendarioService.getAllEventsCalendar().subscribe(data => {
       this.updateEvents(data);
+      this.loading = false;
     });
   }
 
@@ -87,8 +89,10 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
   }
   
   fetchAndUpdateEvents(): void {
+    this.loading = true;
     this.calendarioService.getAllEventsCalendar().subscribe(data => {
       this.updateEvents(data);
+      this.loading = false;
     });
   }
 
