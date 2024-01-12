@@ -80,7 +80,7 @@
 	height: 100%;
 	border-radius: 4px;
 	background: rgba(255,255,255,0.9);
-	color: #666;
+	color: #3a3a3a;
 	text-shadow: 1px 1px 0 #444;
 }
 
@@ -96,17 +96,17 @@
 .icono{
     margin-right: 20px;
     margin-top: 3px;
-    background-color: #CCA9F8;
+    background-color: #a9abf8;
 }
 
 /* COLOR DE LOS INPUTS */
 input {
-    background-color: #F7EFFF;
+    background-color: #efefff;
 }
 
 /* ESTILOS DE LOS INPUTS */
 .form-controll{
-    background-color: #F7EFFF;
+    background-color: #efefff;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -141,6 +141,6 @@ input {
 
 /* BOTON DE INGRESAR */
 .btn{
-	background-color: #CCA9F8;
+	background-color: #a9baf8;
 	border: solid 2px #000;
 }
