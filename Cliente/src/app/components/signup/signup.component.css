@@ -1,10 +1,12 @@
 /*              CONTENEDOR DE SIGNIN            */
 /* BODY DEL SIGNIN */
+::ng-deep html, body {
+	overflow-x: hidden;
+  }
 .body{
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-
 	background: #CC95C0;  
  	background: -webkit-linear-gradient(to left, #7AA1D2, #c8cbcc, #CC95C0); 
   	background: linear-gradient(to bottom, #7AA1D2, #c8cbcc, #CC95C0);
@@ -13,6 +15,7 @@
 /*  */
 .content{
 	flex: 1;
+
 }
 
 /*              BANNER            */
@@ -197,6 +200,7 @@ input {
   }
   
   .bird-container {
+	overflow-x: hidden !important;
 	position: absolute;
 	top: 20%;
 	left: -10%;
