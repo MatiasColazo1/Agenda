@@ -1,14 +1,12 @@
 /*              CONTENEDOR DE SIGNIN            */
-body {
-	background: #CC95C0;  
-	background: -webkit-linear-gradient(to right, #7AA1D2, #c8cbcc, #CC95C0); 
-	background: linear-gradient(to top, #7AA1D2, #c8cbcc, #CC95C0);
-  }
 /* BODY DEL SIGNIN */
 .body{
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	background: #CC95C0;  
+ 	background: -webkit-linear-gradient(to right, #7AA1D2, #c8cbcc, #CC95C0); 
+  	background: linear-gradient(to top, #7AA1D2, #c8cbcc, #CC95C0);
 }
 
 /*  */

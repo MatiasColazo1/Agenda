@@ -13,14 +13,12 @@
 /*                       FONDO DE PANTALLA                 */
 /* MODO CLARO */
 body {
-  background: #CC95C0;  
-  background: -webkit-linear-gradient(to right, #7AA1D2, #c8cbcc, #CC95C0); 
-  background: linear-gradient(to top, #7AA1D2, #c8cbcc, #CC95C0);
+  background: #ffffff;
 }
 
 /* MODO OSCURO */
 body.dark-mode {
-  background: #1e1e1e;  
+  background: #232526;
 }
 
 /*                       COLORES PREDETERMINADOS                 */
