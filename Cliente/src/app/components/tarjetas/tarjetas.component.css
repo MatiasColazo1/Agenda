@@ -1,5 +1,5 @@
 /* COLOR DE LAS TARJETAS */
-.formato-card{
+.formato-card {
     background-color: var(--color-tarjetas);
 }
 
@@ -24,47 +24,61 @@
     font-size: 20px;
     cursor: grab;
 }
+.iconoMover:hover{
+    font-size: 24px;
+    margin-right: 12px;
+}
 
 /* BORDE Y CURSOR DE LAS TARJETAS */
-.card{
+.card {
     cursor: pointer;
     border: solid 2px var(--color-bordes);
 }
 
-.card:hover{
+.card:hover {
     transform: scale(1.01);
 }
 
 /* ESTILOS DE LOS ICONOS */
-.icono{
+.icono {
     font-size: 20px;
     margin-right: 10px;
     color: var(--color-tarjetas-iconos);
 }
 
-/* TAMAÑO DEL ICONO AGREGAR */
-.icono-agregar {
+.icono:hover{
     font-size: 24px;
+    margin-right: 12px;
 }
 
+/* TAMAÑO DEL ICONO AGREGAR */
+.icono-agregar {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.icono-agregar:hover {
+    font-size: 24px;
+    margin-right: 12px;
+}
 
 /*           MODAL AGREGAR, EDITAR, ELIMINAR           */
 /* COLOR PRINCIPAL */
-.modal-content{
+.modal-content {
     background-color: var(--color-modal);
     color: var(--color-modal-text);
 }
 
 /* COLOR DE INPUT ITUTLO */
-.input-titulo{
+.input-titulo {
     background-color: var(--color-modal-input);
-    color: var( --color-modal-text)
+    color: var(--color-modal-text)
 }
 
 /* COLOR DE TEXTAREA DESCRIPCION */
-.textarea-descripcion{
+.textarea-descripcion {
     background-color: var(--color-modal-input);
-    color: var( --color-modal-text)
+    color: var(--color-modal-text)
 }
 
 .btn-secondary {
@@ -76,4 +90,3 @@
     background-color: var(--color-modal-guardar);
     color: var(--color-modal-text) !important;
 }
-
