@@ -34,26 +34,33 @@ export class SignupComponent implements OnInit {
   }
 
   signUp(form: NgForm) { 
-    if (this.cuenta.usuario == "" || this.cuenta.password == "") {
-      this.toastrService.warning("Todos los campos son obligatorios", "Error")
+    // Validar si los campos están vacíos
+    if (this.cuenta.usuario === "" || this.cuenta.password === "") {
+      this.toastrService.warning("Todos los campos son obligatorios", "Error");
       return;
     }
-
+  
+    // Validar la longitud del usuario y contraseña
+    if (this.cuenta.usuario.length < 4 || this.cuenta.password.length < 4) {
+      this.toastrService.warning("El usuario y la contraseña deben tener al menos 4 caracteres", "Error");
+      return;
+    }
+  
     if (form.valid) {
       this.loading = true;
-    this.authService.signUp(this.cuenta)
-      .subscribe(
-        (res: any) => {
-          console.log(res)
-          localStorage.setItem('token', res.token);
-          this.toastrService.success('Cuenta creada exitosamente', 'Éxito');
-          this.router.navigate(['/signin']);
-          this.loading = false;
-        }, (error: HttpErrorResponse) => {
-          this.errorService.msjError(error);
-          this.loading = false;
-        }
-      )
+      this.authService.signUp(this.cuenta)
+        .subscribe(
+          (res: any) => {
+            console.log(res);
+            localStorage.setItem('token', res.token);
+            this.toastrService.success('Cuenta creada exitosamente', 'Éxito');
+            this.router.navigate(['/signin']);
+            this.loading = false;
+          }, (error: HttpErrorResponse) => {
+            this.errorService.msjError(error);
+            this.loading = false;
+          }
+        );
     }
   }
 
