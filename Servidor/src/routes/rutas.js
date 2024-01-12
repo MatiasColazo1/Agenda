@@ -20,37 +20,52 @@ const { UpdateEventCalendarController } = require('../Controllers/UpdateEventCal
 
 
 // -------------------- LOGIN ----------------------- //
-router.post('/signin', async (req, res) => {
-    const { usuario, password } = req.body; //extraer usuario y contraseña del cuerpo de la solicitud
-    const user = await User.findOne({ usuario }) //buscar en un user en la base de datos con el usuario proporcionado
-    if (!user) return res.status(401).send("el usuario no existe"); //verificarr si el usuario existe, si no existe mandamos el codigo 401 y el mensaje
-    if (user.password !== password) return res.status(401).send("Contraseña incorrecta"); //verificar si la contraseña coincide con la almacenada
+const validateUserAndPassword = (user, password) => {
+    const MIN_LENGTH = 4;
+    if (user.length < MIN_LENGTH || password.length < MIN_LENGTH) {
+        return 'El usuario y la contraseña deben tener al menos 4 caracteres';
+    }
+    // Aquí puedes añadir más validaciones si lo deseas
+    return null;
+};
 
-    const token = jwt.sign({ _id: user._id }, 'secretKey'); //si usuario y contraseña coinciden genera un token JTW
-    return res.status(200).json({ token }); // reponder con el token en formato JSON 
-})
+router.post('/signin', async (req, res) => {
+    const { usuario, password } = req.body;
+
+    // Validación de usuario y contraseña
+    const validationError = validateUserAndPassword(usuario, password);
+    if (validationError) return res.status(400).send(validationError);
+
+    try {
+        const user = await User.findOne({ usuario });
+        if (!user) return res.status(401).send("El usuario no existe");
+
+        if (user.password !== password) return res.status(401).send("Contraseña incorrecta");
+
+        const token = jwt.sign({ _id: user._id }, 'secretKey');
+        return res.status(200).json({ token });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al iniciar sesión', details: error.message });
+    }
+});
 
 router.post('/signup', async (req, res) => {
     try {
         const { usuario, password } = req.body;
 
-        // Verificar si el usuario ya existe en la base de datos
-        const existingUser = await User.findOne({ usuario });
+        // Validación de usuario y contraseña
+        const validationError = validateUserAndPassword(usuario, password);
+        if (validationError) return res.status(400).send(validationError);
 
+        const existingUser = await User.findOne({ usuario });
         if (existingUser) {
             return res.status(409).json({ error: 'El nombre de usuario ya está en uso' });
         }
 
-        // Crear una nueva instancia del modelo usuario con el usuario y el password
         const newUser = new User({ usuario, password });
-
-        // Guardar el nuevo usuario en la base de datos
         await newUser.save();
 
-        // Crear un token JWT para el nuevo usuario
         const token = jwt.sign({ _id: newUser._id }, 'secretKey');
-
-        // Enviar el token como respuesta en formato JSON
         res.status(200).json({ token });
     } catch (error) {
         res.status(500).json({ error: 'Error al registrar el usuario', details: error.message });
