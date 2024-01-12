@@ -32,7 +32,15 @@ h2 {
   color: var(--color-detalles);
 }
 
+.bx:hover{
+  font-size: 35px;
+}
+
 /* CURSOR ICONO */
 .dropdown-item{
+  cursor: pointer;
+}
+
+.dropdown-item:hover{
   cursor: pointer;
 }

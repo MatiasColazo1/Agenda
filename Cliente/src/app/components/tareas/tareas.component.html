@@ -5,16 +5,16 @@
 </mat-checkbox>
   <div class="group" (click)="editarTarea(tarea)">
     <mat-card-content class="d-flex align-items-center">
-      <span class="bar"  [class]="tarea.color + '-border'" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)"
+      <span class="bar" [class]="tarea.color + '-border'" *ngIf="!tareaEditando || (tareaEditando && tareaEditando._id !== tarea._id)"
       [class.dark-mode-text]="darkModeService.isDarkMode">{{tarea.titulo}} </span>
       <form [formGroup]="formGroup">
         <input *ngIf="tareaEditando && tareaEditando._id === tarea._id" [class.dark-mode-input]="darkModeService.isDarkMode"  matInput formControlName="titulo">
       </form>
       <form class="d-flex aling-items-center justify-content-center" [formGroup]="formGroup"
       *ngIf="tareaEditando && tareaEditando._id === tarea._id">
-      <i class='bx bx-check-circle actualizar' (click)="$event.stopPropagation(); actualizarTarea()"></i>
-      <i class='bx bx-x-circle cancelar' (click)="cancelarEdicion()"></i>
-      <i class='bx bx-trash borrar'  [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"
+      <i class='bx bx-check-circle actualizar' (click)="$event.stopPropagation(); actualizarTarea()" style="cursor: pointer;"></i>
+      <i class='bx bx-x-circle cancelar' (click)="cancelarEdicion()" style="cursor: pointer;"></i>
+      <i class='bx bx-trash borrar' [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"
       (click)="deleteTarea(tarea)" *ngIf="tareaEditando && tareaEditando._id === tarea._id"></i>
     </form>
   </mat-card-content>
@@ -27,6 +27,6 @@
 </div>
 
 <div class="d-flex justify-content-end">
-  <i class='icono bx bx-add-to-queue' [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"
+  <i class='icono-agregar bx bx-add-to-queue' [class.dark-mode-text]="darkModeService.isDarkMode" style="cursor: pointer;"
     (click)="postTareas()"></i>
 </div>
