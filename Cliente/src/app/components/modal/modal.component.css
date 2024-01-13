@@ -10,3 +10,16 @@
     margin-right: 10px;
     cursor: pointer;
   }
+
+
+  ::ng-deep .mat-mdc-dialog-content, .mdc-dialog__content, .mat-typography {
+    background-color: var(--color-calendario-modal) !important;
+  }
+  
+  ::ng-deep .mat-mdc-dialog-title, .mdc-dialog__title{
+    background-color: var(--color-calendario-modal) !important;
+  }
+  
+  ::ng-deep .mat-mdc-dialog-actions, .mdc-dialog__actions, .mat-mdc-dialog-actions-align-end{
+   background-color: var(--color-calendario-modal) !important;
+  }

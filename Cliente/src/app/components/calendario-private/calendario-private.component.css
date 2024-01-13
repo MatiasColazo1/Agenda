@@ -53,7 +53,7 @@ li {
 }
 li a {
   font-size: 1rem;
-  color: var(--color-detalles);
+  color: var(--color-calendario-text);
 }
 
 a {
@@ -79,8 +79,8 @@ mat-checkbox {
 
 
 .demo-app-sidebar {
-  background-color: var(--color-banner);
-  color: var(--color-detalles);
+  background-color: var(--color-calendario-sidebar);
+  color: var(--color-calendario-text);
 }
 
 
@@ -127,3 +127,34 @@ mat-checkbox {
   display: inline-block;
   margin-right: 5px;
 }
+
+::ng-deep .fc-list-day-text{
+  color: var(--color-calendario-text) !important;
+}
+
+::ng-deep .fc-list-event-time{
+  color: var(--color-calendario-text) !important;
+} 
+
+::ng-deep .fc-list-day-side-text{
+  color: var(--color-calendario-text) !important;
+}
+
+::ng-deep .fc-list-event-title{
+  color: var(--color-calendario-text) !important;
+}
+
+/* SACAR INDICADOR POR DEFECTO */
+::ng-deep .fc-list-event-dot{
+  display: none !important;
+}
+
+
+::ng-deep .fc-timegrid-slot-label-cushion, .fc-scrollgrid-shrink-cushion{
+  color: var(--color-calendario-text) !important;
+}
+
+::ng-deep .fc-timegrid-axis-cushion, .fc-scrollgrid-shrink-cushion, .fc-scrollgrid-sync-inner{
+ color:  var(--color-calendario-text) !important;
+}
+

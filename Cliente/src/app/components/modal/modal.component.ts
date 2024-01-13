@@ -1,6 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { CalendarioService } from 'src/app/services/calendario.service';
+import { ColoresService } from 'src/app/services/colores.service';
 
 interface EventoCalendario {
   id: string;
@@ -15,11 +17,12 @@ interface EventoCalendario {
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
+  color: string = '';
   title: string = '';
   cardColor: { backgroundColor: string, textColor: string } = { backgroundColor: '#039be5', textColor: '#ffffff' };
   event: EventoCalendario | undefined;
-
+  private subscription: Subscription = new Subscription();
   listColorsCard: ColorsCard[] = [
     { backgroundColor: 'rgb(213, 0, 0)', textColor: '#fff' },
     { backgroundColor: 'rgb(51, 182, 121)', textColor: '#fff' },
@@ -31,12 +34,15 @@ export class ModalComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<ModalComponent>,
-    private calendarioService: CalendarioService
+    private calendarioService: CalendarioService,
+    private colorService: ColoresService,
   ) { }
 
 
   ngOnInit(): void {
-    
+    this.subscription = this.colorService.currentColor.subscribe(color => {
+      this.color = color;
+    });
     console.log(this.data.eventInfos);
     if (this.data.isEdit) {
       this.title = this.data.eventInfos?.event?.title;
@@ -47,6 +53,11 @@ export class ModalComponent implements OnInit {
     }
   }
   
+  ngOnDestroy(): void {
+    if (this.subscription){
+      this.subscription.unsubscribe();
+    }
+  }
 
   handleAddedEvent(): void {
     if (!this.data.isEdit) {

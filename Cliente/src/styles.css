@@ -44,15 +44,18 @@ body.dark-mode {
   --color-nota-icono: #333333;
   --color-nota-text: #333333;
   /* CALENDARIO */
+  --color-calendario: #DCDCDC;
   --color-calendario-text: #000;
+  --color-calendario-btn: #808080;
+  --color-calendario-dia: #696969;
+  
+  --color-calendario-sidebar: #1F9818;
+
   /* Detalles adicionales */
   --color-detalles: #333333;
   --color-bordes: #DCDCDC;
 
-  /* Calendario */
-  --color-calendario: #DCDCDC;
-  --color-calendario-btn: #808080;
-  --color-calendario-dia: #696969;
+
   --color-calendario-evento: #A9A9A9;
 }
 
@@ -76,13 +79,16 @@ body.dark-mode {
   --color-nota-icono: #000;
   --color-nota-text: #000;
   /* CALENDARIO */
+  --color-calendario: #5DADEC;
   --color-calendario-text: #000;
+  --color-calendario-dia: #7fc6fc;
+  --color-calendario-btn: #7fc6fc;
+  --color-calendario-modal: #FF8FAB;
+  --color-calendario-sidebar: #89CFF0;
 
   --color-detalles: #000;
   --color-bordes: #D6EAF8;
-  --color-calendario: #5DADEC;
-  --color-calendario-btn: #7fc6fc;
-  --color-calendario-dia: #7fc6fc;
+
   --color-calendario-evento: #7fc6fc;
 }
 
@@ -107,13 +113,15 @@ body.dark-mode {
   --color-nota-icono: #232526;
   --color-nota-text: #232526;
   /* CALENDARIO */
+  --color-calendario: #ff7291e0;
   --color-calendario-text: #000;
+  --color-calendario-btn: #e39fb6;
+  --color-calendario-dia: #e39fb6;
+  --color-calendario-modal: #FF8FAB;
+  --color-calendario-sidebar: #1F9818;
 
   --color-detalles: #000;
   --color-bordes: #000;
-  --color-calendario: #ff7291e0;
-  --color-calendario-btn: #e39fb6;
-  --color-calendario-dia: #e39fb6;
   --color-calendario-evento: #e39fb6;
 }
 
@@ -121,31 +129,33 @@ body.dark-mode {
 .verde,
 .verdeBackground {
   /* BANNER */
-  --color-banner: #1A472A;
+  --color-banner: #0a550c;
   /* TARJETAS */
-  --color-tarjetas: #3c8c57;
+  --color-tarjetas: #14B817;
   --color-modal-text: #000;
   --color-tarjetas-text: #EEEEEE;
   --color-tarjetas-iconos: #EEEEEE;
   /* MODAL */
-  --color-modal: #3c8c57;
-  --color-modal-text: #000;
-  --color-modal-input: #6EB089;
-  --color-modal-cerrar: #A0A4A8;
-  --color-modal-guardar: #808385;
+  --color-modal: #14B817;
+  --color-modal-text: #ffffff;
+  --color-modal-input: #39ca76;
+  --color-modal-cerrar: #14B817;
+  --color-modal-guardar: #0a550c;
   /* NOTA */
-  --color-nota: #AAAAAA;
-  --color-nota-circulo: #000;
-  --color-nota-icono: #000;
-  --color-nota-text: #000;
+  --color-nota: #0A4F0B;
+  --color-nota-circulo: #fff;
+  --color-nota-icono: #fff;
+  --color-nota-text: #fff;
   /* CALENDARIO */
+  --color-calendario: #48BE3F;
   --color-calendario-text: #000;
-
+  --color-calendario-btn: #A4DFA0;
+  --color-calendario-dia: #A4DFA0;
+  --color-calendario-modal: #23B01A;
+  --color-calendario-sidebar: #1F9818;
+  
   --color-detalles: #EEEEEE;
   --color-bordes: #000000;
-  --color-calendario: #3c8c57;
-  --color-calendario-btn: #AAAAAA;
-  --color-calendario-dia: #AAAAAA;
   --color-calendario-evento: #AAAAAA;
 }
 
@@ -170,13 +180,15 @@ body.dark-mode {
   --color-nota-icono: #d2d0d0;
   --color-nota-text: #d2d0d0;
   /* CALENDARIO */
+  --color-calendario: #6a84a5;
   --color-calendario-text: #fff;
+  --color-calendario-btn: #4b5d74;
+  --color-calendario-dia: #4b5d74;
+  --color-calendario-modal: #FF8FAB;
+  --color-calendario-sidebar: #264653;
 
   --color-detalles: #d2d0d0;
   --color-bordes: #1D3557;
-  --color-calendario: #6a84a5;
-  --color-calendario-btn: #4b5d74;
-  --color-calendario-dia: #4b5d74;
   --color-calendario-evento: #4b5d74;
 }
 
@@ -201,13 +213,15 @@ body.dark-mode {
   --color-nota-icono: #000;
   --color-nota-text: #000;
   /* CALENDARIO */
+  --color-calendario: #C996CC;
   --color-calendario-text: #000;
+  --color-calendario-btn: #9D7BB5;
+  --color-calendario-dia: #9D7BB5;
+  --color-calendario-modal: #FF8FAB;
+  --color-calendario-sidebar: #9D7BB5;
 
   --color-detalles: #000;
   --color-bordes: #503285;
-  --color-calendario: #C996CC;
-  --color-calendario-btn: #9D7BB5;
-  --color-calendario-dia: #9D7BB5;
   --color-calendario-evento: #9D7BB5;
 }
 
