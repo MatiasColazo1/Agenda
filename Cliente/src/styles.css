@@ -34,7 +34,7 @@ body.dark-mode {
   --color-tarjetas-iconos: #333333;
   /* MODAL */
   --color-modal: #A9A9A9;
-  --color-modal-text: #FFFFFF;
+  --color-modal-text: #000;
   --color-modal-input: #DCDCDC;
   --color-modal-cerrar: #333333;
   --color-modal-guardar: #696969;
