@@ -4,7 +4,8 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: #a9b7f846;
-
+  display: flex;
+  flex-direction: column;
 }
 
 /* BORDE DEL FOOTER */
@@ -18,4 +19,32 @@ footer {
 .icono {
   margin: 0 5px;
   font-size: 30px;
+}
+
+.copyright{
+  font-size: 10px;
+  margin-bottom: 0 !important;
+}
+
+/* Media Query para dispositivos con ancho máximo de 768px */
+@media (max-width: 768px) { 
+  .container{
+  flex-direction: column;
+  display: flex;
+  justify-content:center ;
+  align-items:center;
+}
+
+.row.iconos1 {
+  order: 0; /* Cambia el orden de la clase iconos1 */
+}
+
+.row.iconos2 {
+  order: 2; /* Cambia el orden de la clase iconos2 */
+}
+
+.row.contactanos {
+  order: -1; /* Cambia el orden de la clase contactanos */
+}
+
 }
