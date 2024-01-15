@@ -1,8 +1,10 @@
 /*              CONTENEDOR DE SIGNIN            */
+
 /* BODY DEL SIGNIN */
 ::ng-deep html, body {
 	overflow-x: hidden;
   }
+
 /* BODY DEL SIGNIN */
 .body{
 	display: flex;
@@ -166,15 +168,6 @@ input {
 	background-color: #a9baf866;
 	border: solid 2px #000;
 }
-
-
-
-
-
-
-
-
-
 
 .bird {
 	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells.svg);
