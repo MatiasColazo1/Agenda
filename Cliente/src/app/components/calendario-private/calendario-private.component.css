@@ -158,3 +158,19 @@ mat-checkbox {
  color:  var(--color-calendario-text) !important;
 }
 
+
+.mobile-menu-button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .fc .fc-toolbar-title {
+    font-size: 14px;
+  }
+  ::ng-deep .fc .fc-button {
+    font-size: 12px;
+  }
+  .demo-app-sidebar {
+    display: none;
+  }
+}

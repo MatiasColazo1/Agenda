@@ -1,21 +1,40 @@
 /* FOOTER CONTENEDOR */
 footer {
-  margin-top:auto;
+  margin-top: auto;
   bottom: 0;
   width: 100%;
   background-color: #a9b7f846;
-
 }
 
 /* BORDE DEL FOOTER */
-.navbar{
-  border-style:none !important;
+.navbar {
+  border-style: none !important;
   border-width: 0 !important;
-  border-radius:0 !important;
+  border-radius: 0 !important;
 }
 
 /* ICONOS DEL FOOTER */
 .icono {
   margin: 0 5px;
   font-size: 30px;
+}
+
+
+@media (max-width: 768px) {
+  .row.contactano {
+    order: -1; 
+  }
+
+  .row.iconos1 {
+    order: 0; 
+  }
+
+  .row.iconos2 {
+    order: 1; 
+  }
+
+  .row.copyright {
+    order: 3;
+  }
+
 }

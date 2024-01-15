@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, signal } from '@angular/core';
 import { CalendarOptions, EventClickArg } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { DateSelectArg, EventApi } from 'fullcalendar';
@@ -20,6 +20,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./calendario-private.component.css']
 })
 export class CalendarioPrivateComponent implements OnInit, OnDestroy {
+  isDarkMode: boolean = false;
+  isSwitchOn: boolean = false;
+  isSidebarClosed: boolean = false;
   loading = true;
   color: string = '';
   private subscription: Subscription = new Subscription();
@@ -51,6 +54,11 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
 
   currentEvents: EventApi[] = [];
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.adjustCalendarView(event.target.innerWidth);
+  }
+
   constructor(
      private changeDetector: ChangeDetectorRef,
      public darkModeService: DarkModeService, 
@@ -60,7 +68,11 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
      private authService: AuthService) {
   }
 
+  
+
   ngOnInit(): void {
+    this.adjustCalendarView(window.innerWidth);
+    this.calendarOptions.initialView = window.innerWidth > 768 ? 'dayGridMonth' : 'listWeek';
     this.subscription = this.colorService.currentColor.subscribe(color => {
       this.color = color;
     });
@@ -76,6 +88,30 @@ export class CalendarioPrivateComponent implements OnInit, OnDestroy {
     }
   }
 
+  toggleSwitch(): void {
+    this.isSwitchOn = !this.isSwitchOn;
+
+    if (this.isSwitchOn) {
+      this.closeSidebar();
+    } else {
+      this.openSidebar();
+    }
+  }
+
+  closeSidebar(): void {
+    this.isSidebarClosed = true;
+  }
+
+  openSidebar(): void {
+    this.isSidebarClosed = false;
+  }
+
+  adjustCalendarView(width: number) {
+    const isMobile = width < 768; // Considera 'mobile' un ancho menor a 768px
+    this.calendarOptions.headerToolbar = isMobile
+      ? { left: 'prev,next', center: 'title', right: 'listWeek,timeGridDay' }
+      : { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek' };
+  }
   
   openModal(eventInfos: any, isEdit: boolean): void {
     const dialogRef = this.dialog.open(ModalComponent, {
